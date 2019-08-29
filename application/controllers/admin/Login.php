@@ -4,11 +4,13 @@ class Login extends CI_Controller
 {
   public function index()
   {
-    /*
+    
     //libraries as filters
+    /*
     $this->load->library('ViewSessionFalse', array(
       'config' => $this->config,
     ));
+    */
     $this->load->library('HttpAccess',
       array(
         'config' => $this->config,
@@ -17,6 +19,7 @@ class Login extends CI_Controller
         'instance' => $this,
       )
     );
+    /*
     //controller function
     $this->load->helper('Login');
     $data_top = array(
