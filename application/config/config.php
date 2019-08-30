@@ -528,6 +528,10 @@ $config['proxy_ips'] = '';
 |--------------------------------------------------------------------------
 */
 
+$config['env_static'] = 'dev';
+$config['env_session'] = true;
+$config['base_url'] = 'http://localhost:8080/';
+$config['static_url'] = 'http://localhost:8080/public/';
 $config['csrf'] = array(
   'key' => 'csrf_key',
   'value' => 'PKBcauXg6sTXz7Ddlty0nejVgoUodXL89KNxcrfwkEme0Huqtj6jjt4fP7v2uF4L', 
