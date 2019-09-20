@@ -38,6 +38,8 @@ class Login extends CI_Controller
 
   public function access()
   {
+    // load session
+    $this->load->library('session');
     // libraries as filters
     /*
     $this->load->library('ViewSessionFalse', array(
@@ -59,7 +61,13 @@ class Login extends CI_Controller
       $user == $this->config->item('login')['user'] && 
       $password == $this->config->item('login')['password']
     ){
-      echo 'ok';
+      // set session
+      $this->session->user = $user;
+      $this->session->state = true;
+      $this->session->time = date('Y-m-d H:i:s');
+      // go to home???
+      header('Location: ' . $this->config->item('base_url'));
+      exit();
     }else{
       // load helpers
       $this->load->helper('admin/Login');
