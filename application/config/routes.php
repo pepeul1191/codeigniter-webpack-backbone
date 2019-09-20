@@ -57,7 +57,9 @@ $route['translate_uri_dashes'] = FALSE;
 $route['error/access/(:num)']['GET'] = 'customError/access/$1';
 
 # login
-$route['admin/login']['GET'] = 'admin/login/index';
-$route['admin/login']['POST'] = 'admin/login/access';
-$route['logout']['GET'] = 'admin/login/exit';
-$route['session']['GET'] = 'admin/login/view';
+$route['admin/login']['GET'] = 'admin/adminLogin/index';
+$route['admin/login']['POST'] = 'admin/adminLogin/access';
+$route['logout']['GET'] = 'admin/adminLogin/exit';
+$route['session']['GET'] = 'admin/adminLogin/view';
+# admin
+$route['admin']['GET'] = 'admin/adminIndex/index';
