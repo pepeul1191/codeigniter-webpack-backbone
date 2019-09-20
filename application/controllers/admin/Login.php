@@ -68,7 +68,7 @@ class Login extends CI_Controller
         'time' => date('Y-m-d H:i:s'),
       ));
       // go to home???
-      header('Location: ' . $this->config->item('base_url'));
+      header('Location: ' . $this->config->item('base_url') . 'admin');
       exit();
     }else{
       // load helpers

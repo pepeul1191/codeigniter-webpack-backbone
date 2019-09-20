@@ -17,6 +17,8 @@ class CustomError extends CI_Controller
 
   public function access($error)
   {
+    // load session
+    $this->load->library('session');
     //libraries as filters
     // helpers
     $this->load->helper('Error');
@@ -80,12 +82,19 @@ class CustomError extends CI_Controller
         ];
         $status = 404;
     }
+    $home = $this->config->item('base_url');
+    if($this->session->has_userdata('state')){
+      if($this->session->userdata('state') == true){
+        $home = $this->config->item('base_url') . 'admin';
+      }
+    }
     // response
     $data_top = array(
       'title' => 'Error',
       'csss' => access_css($this->config),
       'jss' => access_js($this->config),
-      'error' => $error
+      'error' => $error,
+      'home' => $home,
     );
     $this->load->helper('View');
     $this->load->view('layouts/blank_header', $data_top);
