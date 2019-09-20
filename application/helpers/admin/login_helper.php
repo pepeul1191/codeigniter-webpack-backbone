@@ -11,6 +11,7 @@ if ( ! function_exists('access_css'))
           'bower_components/bootstrap/dist/css/bootstrap.min',
           'bower_components/font-awesome/css/font-awesome.min',
           'assets/css/constants',
+          'assets/css/styles',
           'assets/css/login',
         ];
         break;

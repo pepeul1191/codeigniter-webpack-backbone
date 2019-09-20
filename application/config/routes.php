@@ -58,3 +58,4 @@ $route['error/access/(:num)']['GET'] = 'customError/access/$1';
 
 # login
 $route['admin/login']['GET'] = 'admin/login/index';
+$route['admin/login']['POST'] = 'admin/login/access';

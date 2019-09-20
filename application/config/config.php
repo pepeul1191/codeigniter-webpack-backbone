@@ -536,3 +536,7 @@ $config['csrf'] = array(
   'key' => 'csrf_key',
   'value' => 'PKBcauXg6sTXz7Ddlty0nejVgoUodXL89KNxcrfwkEme0Huqtj6jjt4fP7v2uF4L', 
 );
+$config['login'] = array(
+  'user' => 'admin',
+  'password' => 'sistema123', 
+);
