@@ -19,21 +19,21 @@ class Login extends CI_Controller
         'instance' => $this,
       )
     );
-    /*
-    //controller function
-    $this->load->helper('Login');
+    // load helpers
+    $this->load->helper('admin/Login');
+    $this->load->helper('View');
+    // controller function
     $data_top = array(
       'title' => 'Bienvenido',
-      'csss' => index_css($this->config),
-      'jss' => index_js($this->config),
+      'csss' => access_css($this->config),
+      'jss' => access_js($this->config),
       'mensaje' => '',
+      'config' => $this->config,
     );
+    // var_dump($this->config->item('csrf')['key']);exit();
     $this->load->view('layouts/blank_header', $data_top);
-    $this->load->view('login/index');
-    $this->load->view('layouts/blank_footer', array());
-    */
-    echo($this->config->item('csrf')['key']);
     $this->load->view('admin/login/index');
+    $this->load->view('layouts/blank_footer', array());
   }
 }
 
