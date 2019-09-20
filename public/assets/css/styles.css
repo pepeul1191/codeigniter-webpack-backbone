@@ -6,7 +6,6 @@ footer{
   border-top: soild rgba(0,0,0,.5) 2px;
   color: #FDFDFD;
   margin-top: 25px;
-  background: var(--primary-color) !important;
 }
 
 .footer-copyright{
