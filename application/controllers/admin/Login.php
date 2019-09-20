@@ -62,9 +62,11 @@ class Login extends CI_Controller
       $password == $this->config->item('login')['password']
     ){
       // set session
-      $this->session->user = $user;
-      $this->session->state = true;
-      $this->session->time = date('Y-m-d H:i:s');
+      $this->session->set_userdata(array(
+        'user' => $user,
+        'state' => true,
+        'time' => date('Y-m-d H:i:s'),
+      ));
       // go to home???
       header('Location: ' . $this->config->item('base_url'));
       exit();
@@ -86,6 +88,57 @@ class Login extends CI_Controller
       $this->load->view('admin/login/index');
       $this->load->view('layouts/blank_footer', array());
     }
+  }
+
+  public function view()
+  {
+    // load session
+    $this->load->library('session');
+    // libraries as filters
+    $this->load->library('HttpAccess',
+      array(
+        'config' => $this->config,
+        'allow' => ['GET'],
+        'received' => $this->input->server('REQUEST_METHOD'),
+        'instance' => $this,
+      )
+    );
+    //controller function
+    if ($this->session->has_userdata('state')) {
+      if($this->session->userdata('state') != true){
+        echo '<h1>El usuario no se encuentra logueado</h1>';
+        exit();
+      }else{
+        $rpta =
+          '<h1>Usuario Logeado</h1><ul><li>' .
+          $this->session->userdata('user') . '</li><li>' .
+          $this->session->userdata('state') . '</li><li>' .
+          $this->session->userdata('time') . '</li></ul>';
+        echo $rpta;
+      }
+    }else{
+      echo '<h2>El usuario no se encuentra logueado</h2>';
+      exit();
+    }
+  }
+
+  public function exit()
+  {
+    // load session
+    $this->load->library('session');
+    // libraries as filters
+    $this->load->library('HttpAccess',
+      array(
+        'config' => $this->config,
+        'allow' => ['GET'],
+        'received' => $this->input->server('REQUEST_METHOD'),
+        'instance' => $this,
+      )
+    );
+    //controller function
+    $this->session->sess_destroy();
+    header('Location: ' . $this->config->item('base_url') . 'admin/login');
+    exit();
   }
 }
 
