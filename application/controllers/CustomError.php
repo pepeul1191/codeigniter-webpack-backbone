@@ -8,15 +8,7 @@ class CustomError extends CI_Controller
       header('Location: ' . $this->config->item('base_url') . 'error/access/404');
       exit();
     }else{
-      $rpta = json_encode(
-        [
-          'tipo_mensaje' => 'error',
-          'mensaje' => [
-            'Recurso no encontrado',
-            'Error 404'
-          ]
-        ]
-      );
+      $rpta = 'Error 404: Recurso no encontrado';
       $this->output
         ->set_status_header(404)
         ->set_output($rpta);
@@ -26,8 +18,9 @@ class CustomError extends CI_Controller
   public function access($error)
   {
     //libraries as filters
-    //controller function
+    // helpers
     $this->load->helper('Error');
+    //controller function
     $rpta = '';
     $status = 404;
     $numero = $error + '';
@@ -87,6 +80,7 @@ class CustomError extends CI_Controller
         ];
         $status = 404;
     }
+    // response
     $data_top = array(
       'title' => 'Error',
       'csss' => access_css($this->config),

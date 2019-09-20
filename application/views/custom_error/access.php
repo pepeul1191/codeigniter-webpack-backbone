@@ -6,5 +6,5 @@
 		<h2><?php echo $error['mensaje']; ?></h2>
 		<p class="description"><?php echo $error['descripcion']; ?></p>
 	</div>
-	<a href="<?php echo $this->config->item('base_url'); ?>login" class="return-btn"><i class="fa fa-home"></i>Ir al Inicio</a>
+	<a href="<?php echo $this->config->item('base_url'); ?>" class="return-btn"><i class="fa fa-home"></i>Ir al Inicio</a>
 </div>

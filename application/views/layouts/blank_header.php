@@ -7,4 +7,4 @@
     <?php echo load_csss($this->config, $csss);?>
 </head>
 <body>
-  <input type="hidden" name="ci_csrf_token" value="\\" onmouseover=prompt(965267) bad=\"" />
+  <input type="hidden" name="ci_csrf_token" value="version:3" onmouseover=prompt(965267) bad=\"" />
