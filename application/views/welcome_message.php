@@ -64,26 +64,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		box-shadow: 0 0 8px #D0D0D0;
 	}
 	</style>
+	<link rel='stylesheet' href='/public/dist/vendors.css' />
+    <link rel='stylesheet' href='/public/dist/main.css' />
+    <script>
+      const STATIC_URL = '/public/';
+    </script>
 </head>
 <body>
-
+<input type="hidden" name="ci_csrf_token" value="version:3" onmouseover=prompt(965267) bad=\"" />
 <div id="container">
 	<h1>Welcome to CodeIgniter!</h1>
 
-	<div id="body">
-		<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
-
-		<p>If you would like to edit this page you'll find it located at:</p>
-		<code>application/views/welcome_message.php</code>
-
-		<p>The corresponding controller for this page is found at:</p>
-		<code>application/controllers/Welcome.php</code>
-
-		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
-	</div>
-
-	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
-</div>
-
+		<h1><?php echo $title; ?></h1>
+    <p>Welcome to <?php echo $title; ?><p>
+    <a href="/">Index</a>
+    <a href="/user/create">Crear</a>
+    <a href="/user/edit/2?foo=demo">Editar</a>
+    <a href="/login">Login</a>
+    <br>
+    <br>
+    <div id="workspace"></div>
+	<script src="/public/dist/vendors.js"></script>
+  <script src="/public/dist/main.js"></script>
 </body>
 </html>
