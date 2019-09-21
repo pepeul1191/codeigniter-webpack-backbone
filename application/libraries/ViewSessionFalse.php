@@ -5,16 +5,16 @@ class ViewSessionFalse
   function __construct($params)
   {
     $continuar = true;
-		if($params['config']->item('ambiente_session') == 'activo'){
-      if (array_key_exists('estado', $_SESSION)) {
-        if($_SESSION['estado'] == 'activo'){
+		if($params['config']->item('env_session') == true){
+      if ($params['session']->has_userdata('state')) {
+        if($params['session']->has_userdata('state') == true){
           $continuar = false;
         }
       }else{
         $continuar = true;
       }
       if($continuar == false){
-        header('Location: ' . $params['config']->item('base_url'));
+        header('Location: ' . $params['config']->item('base_url') . 'admin');
         exit();
       }
     }

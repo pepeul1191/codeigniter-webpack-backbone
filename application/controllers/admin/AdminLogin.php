@@ -4,12 +4,13 @@ class AdminLogin extends CI_Controller
 {
   public function index()
   {
+    // load session
+    $this->load->library('session');
     // libraries as filters
-    /*
     $this->load->library('ViewSessionFalse', array(
       'config' => $this->config,
+      'session' => $this->session,
     ));
-    */
     $this->load->library('HttpAccess',
       array(
         'config' => $this->config,
@@ -41,11 +42,6 @@ class AdminLogin extends CI_Controller
     // load session
     $this->load->library('session');
     // libraries as filters
-    /*
-    $this->load->library('ViewSessionFalse', array(
-      'config' => $this->config,
-    ));
-    */
     $this->load->library('HttpAccess',
       array(
         'config' => $this->config,
