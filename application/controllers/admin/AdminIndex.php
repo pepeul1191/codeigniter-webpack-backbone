@@ -4,12 +4,13 @@ class AdminIndex extends CI_Controller
 {
   public function index()
   {
+    // load session
+    $this->load->library('session');
     // libraries as filters
-    /*
-    $this->load->library('ViewSessionFalse', array(
+    $this->load->library('ViewSessionTrue', array(
       'config' => $this->config,
+      'session' => $this->session,
     ));
-    */
     $this->load->library('HttpAccess',
       array(
         'config' => $this->config,
