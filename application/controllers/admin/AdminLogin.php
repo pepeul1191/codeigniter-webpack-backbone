@@ -22,6 +22,10 @@ class AdminLogin extends CI_Controller
     // load helpers
     $this->load->helper('admin/Login');
     $this->load->helper('View');
+    $this->load->helper('content');
+    // get content
+    $content = get_content('sp', 'admin_login');
+    var_dump($content);exit();
     // controller function
     $data = array(
       'title' => 'Bienvenido',

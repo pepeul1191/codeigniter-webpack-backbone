@@ -1,0 +1,68 @@
+sp:
+  access:
+    - name: Accesos
+      url: access/
+      icon: ''
+      subtitles:
+        - name: Maestros
+          items:
+            - name: Gestión de Sistemas
+              url: access/#/system
+        - name: Gestión de Usuarios
+          items:
+            - name: Gestión de Usuarios
+              url: access/user/#/
+            - name: Agregar Usuario
+              url: access/user/#/add
+    - name: Administración
+      url: managment/
+      icon: ''
+      subtitles:
+        - name: Maestros
+          items:
+            - name: Gestión de Ubicaciones
+              url: managment/#/location
+            - name: Gestión de Servicios
+              url: managment/#/service
+            - name: Gestión de Tipos de Canchas
+              url: managment/#/field_type
+            - name: Gestión de Bancos
+              url: managment/#/bank
+            - name: Gestión de Banners
+              url: managment/#/banner
+        - name: Clientes
+          items:
+            - name: Gestión de Clientes
+              url: managment/#/client
+            - name: Agregar Cliente
+              url: managment/#/client/add
+  competition:
+    - name: Concurso de Fotos
+      url: compeition/admin/
+      icon: ''
+      subtitles:
+        - name: Maestros
+          items:
+            - name: Gestión de Sedes
+              url: competition/admin/#/branch
+            - name: Gestión de Empleados
+              url: competition/admin/#/employee
+        - name: Fotos del Concurso
+          items:
+            - name: Lista de Participantes
+              url: competition/admin/#/photo
+            - name: Descargar Participantes
+              url: competition/admin/#/download
+  providers:
+    left:
+      - name: Locales
+        url: '#/'
+      - name: Tutoriales
+        url: '#/tutorials'
+      - name: Contacto
+        url: '#/contact_us'
+    right:
+      - name: Perfil
+        url: '#/profile'
+      - name: Salir
+        url: close
