@@ -10,7 +10,15 @@ CREATE TABLE 'technologys' (
   'description'	TEXT NOT NULL,
   'image'	VARCHAR(54) NOT NULL
 );
+CREATE TABLE 'technologys_images' (
+	'id'	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	'technology_id'	INTEGER,
+  'image_id'	INTEGER,
+  FOREIGN KEY(`technology_id`) REFERENCES 'technologys' ( 'id' ) ON DELETE CASCADE,
+  FOREIGN KEY(`image_id`) REFERENCES 'images' ( 'id' ) ON DELETE CASCADE
+);
 -- Dbmate schema migrations
 INSERT INTO schema_migrations (version) VALUES
   ('20191003022142'),
-  ('20191003235853');
+  ('20191003235853'),
+  ('20191004000527');
