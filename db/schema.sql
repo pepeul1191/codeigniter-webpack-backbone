@@ -21,9 +21,33 @@ CREATE TABLE 'branch_types' (
 	'id'	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	'name'	VARCHAR(54) NOT NULL
 );
+CREATE TABLE 'dentists' (
+	'id'	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	'name'	VARCHAR(45) NOT NULL,
+  'cop'	VARCHAR(10) NOT NULL,
+  'rne'	VARCHAR(10),
+  'image'	VARCHAR(54) NOT NULL
+);
+CREATE TABLE 'branches' (
+	'id'	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	'name'	VARCHAR(30) NOT NULL,
+  'addrress'	VARCHAR(50) NOT NULL,
+  'phone'	VARCHAR(25),
+  'whatsapp'	VARCHAR(25),
+  'emergency'	VARCHAR(25),
+  'image'	VARCHAR(54) NOT NULL,
+  'latitude' FLOAT,
+  'longitude' FLOAT,
+  'branch_type_id'	INTEGER,
+  'director_id'	INTEGER,
+  FOREIGN KEY(`branch_type_id`) REFERENCES 'branch_types' ( 'id' ) ON DELETE CASCADE,
+  FOREIGN KEY(`director_id`) REFERENCES 'dentists' ( 'id' ) ON DELETE CASCADE
+);
 -- Dbmate schema migrations
 INSERT INTO schema_migrations (version) VALUES
   ('20191003022142'),
   ('20191003235853'),
   ('20191004000527'),
-  ('20191004001156');
+  ('20191004001156'),
+  ('20191004012336'),
+  ('20191004012429');
