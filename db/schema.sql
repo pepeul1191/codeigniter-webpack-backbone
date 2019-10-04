@@ -52,7 +52,21 @@ CREATE TABLE 'branches_images' (
 );
 CREATE TABLE 'specialisms' (
 	'id'	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-	'name'	VARCHAR(54) NOT NULL
+	'name'	VARCHAR(30) NOT NULL
+);
+CREATE TABLE 'dentists_specialisms' (
+	'id'	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	'dentist_id'	INTEGER,
+  'specialism_id'	INTEGER,
+  FOREIGN KEY(`dentist_id`) REFERENCES 'dentists' ( 'id' ) ON DELETE CASCADE,
+  FOREIGN KEY(`specialism_id`) REFERENCES 'specialisms' ( 'id' ) ON DELETE CASCADE
+);
+CREATE TABLE 'dentists_branches' (
+	'id'	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	'dentist_id'	INTEGER,
+  'branche_id'	INTEGER,
+  FOREIGN KEY(`dentist_id`) REFERENCES 'dentists' ( 'id' ) ON DELETE CASCADE,
+  FOREIGN KEY(`branche_id`) REFERENCES 'branches' ( 'id' ) ON DELETE CASCADE
 );
 -- Dbmate schema migrations
 INSERT INTO schema_migrations (version) VALUES
@@ -63,4 +77,6 @@ INSERT INTO schema_migrations (version) VALUES
   ('20191004012336'),
   ('20191004012429'),
   ('20191004012751'),
-  ('20191004013015');
+  ('20191004013015'),
+  ('20191004013242'),
+  ('20191004013421');

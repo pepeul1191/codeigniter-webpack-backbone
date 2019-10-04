@@ -2,7 +2,7 @@
 
 CREATE TABLE 'specialisms' (
 	'id'	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-	'name'	VARCHAR(54) NOT NULL
+	'name'	VARCHAR(30) NOT NULL
 );
 
 -- migrate:down
