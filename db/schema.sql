@@ -17,8 +17,13 @@ CREATE TABLE 'technologys_images' (
   FOREIGN KEY(`technology_id`) REFERENCES 'technologys' ( 'id' ) ON DELETE CASCADE,
   FOREIGN KEY(`image_id`) REFERENCES 'images' ( 'id' ) ON DELETE CASCADE
 );
+CREATE TABLE 'branch_types' (
+	'id'	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	'name'	VARCHAR(54) NOT NULL
+);
 -- Dbmate schema migrations
 INSERT INTO schema_migrations (version) VALUES
   ('20191003022142'),
   ('20191003235853'),
-  ('20191004000527');
+  ('20191004000527'),
+  ('20191004001156');
