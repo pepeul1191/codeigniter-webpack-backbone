@@ -2,9 +2,9 @@
 
 CREATE TABLE 'images' (
 	'id'	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-	'name'	TEXT NOT NULL
+	'name'	VARCHAR(54) NOT NULL
 );
 
 -- migrate:down
 
-DROP TABLE 'images'
+DROP TABLE IF EXISTS 'images';
