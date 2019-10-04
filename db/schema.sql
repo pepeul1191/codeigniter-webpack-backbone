@@ -43,6 +43,13 @@ CREATE TABLE 'branches' (
   FOREIGN KEY(`branch_type_id`) REFERENCES 'branch_types' ( 'id' ) ON DELETE CASCADE,
   FOREIGN KEY(`director_id`) REFERENCES 'dentists' ( 'id' ) ON DELETE CASCADE
 );
+CREATE TABLE 'branches_images' (
+	'id'	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	'branch_id'	INTEGER,
+  'image_id'	INTEGER,
+  FOREIGN KEY(`branch_id`) REFERENCES 'branches' ( 'id' ) ON DELETE CASCADE,
+  FOREIGN KEY(`image_id`) REFERENCES 'images' ( 'id' ) ON DELETE CASCADE
+);
 -- Dbmate schema migrations
 INSERT INTO schema_migrations (version) VALUES
   ('20191003022142'),
@@ -50,4 +57,5 @@ INSERT INTO schema_migrations (version) VALUES
   ('20191004000527'),
   ('20191004001156'),
   ('20191004012336'),
-  ('20191004012429');
+  ('20191004012429'),
+  ('20191004012751');
