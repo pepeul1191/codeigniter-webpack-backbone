@@ -50,6 +50,10 @@ CREATE TABLE 'branches_images' (
   FOREIGN KEY(`branch_id`) REFERENCES 'branches' ( 'id' ) ON DELETE CASCADE,
   FOREIGN KEY(`image_id`) REFERENCES 'images' ( 'id' ) ON DELETE CASCADE
 );
+CREATE TABLE 'specialisms' (
+	'id'	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	'name'	VARCHAR(54) NOT NULL
+);
 -- Dbmate schema migrations
 INSERT INTO schema_migrations (version) VALUES
   ('20191003022142'),
@@ -58,4 +62,5 @@ INSERT INTO schema_migrations (version) VALUES
   ('20191004001156'),
   ('20191004012336'),
   ('20191004012429'),
-  ('20191004012751');
+  ('20191004012751'),
+  ('20191004013015');
