@@ -1,10 +1,9 @@
-CREATE TABLE schema_migrations (
-		version varchar(255) primary key);
+CREATE TABLE schema_migrations (version varchar(255) primary key);
 CREATE TABLE 'images' (
 	'id'	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	'name'	VARCHAR(54) NOT NULL
 );
-CREATE TABLE 'technologys' (
+CREATE TABLE 'technologies' (
 	'id'	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	'name'	VARCHAR(40) NOT NULL,
   'description'	TEXT NOT NULL,

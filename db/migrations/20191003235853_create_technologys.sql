@@ -1,6 +1,6 @@
 -- migrate:up
 
-CREATE TABLE 'technologys' (
+CREATE TABLE 'technologies' (
 	'id'	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	'name'	VARCHAR(40) NOT NULL,
   'description'	TEXT NOT NULL,
@@ -9,4 +9,4 @@ CREATE TABLE 'technologys' (
 
 -- migrate:down
 
-DROP TABLE IF EXISTS 'technologys';
+DROP TABLE IF EXISTS 'technologies';

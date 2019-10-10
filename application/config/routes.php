@@ -66,6 +66,10 @@ $route['admin']['GET'] = 'admin/adminIndex/index';
 $route['admin/specialisms']['GET'] = 'admin/adminIndex/index';
 $route['admin/technologies']['GET'] = 'admin/adminIndex/index';
 # admin rest
+  # specialism
 $route['admin/specialism/list']['GET'] = 'admin/AdminSpecialism/list';
 $route['admin/specialism/save']['POST'] = 'admin/AdminSpecialism/save';
+  # branch_type
 $route['admin/branch_type/list']['GET'] = 'admin/AdminBranchType/list';
+  # technology
+$route['admin/technology/list']['GET'] = 'admin/AdminTechnology/list';
