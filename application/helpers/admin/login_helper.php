@@ -8,13 +8,13 @@ if ( ! function_exists('access_css'))
     switch($config->item('env_static')){
       case 'dev':
         $rpta = [
-          'dist/vendor~login',
+          'dist/login.vendor',
           'dist/login',
         ];
         break;
       case 'prod':
         $rpta = [
-          'dist/vendor~login.min',
+          'dist/login.vendor.min',
           'dist/login.min',
         ];
         break;

@@ -5,8 +5,10 @@ const CopyPlugin = require('copy-webpack-plugin');
 
 var entries = {
   // main: ['./resources/entries/admin.js'],
-  vendors: ['backbone', 'jquery', 'underscore', ],
-  login: ['./resources/entries/login.js', ], 
+  // vendors: ['backbone', 'jquery', 'underscore', ],
+  'login': ['./resources/entries/login.js', ], 
+  'error': ['./resources/entries/error.js', ], 
+  'admin': ['./resources/entries/admin.js', ], 
 };
 
 var plugins = [
@@ -20,7 +22,7 @@ var plugins = [
     // Options similar to the same options in webpackOptions.output
     // both options are optional
     filename: '[name].css',
-    chunkFilename: '[id].css'
+    //chunkFilename: '[name].css',
   }),
   new CopyPlugin([
     // move ejs files to public
@@ -34,11 +36,13 @@ var plugins = [
 var outputDevelopment = {
   path: path.resolve(__dirname, 'public/dist'),
   filename: '[name].js',
+  //chunkFilename: '[chunkhash].js',
 };
 
 var outputProduction = {
   path: path.resolve(__dirname, 'public/dist'),
   filename: '[name].min.js',
+  //chunkFilename: '[chunkhash].min.js',
 };
 
 var rules = [
@@ -63,10 +67,36 @@ var optimization = {
     cacheGroups: {       
       vendor: {
         test: /node_modules/,
-        // name: '[name].vendors',
+        name: 'vendors',
         chunks: 'all', 
         enforce: true,
       },
+      adminVendor: {
+        test: 'admin',
+        name: 'admin.vendor',
+        chunks: 'all', 
+        enforce: true,
+      },
+      loginVendor: {
+        test: 'login',
+        name: 'login.vendor',
+        chunks: 'all', 
+        enforce: true,
+      },
+      errorVendor: {
+        test: 'error',
+        name: 'error.vendor',
+        chunks: 'all', 
+        enforce: true,
+      },
+      /*
+      error_vendor: {
+        test: 'error',
+        name: 'error.vendor',
+        chunks: 'all', 
+        enforce: true,
+      },
+      */
     }
   }
 };
