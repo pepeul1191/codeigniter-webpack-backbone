@@ -4,11 +4,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
 var entries = {
-  main: ['./resources/entries/index.js'],
-  admin: ['./resources/entries/admin.js'],
-  // vendors
-  vendors_admin: ['backbone', 'jquery', 'underscore', ],
-  vendors_login: ['jquery', ],
+  // main: ['./resources/entries/admin.js'],
+  vendors: ['backbone', 'jquery', 'underscore', ],
+  login: ['./resources/entries/login.js', ], 
 };
 
 var plugins = [
@@ -25,6 +23,7 @@ var plugins = [
     chunkFilename: '[id].css'
   }),
   new CopyPlugin([
+    // move ejs files to public
     { 
       from: 'resources/templates', 
       to: '../templates' 
@@ -64,17 +63,17 @@ var optimization = {
     cacheGroups: {       
       vendor: {
         test: /node_modules/,
-        name: 'vendors',
+        // name: '[name].vendors',
         chunks: 'all', 
-        enforce: true
-      }
+        enforce: true,
+      },
     }
   }
 };
 
 var devServer = {
   host: '0.0.0.0',
-  port: 8080,
+  port: 8090,
   contentBase: [
     path.join(__dirname, 'public'),
   ],

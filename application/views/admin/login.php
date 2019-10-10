@@ -38,5 +38,6 @@
     </div>
     <p class="mt-5 mb-3 text-muted">Powered By <a href="http://softweb.pe/"> Softtware Web Perú</a> © 2017-2018</p>
   </form>
+  <?php echo load_jss($this->config, $jss);?>
 </body>
 </html>
