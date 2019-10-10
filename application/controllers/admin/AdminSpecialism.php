@@ -7,10 +7,7 @@ class AdminSpecialism extends CI_Controller
     // load session
     $this->load->library('session');
     // libraries as filters
-    $this->load->library('ViewSessionTrue', array(
-      'config' => $this->config,
-      'session' => $this->session,
-    ));
+    // ???
     //libraries as filters
     $this->load->library('HttpAccess',
       array(
