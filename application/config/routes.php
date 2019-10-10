@@ -63,3 +63,5 @@ $route['logout']['GET'] = 'admin/adminLogin/exit';
 $route['session']['GET'] = 'admin/adminLogin/view';
 # admin
 $route['admin']['GET'] = 'admin/adminIndex/index';
+$route['admin/specialisms']['GET'] = 'admin/adminIndex/index';
+$route['admin/technologies']['GET'] = 'admin/adminIndex/index';

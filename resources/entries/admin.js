@@ -1,8 +1,18 @@
 import '../../public/assets/css/admin.css';
-// import Department from '../models/department';
+import AdminRouter from '../routes/admin';
+
+var router = new AdminRouter();
 
 $(document).ready(function(){
-  //var c = new Department();
-  // console.log(c)
-  alert("document ready occurred!");
+  // alert("document ready occurred!");
+  Backbone.history.start({
+    pushState: true, 
+    root: '/admin/',
+    silent: true,
+  });
+});
+
+$('body').on("click", 'a[href^="/"]', function(evt) {
+  evt.preventDefault();
+  router.navigate($(this).attr('href'), {trigger: true});
 });

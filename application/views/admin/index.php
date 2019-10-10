@@ -4,9 +4,10 @@
     <title><?php echo $title;?></title>
     <?php echo load_csss($this->config, $csss);?>
     <link rel="shortcut icon" href="<?php echo $this->config->item('static_url'); ?>favicon.ico">
+    <base href="/admin/" />
     <script>
       var BASE_URL = '<?php echo $this->config->item('base_url');?>';
-      var STATICS_URL  = '<?php echo $this->config->item('static_url');?>';
+      var STATIC_URL  = '<?php echo $this->config->item('static_url');?>';
       var CSRF = "<?php echo $this->config->item('csrf')['value']; ?>";
       var CSRF_KEY = '<?php echo $this->config->item('csrf')['key']; ?>';
     </script>
@@ -38,7 +39,7 @@
       </ul>
     </header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top" id="nav2">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="/">
         <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
         Administración de Contenidos
       </a>
@@ -53,10 +54,10 @@
           </li>
           -->
           <li class="nav-item">
-            <a class="nav-link" href="/admin/specialisms">Especialidades</a>
+            <a class="nav-link" href="/specialisms">Especialidades</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/admin/technology">Tecnología</a>
+            <a class="nav-link" href="/technologies">Tecnología</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
