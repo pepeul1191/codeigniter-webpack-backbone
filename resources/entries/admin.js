@@ -8,7 +8,6 @@ $(document).ready(function(){
   Backbone.history.start({
     pushState: true, 
     root: '/admin/',
-    silent: true,
   });
 });
 

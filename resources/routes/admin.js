@@ -16,7 +16,6 @@ var AdminRouter = Backbone.Router.extend({
     
   },
   specialisms: function(){
-    alert(1);
     if(this.specialismView == null){
       this.specialismView = new AdminSpecialismView();
     }
@@ -24,7 +23,6 @@ var AdminRouter = Backbone.Router.extend({
     this.specialismView.loadComponents();
   },
   technologies: function(){
-    alert(2);
     if(this.technologyView == null){
       this.technologyView = new AdminTechnologyView();
     }
@@ -33,8 +31,7 @@ var AdminRouter = Backbone.Router.extend({
   },
   default: function(path){
     var newURL = '/' + path;
-    alert(newURL);
-    // window.location = newURL;
+    window.location = newURL;
   },
 });
 
