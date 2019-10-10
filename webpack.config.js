@@ -5,11 +5,16 @@ const CopyPlugin = require('copy-webpack-plugin');
 
 var entries = {
   // main: ['./resources/entries/admin.js'],
+  // admin entires
   'admin': ['./resources/entries/admin.js', ], 
-  'admin.vendor': ['backbone', 'jquery', 'underscore', ],
+  'admin.vendor.js': ['backbone', 'jquery', 'underscore', ],
   'admin.vendor.css': ['bootstrap/dist/css/bootstrap.min.css', ],
-  //'login': ['./resources/entries/login.js', ], 
-  //'error': ['./resources/entries/error.js', ], 
+  // login entries
+  'login': ['./resources/entries/login.js', ], 
+  // site entries
+  'site.vendor.css': ['materialize-css/dist/css/materialize.min.css', ],
+  // error entries
+  'error': ['./resources/entries/error.js', ], 
 };
 
 var plugins = [
@@ -23,7 +28,7 @@ var plugins = [
     // Options similar to the same options in webpackOptions.output
     // both options are optional
     filename: '[name].css',
-    // chunkFilename: '[name].vendor.css',
+    chunkFilename: '[name].css',
   }),
   new CopyPlugin([
     // move ejs files to public
@@ -75,37 +80,17 @@ var optimization = {
       },
       */
       adminVendor: {
-        test: 'admin.vendor',
+        test: 'admin.vendor.js',
         name: 'admin.vendor',
         chunks: 'all', 
         enforce: true,
       },
       adminVendorCSS: {
         test: 'admin.vendor.css',
-        name: 'admin.vendor.css',
+        name: 'admin.vendor',
         chunks: 'all', 
         enforce: true,
       },
-      loginVendor: {
-        test: 'login',
-        name: 'login.vendor',
-        chunks: 'all', 
-        enforce: true,
-      },
-      errorVendor: {
-        test: 'error',
-        name: 'error.vendor',
-        chunks: 'all', 
-        enforce: true,
-      },
-      /*
-      error_vendor: {
-        test: 'error',
-        name: 'error.vendor',
-        chunks: 'all', 
-        enforce: true,
-      },
-      */
     }
   }
 };

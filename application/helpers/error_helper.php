@@ -9,10 +9,7 @@ if ( ! function_exists('access_css'))
       case 'dev':
         $rpta = [
           'bower_components/font-awesome/css/font-awesome.min',
-          /*'bower_components/bootstrap/dist/css/bootstrap.min',
-          'assets/css/constants',
-          'assets/css/error',*/
-          'dist/error.vendor',
+          'dist/admin.vendor',
           'dist/error',
         ];
         break;
