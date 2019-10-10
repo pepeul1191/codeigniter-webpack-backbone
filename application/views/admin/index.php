@@ -53,19 +53,10 @@
           </li>
           -->
           <li class="nav-item">
-            <a class="nav-link" href="/user/create">Crear</a>
+            <a class="nav-link" href="/admin/specialisms">Especialidades</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/user/edit/2?foo=demo">Editar</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/autocomplete">Autocompletar</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/upload">Subir Archivos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/validation_form">Validación de Formularios</a>
+            <a class="nav-link" href="/admin/technology">Tecnología</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -78,9 +69,6 @@
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="/table/teachers">Gestión de Profes</a>
             </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/login" tabindex="-1" aria-disabled="true">Login</a>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
