@@ -528,7 +528,7 @@ $config['proxy_ips'] = '';
 |--------------------------------------------------------------------------
 */
 
-$config['env_static'] = 'dev';
+$config['env_static'] = 'prod';
 $config['env_session'] = false;
 $config['base_url'] = 'http://localhost:8080/';
 $config['static_url'] = 'http://localhost:8080/public/';
