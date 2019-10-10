@@ -7,10 +7,12 @@ class AdminIndex extends CI_Controller
     // load session
     $this->load->library('session');
     // libraries as filters
+    /*
     $this->load->library('ViewSessionTrue', array(
       'config' => $this->config,
       'session' => $this->session,
     ));
+    */
     $this->load->library('HttpAccess',
       array(
         'config' => $this->config,
@@ -29,10 +31,8 @@ class AdminIndex extends CI_Controller
       'jss' => index_js($this->config),
       'config' => $this->config,
     );
-    // render view
-    $this->load->view('layouts/app_header', $data);
-    $this->load->view('admin/index/index');
-    $this->load->view('layouts/app_footer', array());
+    // render view|
+    $this->load->view('admin/index', $data);
   }
 }
 

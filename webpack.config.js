@@ -5,7 +5,9 @@ const CopyPlugin = require('copy-webpack-plugin');
 
 var entries = {
   main: ['./resources/entries/index.js'],
-  vendors: ['backbone', 'jquery', 'underscore', ],
+  admin: ['./resources/entries/admin.js'],
+  // vendors
+  vendors_admin: ['backbone', 'jquery', 'underscore', ],
   vendors_login: ['jquery', ],
 };
 
@@ -23,7 +25,6 @@ var plugins = [
     chunkFilename: '[id].css'
   }),
   new CopyPlugin([
-    // move ejs files to public
     { 
       from: 'resources/templates', 
       to: '../templates' 
@@ -73,7 +74,7 @@ var optimization = {
 
 var devServer = {
   host: '0.0.0.0',
-  port: 8081,
+  port: 8080,
   contentBase: [
     path.join(__dirname, 'public'),
   ],

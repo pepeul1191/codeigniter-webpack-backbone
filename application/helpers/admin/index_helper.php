@@ -8,11 +8,8 @@ if ( ! function_exists('index_css'))
     switch($config->item('env_static')){
       case 'dev':
         $rpta = [
-          'bower_components/bootstrap/dist/css/bootstrap.min',
           'bower_components/font-awesome/css/font-awesome.min',
-          'assets/css/constants',
-          'assets/css/styles',
-          'assets/css/dashboard',
+          'dist/admin',
         ];
         break;
       case 'prod':
@@ -33,6 +30,8 @@ if ( ! function_exists('index_js'))
     switch($config->item('env_static')){
       case 'dev':
         $rpta = [
+          'dist/vendors_admin',
+          'dist/admin',
         ];
         break;
       case 'prod':

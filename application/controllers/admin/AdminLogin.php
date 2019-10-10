@@ -25,7 +25,6 @@ class AdminLogin extends CI_Controller
     $this->load->helper('content');
     // get content
     $content = get_content('sp', 'admin_login');
-    var_dump($content);exit();
     // controller function
     $data = array(
       'title' => 'Bienvenido',
@@ -36,9 +35,7 @@ class AdminLogin extends CI_Controller
       'config' => $this->config,
     );
     // render view
-    $this->load->view('layouts/blank_header', $data);
-    $this->load->view('admin/login/index');
-    $this->load->view('layouts/blank_footer', array());
+    $this->load->view('admin/login', $data);
   }
 
   public function access()
@@ -75,18 +72,16 @@ class AdminLogin extends CI_Controller
       $this->load->helper('admin/Login');
       $this->load->helper('View');
       // data to view
-      $data_top = array(
+      $data = array(
         'title' => 'Bienvenido',
         'csss' => access_css($this->config),
         'jss' => access_js($this->config),
         'message' => 'Usuario y/o contraseña no coincide',
-        'message_color' => 'has-danger',
+        'message_color' => 'text-danger',
         'config' => $this->config,
       );
       // render view
-      $this->load->view('layouts/blank_header', $data_top);
-      $this->load->view('admin/login/index');
-      $this->load->view('layouts/blank_footer', array());
+      $this->load->view('admin/login', $data);
     }
   }
 
