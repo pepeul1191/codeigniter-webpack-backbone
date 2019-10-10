@@ -96,7 +96,6 @@ class CustomError extends CI_Controller
       'error' => $error,
       'home' => $home,
     );
-    $this->load->helper('View');
     $this->load->view('layouts/blank_header', $data_top);
     $this->load->view('custom_error/access');
     $this->load->view('layouts/blank_footer', array());

@@ -61,7 +61,9 @@ $route['admin/login']['GET'] = 'admin/adminLogin/index';
 $route['admin/login']['POST'] = 'admin/adminLogin/access';
 $route['logout']['GET'] = 'admin/adminLogin/exit';
 $route['session']['GET'] = 'admin/adminLogin/view';
-# admin
+# admin views
 $route['admin']['GET'] = 'admin/adminIndex/index';
 $route['admin/specialisms']['GET'] = 'admin/adminIndex/index';
 $route['admin/technologies']['GET'] = 'admin/adminIndex/index';
+# admin rest
+$route['admin/specialisms/list']['GET'] = 'admin/AdminSpecialism/list';

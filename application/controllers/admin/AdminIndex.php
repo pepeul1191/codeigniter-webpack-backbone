@@ -21,7 +21,6 @@ class AdminIndex extends CI_Controller
     );
     // load helpers
     $this->load->helper('admin/index');
-    $this->load->helper('View');
     // controller function
     $data = array(
       'title' => 'Administración del Sitio',

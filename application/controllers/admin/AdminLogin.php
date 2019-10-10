@@ -21,7 +21,6 @@ class AdminLogin extends CI_Controller
     );
     // load helpers
     $this->load->helper('admin/Login');
-    $this->load->helper('View');
     $this->load->helper('content');
     // get content
     $content = get_content('sp', 'admin_login');
@@ -70,7 +69,6 @@ class AdminLogin extends CI_Controller
     }else{
       // load helpers
       $this->load->helper('admin/Login');
-      $this->load->helper('View');
       // data to view
       $data = array(
         'title' => 'Bienvenido',
