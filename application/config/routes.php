@@ -68,3 +68,4 @@ $route['admin/technologies']['GET'] = 'admin/adminIndex/index';
 # admin rest
 $route['admin/specialism/list']['GET'] = 'admin/AdminSpecialism/list';
 $route['admin/specialism/save']['POST'] = 'admin/AdminSpecialism/save';
+$route['admin/branch_type/list']['GET'] = 'admin/AdminBranchType/list';
