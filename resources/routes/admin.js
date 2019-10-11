@@ -1,14 +1,19 @@
 import AdminSpecialismView from '../views/admin/specialism_view';
 import AdminTechnologyView from '../views/admin/technology_view';
+import AdminTechnologyDetailView from '../views/admin/technology_detail_view';
 
 var AdminRouter = Backbone.Router.extend({
   specialismView: null,
+  technologyView: null,
+  technologyDetailView: null,
   initialize: function() {
   },
   routes:{
     '': 'specialisms',
     'specialisms': 'specialisms',
     'technologies': 'technologies',
+    'technologies/new': 'technologiesNew',
+    'technologies/edit/:id': 'technologiesEdit',
     // others
     '*path' : 'default',
   },
@@ -28,6 +33,26 @@ var AdminRouter = Backbone.Router.extend({
     }
     this.technologyView.render();
     this.technologyView.loadComponents();
+  },
+  technologiesNew: function(){
+    if(this.technologyDetailView == null){
+      this.technologyDetailView = new AdminTechnologyDetailView();
+    }
+    var data = {
+      title: 'Crear Tecnología',
+    };
+    this.technologyDetailView.render(data);
+    this.technologyDetailView.loadComponents();
+  },
+  technologiesEdit: function(id){
+    if(this.technologyDetailView == null){
+      this.technologyDetailView = new AdminTechnologyDetailView();
+    }
+    var data = {
+      title: 'Editar Tecnología',
+    };
+    this.technologyDetailView.render(data);
+    this.technologyDetailView.loadComponents();
   },
   default: function(path){
     var newURL = '/' + path;

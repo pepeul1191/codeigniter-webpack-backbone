@@ -65,6 +65,8 @@ $route['session']['GET'] = 'admin/adminLogin/view';
 $route['admin']['GET'] = 'admin/adminIndex/index';
 $route['admin/specialisms']['GET'] = 'admin/adminIndex/index';
 $route['admin/technologies']['GET'] = 'admin/adminIndex/index';
+$route['admin/technologies/edit/(:num)']['GET'] = 'admin/adminIndex/index';
+$route['admin/technologies/new']['GET'] = 'admin/adminIndex/index';
 # admin rest
   # specialism
 $route['admin/specialism/list']['GET'] = 'admin/AdminSpecialism/list';
@@ -73,3 +75,5 @@ $route['admin/specialism/save']['POST'] = 'admin/AdminSpecialism/save';
 $route['admin/branch_type/list']['GET'] = 'admin/AdminBranchType/list';
   # technology
 $route['admin/technology/list']['GET'] = 'admin/AdminTechnology/list';
+  # upload
+$route['upload/file']['POST'] = 'admin/AdminUpload/file';

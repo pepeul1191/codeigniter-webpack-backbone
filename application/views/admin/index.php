@@ -81,5 +81,6 @@
     <div id="workspace"></div>
     <footer>Sitio Desarrollado por <a href="http://softweb.pe/">Software Web Perú 2019</a></footer>
     <?php echo load_jss($this->config, $jss);?>
+    <script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
   </body>
 </html>

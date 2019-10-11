@@ -1,0 +1,79 @@
+<h5><%= title %></h5>
+<div class="row">
+  <div class="col-md-12">
+    <div class="alert" id="message" role="alert"></div>
+  </div>
+  <div class="col-md-12">
+    <h6 style="margin-bottom:15px">Detalles de la Tecnologia</h6>
+  </div>
+  <div class="col-md-6">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="txtName">Nombre</label>
+          <input type="text" class="form-control" id="txtName" aria-describedby="txtNameHelp" placeholder="Ingrese correo" value="">
+          <small id="txtNameHelp" class="form-text"></small>
+        </div>
+      </div>
+      <div class="col-md-6" id="uploadForm">
+        <div class="form-group">
+          <label for="txtPicture">Imagen Principal</label><br>
+          <button id="btnSelectPicture" class="btn btn-secondary" style="margin-top: 3px;"> 
+            <i class="fa fa-search btn-icon" aria-hidden="true"></i>
+            Buscar Archivo
+          </button>
+          <input type="file" class="custom-file-input d-none" id="filePicture">
+          <button id="btnUploadPicture" class="btn btn-primary" style="margin-top: 3px; margin-left: 10px;"> 
+            <i class="fa fa-upload btn-icon" aria-hidden="true"></i>
+            Subir
+          </button>
+          <button id="btnViewPicture" class="btn btn-success" style="margin-top: 3px; margin-left: 10px;"> 
+            <i class="fa fa-picture-o btn-icon" aria-hidden="true"></i>
+            Ver
+          </button>
+          <small id="txtPictureHelp" class="form-text"></small>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="txtPicture">Descripción</label><br>
+          <textarea name="detailTxt" rows="10" cols="80" id="detailTxt"></textarea>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form-group">
+          <button id="btnSave" class="btn btn-success pull-right" style="margin-top: 0px;">
+            <i class="fa fa-check" style="margin-right:5px"></i>
+            Grabar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="row">
+      <div class="col-md-12">
+        <h6>Imágenes</h6>
+        <br>
+        <table class="table table-striped" styles="" id="imageTable">
+          <thead>
+            <tr>
+              <th style="width: 10px; display:none;">id</th>
+              <th style="width: 150px;">Nombre</th>
+              <th style="width: 80px; padding-left: 17px !important;">Botones</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <td colspan="1000" style="text-align:right">
+                <button class="btn btn-primary add-row"> <i class="fa fa-plus" style="margin-right:5px"></i>Agregar Registro</button>
+                <button class="btn btn-success save-table"> <i class="fa fa-check" style="margin-right:5px"></i>Guardar Cambios</button>
+                <input type="file" class="custom-file-input d-none" id="fileImage">
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
