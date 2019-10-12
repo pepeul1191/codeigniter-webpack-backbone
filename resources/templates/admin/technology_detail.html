@@ -1,33 +1,33 @@
 <h5><%= title %></h5>
 <div class="row">
   <div class="col-md-12">
-    <div class="alert" id="message" role="alert"></div>
+    <div class="alert <%= messageClass %>" id="message" role="alert" id="formTitle"><%= message %></div>
   </div>
   <div class="col-md-12">
-    <h6 style="margin-bottom:15px" id="formTitle">Detalles de la Tecnologia</h6>
+    <h6 style="margin-bottom:15px">Detalles de la Tecnologia</h6>
   </div>
   <div class="col-md-6">
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
           <label for="txtName">Nombre</label>
-          <input type="text" class="form-control" id="txtName" aria-describedby="txtNameHelp" placeholder="Ingrese nombre" value="<%= model.get('name') %>">
+          <input type="text" class="form-control" id="txtName" aria-describedby="txtNameHelp" <% if(disabled) { %> disabled <% } %> placeholder="Ingrese nombre" value="<%= model.get('name') %>">
           <small id="txtNameHelp" class="form-text"></small>
         </div>
       </div>
       <div class="col-md-6" id="uploadForm">
         <div class="form-group">
           <label for="txtPicture">Imagen Principal</label><br>
-          <button id="btnSelectPicture" class="btn btn-secondary" style="margin-top: 3px;"> 
+          <button id="btnSelectPicture" <% if(disabled) { %> disabled <% } %> class="btn btn-secondary" style="margin-top: 3px;" >  
             <i class="fa fa-search btn-icon" aria-hidden="true"></i>
             Buscar Archivo
           </button>
           <input type="file" class="custom-file-input d-none" id="filePicture">
-          <button id="btnUploadPicture" class="btn btn-primary" style="margin-top: 3px; margin-left: 10px;"> 
+          <button id="btnUploadPicture" <% if(disabled) { %> disabled <% } %> class="btn btn-primary" style="margin-top: 3px; margin-left: 10px;">  
             <i class="fa fa-upload btn-icon" aria-hidden="true"></i>
             Subir
           </button>
-          <button id="btnViewPicture" class="btn btn-success" style="margin-top: 3px; margin-left: 10px;"> 
+          <button id="btnViewPicture" <% if(disabled) { %> disabled <% } %> class="btn btn-success" style="margin-top: 3px; margin-left: 10px;">  
             <i class="fa fa-picture-o btn-icon" aria-hidden="true"></i>
             Ver
           </button>
@@ -43,7 +43,7 @@
       </div>
       <div class="col-md-12">
         <div class="form-group">
-          <button id="btnSave" class="btn btn-success pull-right" style="margin-top: 0px;">
+          <button id="btnSave" <% if(disabled) { %> disabled <% } %> class="btn btn-success pull-right" style="margin-top: 0px;" >
             <i class="fa fa-check" style="margin-right:5px"></i>
             Grabar
           </button>
@@ -67,8 +67,8 @@
           <tfoot>
             <tr>
               <td colspan="1000" style="text-align:right">
-                <button class="btn btn-primary add-row"> <i class="fa fa-plus" style="margin-right:5px"></i>Agregar Registro</button>
-                <button class="btn btn-success save-table"> <i class="fa fa-check" style="margin-right:5px"></i>Guardar Cambios</button>
+                <button <% if(disabled) { %> disabled <% } %> class="btn btn-primary add-row"> <i class="fa fa-plus" style="margin-right:5px"></i>Agregar Registro</button>
+                <button <% if(disabled) { %> disabled <% } %> class="btn btn-success save-table"> <i class="fa fa-check" style="margin-right:5px"></i>Guardar Cambios</button>
                 <input type="file" class="custom-file-input d-none" id="fileImage">
               </td>
             </tr>

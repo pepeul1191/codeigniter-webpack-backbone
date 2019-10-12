@@ -28,8 +28,8 @@ class AdminUpload extends CI_Controller
         UPLOAD_PATH. $rand . '.' . $extension
       );
       $resp_data = json_encode(array(
-        'url' => $this->config->item('base_url'),
-        'path' => 'public/uploads/' . $rand . '.' . $extension,
+        'url' => $this->config->item('static_url'),
+        'path' => 'uploads/' . $rand . '.' . $extension,
       ));
     }catch (Exception $e) {
       $status = 500;

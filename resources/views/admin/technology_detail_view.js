@@ -19,19 +19,37 @@ var AdminTechnologyDetailView = Backbone.View.extend({
     'click #btnViewPicture': 'viewPicture',
   },
   render: function(data, type){
+    this.technology.set('id', 'E');
+    this.technology.set('name', '');
+    this.technology.set('desription', '');
+    this.technology.set('image', '');
     if(type == 'new'){
-      this.technology.set('id', 'E');
-      this.technology.set('name', '');
-      this.technology.set('desription', '');
-      this.technology.set('image', '');
       data.model = this.technology;
-    }else{ // is edit
+      data.disabled = false;
+      data.message = '';
+      data.messageClass = '';
+    }else{ // is edit, set model from server
       var respData = TechnologyService.getDetail(data.id);
-      this.technology.set('name', respData.message.name);
-      this.technology.set('description', respData.message.description);
-      this.technology.set('image', respData.message.image);
-      data.model = this.technology;
+      if(respData.status == 200){
+        this.technology.set('id', data.id);
+        this.technology.set('name', respData.message.name);
+        this.technology.set('description', respData.message.description);
+        this.technology.set('image', respData.message.image);
+        data.model = this.technology;
+        data.disabled = false;
+        data.message = '';
+        data.messageClass = '';
+      }else if(respData.status == 404){
+        data.message = 'Recurso que busca no encontrado';
+        data.messageClass = 'alert-warning';
+      }else if(respData.status == 501){
+        data.message = 'Ocurrió un error controlado al recuperar los datos de la tecnología a editar';
+      }else{
+        data.message = 'Ocurrió un error no controlado al recuperar los datos de la tecnología a editar';
+      }
     }
+    data.model = this.technology;
+    // template
 		var templateCompiled = null;
 		$.ajax({
 		  url: STATIC_URL + 'templates/admin/technology_detail.html',
@@ -49,6 +67,7 @@ var AdminTechnologyDetailView = Backbone.View.extend({
     this.$el.html(templateCompiled);
   },
   loadComponents: function(){
+    var _this = this;
     // editor
     CKEDITOR.replace('detailTxt' , {
       toolbarGroups: [{
@@ -112,9 +131,16 @@ var AdminTechnologyDetailView = Backbone.View.extend({
           help: 'txtPictureHelp',
           validations: [
             {
-              type: 'notEmpty',
-              message: 'Debe de seleccionar una foto',
-            }, 
+              type: 'customFunction',
+              message: 'Carrera repetida',
+              customFunction: function(){
+                var resp = true;
+                if(_this.upload.image == ''){
+                  resp = false;
+                }
+                return resp;
+              },
+            },
           ],
         },
         // description
@@ -138,9 +164,16 @@ var AdminTechnologyDetailView = Backbone.View.extend({
     });
   },
   setComponentsData: function(){
-    CKEDITOR.instances['detailTxt'].setData(this.technology.get('desription'));
+    var _this = this;
+    CKEDITOR.instances['detailTxt'].setData(_this.technology.get('description'));
     this.upload.path = this.technology.get('image');
-    this.upload.url = BASE_URL;
+    this.upload.url = STATIC_URL;
+  },
+  unSetComponentsData: function(){
+    var _this = this;
+    CKEDITOR.instances['detailTxt'].setData('');
+    this.upload.path = '';
+    this.upload.url = STATIC_URL;
   },
   save: function(){
     this.form.check();

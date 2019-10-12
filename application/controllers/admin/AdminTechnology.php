@@ -108,9 +108,14 @@ class AdminTechnology extends CI_Controller
         ->select('description')
         ->select('image')
         ->where('id', $this->input->get('id'))
-        ->find_one()
-  			->as_array();
-      $rpta = json_encode($rs);
+        ->find_one();
+      if($rs == false){
+        $rpta = json_encode(['ups', 'Tecnología no encontrada']);
+        $status = 404;
+      }else{
+        $rs = $rs->as_array();
+        $rpta = json_encode($rs);
+      }
     }catch (Exception $e) {
       $status = 500;
       $rpta = json_encode(['ups', $e->getMessage()]);
