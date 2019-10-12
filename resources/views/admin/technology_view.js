@@ -38,7 +38,7 @@ var AdminTechnologyView = Backbone.View.extend({
       collection: new TechnologyCollection(), // Backbone collection
       services: {
         list: BASE_URL + 'admin/technology/list', // String
-        save: BASE_URL + 'admin/technology/save', // String
+        save: BASE_URL + 'admin/technology/delete', // String
       },
       extraData: null,
       observer: { // not initialize

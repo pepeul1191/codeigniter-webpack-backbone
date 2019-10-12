@@ -172,7 +172,7 @@ var AdminTechnologyDetailView = Backbone.View.extend({
   unSetComponentsData: function(){
     var _this = this;
     CKEDITOR.instances['detailTxt'].setData('');
-    this.upload.path = '';
+    this.upload.path = null;
     this.upload.url = STATIC_URL;
   },
   save: function(){
