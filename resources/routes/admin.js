@@ -41,7 +41,8 @@ var AdminRouter = Backbone.Router.extend({
     var data = {
       title: 'Crear Tecnología',
     };
-    this.technologyDetailView.render(data);
+    var type = 'new';
+    this.technologyDetailView.render(data, type);
     this.technologyDetailView.loadComponents();
   },
   technologiesEdit: function(id){
@@ -51,7 +52,8 @@ var AdminRouter = Backbone.Router.extend({
     var data = {
       title: 'Editar Tecnología',
     };
-    this.technologyDetailView.render(data);
+    var type = 'edit';
+    this.technologyDetailView.render(data, type);
     this.technologyDetailView.loadComponents();
   },
   default: function(path){

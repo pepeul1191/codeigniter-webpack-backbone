@@ -21,7 +21,7 @@ class AdminUpload extends CI_Controller
     $resp_data = '';
     $rand = substr(str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 20);
     try {
-      $extension = explode('.', $_FILES['file']['name']); $extension = $extension[1];
+      $extension = explode('.', $_FILES['file']['name']); $extension = end($extension);
       $status = 200;
       move_uploaded_file(
         $_FILES['file']['tmp_name'], 
@@ -29,7 +29,7 @@ class AdminUpload extends CI_Controller
       );
       $resp_data = json_encode(array(
         'url' => $this->config->item('base_url'),
-        'path' => 'uploads/' . $rand . '.' . $extension,
+        'path' => 'public/uploads/' . $rand . '.' . $extension,
       ));
     }catch (Exception $e) {
       $status = 500;
