@@ -11,7 +11,7 @@
       <div class="col-md-6">
         <div class="form-group">
           <label for="txtName">Nombre</label>
-          <input type="text" class="form-control" id="txtName" aria-describedby="txtNameHelp" placeholder="Ingrese nombre" value="">
+          <input type="text" class="form-control" id="txtName" aria-describedby="txtNameHelp" placeholder="Ingrese nombre" value="<%= model.get('name') %>">
           <small id="txtNameHelp" class="form-text"></small>
         </div>
       </div>
@@ -37,7 +37,7 @@
       <div class="col-md-12">
         <div class="form-group">
           <label for="detailTxt">Descripción</label><br>
-          <textarea name="detailTxt" rows="10" cols="80" id="detailTxt"></textarea>
+          <textarea name="detailTxt" rows="10" cols="80" id="detailTxt"><%= model.get('description') %></textarea>
           <small id="detailTxtHelp" class="form-text"></small>
         </div>
       </div>

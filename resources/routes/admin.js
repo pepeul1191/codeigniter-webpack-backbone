@@ -51,10 +51,12 @@ var AdminRouter = Backbone.Router.extend({
     }
     var data = {
       title: 'Editar Tecnología',
+      id: id,
     };
     var type = 'edit';
     this.technologyDetailView.render(data, type);
     this.technologyDetailView.loadComponents();
+    this.technologyDetailView.setComponentsData();
   },
   default: function(path){
     var newURL = '/' + path;

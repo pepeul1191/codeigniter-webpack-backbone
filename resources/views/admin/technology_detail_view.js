@@ -12,6 +12,7 @@ var AdminTechnologyDetailView = Backbone.View.extend({
   form: null,
   technology: null,
 	initialize: function(){
+    this.technology = new Technology();
 	},
 	events: {
     'click #btnSave': 'save',
@@ -19,10 +20,17 @@ var AdminTechnologyDetailView = Backbone.View.extend({
   },
   render: function(data, type){
     if(type == 'new'){
-      this.technology = new Technology();
       this.technology.set('id', 'E');
-    }else{
-      alert('editado, TODO');
+      this.technology.set('name', '');
+      this.technology.set('desription', '');
+      this.technology.set('image', '');
+      data.model = this.technology;
+    }else{ // is edit
+      var respData = TechnologyService.getDetail(data.id);
+      this.technology.set('name', respData.message.name);
+      this.technology.set('description', respData.message.description);
+      this.technology.set('image', respData.message.image);
+      data.model = this.technology;
     }
 		var templateCompiled = null;
 		$.ajax({
@@ -38,7 +46,7 @@ var AdminTechnologyDetailView = Backbone.View.extend({
 				console.log(JSON.parse(xhr.responseText));
       }
 		});
-		this.$el.html(templateCompiled);
+    this.$el.html(templateCompiled);
   },
   loadComponents: function(){
     // editor
@@ -54,7 +62,7 @@ var AdminTechnologyDetailView = Backbone.View.extend({
       ],
       removeButtons: 'Underline,Strike,Subscript,Superscript,Anchor,Styles,Specialchar'
     });
-    // upload picture
+    // upload
     this.upload = new Upload({
       el: '#uploadForm',
       inputFile: 'filePicture',
@@ -128,6 +136,11 @@ var AdminTechnologyDetailView = Backbone.View.extend({
       },
       messageForm: 'message',
     });
+  },
+  setComponentsData: function(){
+    CKEDITOR.instances['detailTxt'].setData(this.technology.get('desription'));
+    this.upload.path = this.technology.get('image');
+    this.upload.url = BASE_URL;
   },
   save: function(){
     this.form.check();

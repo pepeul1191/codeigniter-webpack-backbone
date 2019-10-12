@@ -76,5 +76,6 @@ $route['admin/branch_type/list']['GET'] = 'admin/AdminBranchType/list';
   # technology
 $route['admin/technology/list']['GET'] = 'admin/AdminTechnology/list';
 $route['admin/technology/save']['POST'] = 'admin/AdminTechnology/save';
+$route['admin/technology/get']['GET'] = 'admin/AdminTechnology/get';
   # upload
 $route['upload/file']['POST'] = 'admin/AdminUpload/file';

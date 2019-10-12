@@ -35,7 +35,7 @@ class AdminTechnology extends CI_Controller
       ->set_output($rpta);
   }
 
-    public function save()
+  public function save()
   {
     // load session
     $this->load->library('session');
@@ -81,6 +81,43 @@ class AdminTechnology extends CI_Controller
     $this->output
       ->set_status_header($status)
       ->set_output($resp_data);
+  }
+
+  public function get()
+  {
+    // load session
+    $this->load->library('session');
+    // libraries as filters
+    // ???
+    //libraries as filters
+    $this->load->library('HttpAccess',
+      array(
+        'config' => $this->config,
+        'allow' => ['GET'],
+        'received' => $this->input->server('REQUEST_METHOD'),
+        'instance' => $this,
+      )
+    );
+    //controller function
+    $rpta = '';
+    $status = 200;
+    try {
+      $rs = \Model::factory('\Models\Admin\Technology', 'coa')
+        ->select('id')
+        ->select('name')
+        ->select('description')
+        ->select('image')
+        ->where('id', $this->input->get('id'))
+        ->find_one()
+  			->as_array();
+      $rpta = json_encode($rs);
+    }catch (Exception $e) {
+      $status = 500;
+      $rpta = json_encode(['ups', $e->getMessage()]);
+    }
+    $this->output
+      ->set_status_header($status)
+      ->set_output($rpta);
   }
 }
 
