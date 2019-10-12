@@ -1,8 +1,4 @@
 CREATE TABLE schema_migrations (version varchar(255) primary key);
-CREATE TABLE 'images' (
-	'id'	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-	'name'	VARCHAR(54) NOT NULL
-);
 CREATE TABLE 'technologies' (
 	'id'	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	'name'	VARCHAR(40) NOT NULL,
@@ -67,6 +63,16 @@ CREATE TABLE 'dentists_branches' (
   FOREIGN KEY(`dentist_id`) REFERENCES 'dentists' ( 'id' ) ON DELETE CASCADE,
   FOREIGN KEY(`branche_id`) REFERENCES 'branches' ( 'id' ) ON DELETE CASCADE
 );
+CREATE TABLE "images" (
+	`id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	`url`	VARCHAR(54) NOT NULL,
+	`alt`	VARCHAR(40)
+);
+CREATE VIEW vw_technologies_images AS
+  SELECT I.id, I.name, I.url, TI.id AS technology_id
+  FROM images I
+  JOIN technologys_images TI ON TI.technology_id = I.id
+  LIMIT 2000;
 -- Dbmate schema migrations
 INSERT INTO schema_migrations (version) VALUES
   ('20191003022142'),
@@ -80,4 +86,5 @@ INSERT INTO schema_migrations (version) VALUES
   ('20191004013242'),
   ('20191004013421'),
   ('20191010202820'),
-  ('20191010231913');
+  ('20191010231913'),
+  ('20191012192521');

@@ -2,7 +2,8 @@
 
 CREATE TABLE 'images' (
 	'id'	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-	'name'	VARCHAR(54) NOT NULL
+	'name'	VARCHAR(45) NOT NULL,
+	'url'	VARCHAR(54) NOT NULL
 );
 
 -- migrate:down

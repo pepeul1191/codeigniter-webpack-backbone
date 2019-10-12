@@ -3,6 +3,8 @@ import Upload from '../../libs/upload';
 import ValidationForm from '../../libs/validation_form';
 import TechnologyService from '../../services/admin/technology_service';
 import Technology from '../../models/technology';
+import Image from '../../models/image';
+import ImageCollection from '../../collections/image_collection';
 
 var AdminTechnologyDetailView = Backbone.View.extend({
   el: '#workspace',
@@ -17,6 +19,13 @@ var AdminTechnologyDetailView = Backbone.View.extend({
 	events: {
     'click #btnSave': 'save',
     'click #btnViewPicture': 'viewPicture',
+    // table
+    'click #imageTable > tbody > tr > td > i.file-select': 'imageFileSelect',
+    'click #imageTable > tbody > tr > td > i.file-upload': 'imageFileUpload',
+    'click #imageTable > tbody > tr > td > i.file-view': 'imageFileView',
+    'click #imageTable > tfoot > tr > td > button.save-table': 'saveTableImage',
+    'keyup #imageTable > tbody > tr > td > input.text': 'inputTextImage',
+    'click #imageTable > tfoot > tr > td > button.add-row': 'addRowImage',
   },
   render: function(data, type){
     this.technology.set('id', 'E');
@@ -162,15 +171,122 @@ var AdminTechnologyDetailView = Backbone.View.extend({
       },
       messageForm: 'message',
     });
+    // table
+    this.imageTable = new Table({
+      el: 'imageTable', // String
+      messageLabelId: 'message', // String
+      model: Image, // String
+      collection: new ImageCollection(), // Backbone collection
+      services: {
+        list: BASE_URL + 'admin/technology/image/list', // String
+        save: BASE_URL + 'admin/technology/image/save', // String
+      },
+      extraData: null,
+      observer: { // not initialize
+      new: [],
+      edit: [],
+      delete: [],
+      },
+      messages: {
+        list500: 'Ocurrió un error no esperado en listar las imágenes de la tecnología',
+        list501: 'Ocurrió un error en listar las imágenes de la tecnología',
+        list404: 'Recurso no encontrado - listar imágenes de la tecnología',
+        save500: 'Ocurrió un error no esperado en grabar los cambios',
+        save501: 'Ocurrió un error en grabar los cambios',
+        save404: 'Recurso no encontrado - guardar imágenes de la tecnología',
+        save200: 'Imágenes actualizados',
+      },
+      serverKeys: ['id', 'name', 'url'],
+      row: {
+        table: ['id', 'name', 'url'],
+        tds: [
+          { // id
+            type: 'tdId',
+            styles: 'display: none; ', 
+            edit: false,
+            key: 'id',
+          },
+          { // namne
+            type: 'input[text]',
+            styles: '', 
+            edit: true,
+            key: 'name',
+          },
+        ],
+        buttons: [
+          {
+            type: 'i',
+            operation: 'file-select',
+            class: 'fa-search',
+            styles: 'padding-left: 15px;',
+          },
+          {
+            type: 'i',
+            operation: 'file-upload',
+            class: 'fa-cloud-upload',
+            styles: 'padding-left: 15px;',
+          },
+          {
+            type: 'i',
+            operation: 'file-view',
+            class: 'fa-picture-o',
+            styles: 'padding-left: 15px;',
+          },
+        ],
+      },
+      upload: {
+        path: null,
+        inputFile: 'fileImage', // String
+        service: {
+          url: BASE_URL + 'upload/file',
+          formDataKey: 'file',
+          uploadMessage: 'Subiendo archivo...',
+          errorMessage: 'Ocurrió un error en subir el archivo',
+          successMessage: 'Carga completada'
+        },
+        keyModel: 'url',
+        extensions: {
+          allow: ['image/jpeg', 'image/png'],
+          message: 'Archivo no es de la extensión permitida',
+        },
+        size: {
+          allow: 500000, // bytes
+          message: 'Archivo supera el máximo permitido (0.5MB)',
+        },
+      }
+    });
   },
+  imageFileSelect: function(event){
+    this.imageTable.fileSelect(event);
+  },
+  imageFileUpload: function(event){
+    this.imageTable.fileUpload(event);
+  },
+  saveTableImage: function(event){
+    this.imageTable.saveTable(event);
+  },
+  inputTextImage: function(event){
+    this.imageTable.keyUpInputText(event);
+  },
+  imageFileView: function(event){
+    this.imageTable.imageFileView(event);
+  },
+  addRowImage: function(event){
+    this.imageTable.addRow(event);
+  },
+ // ???
   setComponentsData: function(){
     var _this = this;
     CKEDITOR.instances['detailTxt'].setData(_this.technology.get('description'));
     this.upload.path = this.technology.get('image');
     this.upload.url = STATIC_URL;
+    this.imageTable.services.list = BASE_URL + 'admin/technology/image/list?id=' + this.technology.get('id');
+    this.imageTable.list();
+    this.imageTable.extraData = {
+      technology_id: this.technology.get('id'),
+    };
   },
   unSetComponentsData: function(){
-    var _this = this;
     CKEDITOR.instances['detailTxt'].setData('');
     this.upload.path = null;
     this.upload.url = STATIC_URL;
