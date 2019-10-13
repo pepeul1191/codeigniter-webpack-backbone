@@ -1,6 +1,6 @@
 -- migrate:up
 
-CREATE TABLE 'technologys_images' (
+CREATE TABLE 'technologies_images' (
 	'id'	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	'technology_id'	INTEGER,
   'image_id'	INTEGER,
@@ -10,4 +10,4 @@ CREATE TABLE 'technologys_images' (
 
 -- migrate:down
 
-DROP TABLE IF EXISTS 'technologys_images';
+DROP TABLE IF EXISTS 'technologies_images';

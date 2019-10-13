@@ -196,9 +196,9 @@ var AdminTechnologyDetailView = Backbone.View.extend({
         save404: 'Recurso no encontrado - guardar imágenes de la tecnología',
         save200: 'Imágenes actualizados',
       },
-      serverKeys: ['id', 'name', 'url'],
+      serverKeys: ['id', 'alt', 'url'],
       row: {
-        table: ['id', 'name', 'url'],
+        table: ['id', 'alt', 'url'],
         tds: [
           { // id
             type: 'tdId',
@@ -210,7 +210,7 @@ var AdminTechnologyDetailView = Backbone.View.extend({
             type: 'input[text]',
             styles: '', 
             edit: true,
-            key: 'name',
+            key: 'alt',
           },
         ],
         buttons: [

@@ -79,5 +79,6 @@ $route['admin/technology/save']['POST'] = 'admin/AdminTechnology/save';
 $route['admin/technology/delete']['POST'] = 'admin/AdminTechnology/delete';
 $route['admin/technology/get']['GET'] = 'admin/AdminTechnology/get';
 $route['admin/technology/image/list']['GET'] = 'admin/AdminTechnology/imageList';
+$route['admin/technology/image/save']['POST'] = 'admin/AdminTechnology/imageSave';
   # upload
 $route['upload/file']['POST'] = 'admin/AdminUpload/file';

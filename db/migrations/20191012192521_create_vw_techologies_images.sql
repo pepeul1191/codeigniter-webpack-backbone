@@ -1,9 +1,9 @@
 -- migrate:up
 
 CREATE VIEW vw_technologies_images AS
-  SELECT I.id, I.name, I.url, TI.id AS technology_id 
+  SELECT I.id, I.alt, I.url, TI.technology_id AS technology_id 
   FROM images I
-  JOIN technologys_images TI ON TI.technology_id = I.id
+  JOIN technologies_images TI ON TI.image_id = I.id
   LIMIT 2000
 
 -- migrate:down

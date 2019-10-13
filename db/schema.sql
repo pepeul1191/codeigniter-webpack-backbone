@@ -5,7 +5,7 @@ CREATE TABLE 'technologies' (
   'description'	TEXT NOT NULL,
   'image'	VARCHAR(54) NOT NULL
 );
-CREATE TABLE 'technologys_images' (
+CREATE TABLE "technologies_images" (
 	'id'	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	'technology_id'	INTEGER,
   'image_id'	INTEGER,
@@ -69,9 +69,9 @@ CREATE TABLE "images" (
 	`alt`	VARCHAR(40)
 );
 CREATE VIEW vw_technologies_images AS
-  SELECT I.id, I.name, I.url, TI.id AS technology_id
+  SELECT I.id, I.alt, I.url, TI.technology_id AS technology_id
   FROM images I
-  JOIN technologys_images TI ON TI.technology_id = I.id
+  JOIN technologies_images TI ON TI.image_id = I.id
   LIMIT 2000;
 -- Dbmate schema migrations
 INSERT INTO schema_migrations (version) VALUES
