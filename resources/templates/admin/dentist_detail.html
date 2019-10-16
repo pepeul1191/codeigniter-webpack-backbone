@@ -1,0 +1,113 @@
+<h5><%= title %></h5>
+<div class="row">
+  <div class="col-md-12">
+    <div class="alert <%= messageClass %>" id="message" role="alert" id="formTitle"><%= message %></div>
+  </div>
+  <div class="col-md-12">
+    <h6 style="margin-bottom:15px">Detalles del Odontólogo</h6>
+  </div>
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="form-group">
+          <label for="txtName">Nombre</label>
+          <input type="text" class="form-control" id="txtName" aria-describedby="txtNameHelp" <% if(disabled) { %> disabled <% } %> placeholder="Ingrese nombre" value="<%= model.get('name') %>">
+          <small id="txtNameHelp" class="form-text"></small>
+        </div>
+      </div>
+      <div class="col-md-3" id="uploadForm">
+        <div class="form-group">
+          <label for="txtPicture">Imagen Principal</label><br>
+          <button id="btnSelectPicture" <% if(disabled) { %> disabled <% } %> class="btn btn-secondary" style="margin-top: 3px;" >  
+            <i class="fa fa-search btn-icon" aria-hidden="true"></i>
+            Buscar Archivo
+          </button>
+          <input type="file" class="custom-file-input d-none" id="filePicture">
+          <button id="btnUploadPicture" <% if(disabled) { %> disabled <% } %> class="btn btn-primary" style="margin-top: 3px; margin-left: 10px;">  
+            <i class="fa fa-upload btn-icon" aria-hidden="true"></i>
+            Subir
+          </button>
+          <button id="btnViewPicture" <% if(disabled) { %> disabled <% } %> class="btn btn-success" style="margin-top: 3px; margin-left: 10px;">  
+            <i class="fa fa-picture-o btn-icon" aria-hidden="true"></i>
+            Ver
+          </button>
+          <small id="txtPictureHelp" class="form-text"></small>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <label for="txtCop">COP</label>
+          <input type="text" class="form-control" id="txtCop" aria-describedby="txtCopHelp" <% if(disabled) { %> disabled <% } %> placeholder="Ingrese número COP" value="<%= model.get('cop') %>">
+          <small id="txtCopHelp" class="form-text"></small>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <label for="txtRne">RNE</label>
+          <input type="text" class="form-control" id="txtRne" aria-describedby="txtRneHelp" <% if(disabled) { %> disabled <% } %> placeholder="Ingrese número RNE" value="<%= model.get('rne') %>">
+          <small id="txtRneHelp" class="form-text"></small>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form-group">
+          <button id="btnSave" <% if(disabled) { %> disabled <% } %> class="btn btn-success pull-right" style="margin-top: 0px;" >
+            <i class="fa fa-check" style="margin-right:5px"></i>
+            Grabar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="row">
+      <div class="col-md-12">
+        <h6>Especialidades</h6>
+        <br>
+        <table class="table table-striped" styles="" id="imageTable">
+          <thead>
+            <tr>
+              <th style="width: 10px; display:none;">id</th>
+              <th style="width: 150px;">Nombre</th>
+              <th style="width: 80px; padding-left: 17px !important;">Botones</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <td colspan="1000" style="text-align:right">
+                <button <% if(disabled) { %> disabled <% } %> class="btn btn-primary add-row"> <i class="fa fa-plus" style="margin-right:5px"></i>Agregar Registro</button>
+                <button <% if(disabled) { %> disabled <% } %> class="btn btn-success save-table"> <i class="fa fa-check" style="margin-right:5px"></i>Guardar Cambios</button>
+                <input type="file" class="custom-file-input d-none" id="fileImage">
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="row">
+      <div class="col-md-12">
+        <h6>Sedes en las que Labora</h6>
+        <br>
+        <table class="table table-striped" styles="" id="imageTable">
+          <thead>
+            <tr>
+              <th style="width: 10px; display:none;">id</th>
+              <th style="width: 150px;">Nombre</th>
+              <th style="width: 80px; padding-left: 17px !important;">Botones</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <td colspan="1000" style="text-align:right">
+                <button <% if(disabled) { %> disabled <% } %> class="btn btn-primary add-row"> <i class="fa fa-plus" style="margin-right:5px"></i>Agregar Registro</button>
+                <button <% if(disabled) { %> disabled <% } %> class="btn btn-success save-table"> <i class="fa fa-check" style="margin-right:5px"></i>Guardar Cambios</button>
+                <input type="file" class="custom-file-input d-none" id="fileImage">
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
