@@ -67,6 +67,10 @@ $route['admin/specialisms']['GET'] = 'admin/adminIndex/index';
 $route['admin/technologies']['GET'] = 'admin/adminIndex/index';
 $route['admin/technologies/edit/(:num)']['GET'] = 'admin/adminIndex/index';
 $route['admin/technologies/new']['GET'] = 'admin/adminIndex/index';
+$route['admin/branches']['GET'] = 'admin/adminIndex/index';
+$route['admin/branches/new']['GET'] = 'admin/adminIndex/index';
+$route['admin/dentists']['GET'] = 'admin/adminIndex/index';
+$route['admin/dentists/new']['GET'] = 'admin/adminIndex/index';
 # admin rest
   # specialism
 $route['admin/specialism/list']['GET'] = 'admin/AdminSpecialism/list';

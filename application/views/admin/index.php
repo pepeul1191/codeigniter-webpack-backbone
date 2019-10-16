@@ -59,6 +59,12 @@
           <li class="nav-item">
             <a class="nav-link" href="/technologies">Tecnología</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/dentists">Odontólogos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/branches">Sedes</a>
+          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Tablas

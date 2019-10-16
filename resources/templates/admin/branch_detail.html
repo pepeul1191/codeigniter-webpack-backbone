@@ -1,0 +1,133 @@
+<h5><%= title %></h5>
+<div class="row">
+  <div class="col-md-12">
+    <div class="alert <%= messageClass %>" id="message" role="alert" id="formTitle"><%= message %></div>
+  </div>
+  <div class="col-md-12">
+    <h6 style="margin-bottom:15px">Detalles de la Sede</h6>
+  </div>
+  <div class="col-md-6">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="txtName">Nombre</label>
+          <input type="text" class="form-control" id="txtName" aria-describedby="txtNameHelp" <% if(disabled) { %> disabled <% } %> placeholder="Ingrese nombre" value="<%= model.get('name') %>">
+          <small id="txtNameHelp" class="form-text"></small>
+        </div>
+      </div>
+      <div class="col-md-6" id="uploadForm">
+        <div class="form-group">
+          <label for="txtPicture">Imagen Principal</label><br>
+          <button id="btnSelectPicture" <% if(disabled) { %> disabled <% } %> class="btn btn-secondary" style="margin-top: 3px;" >  
+            <i class="fa fa-search btn-icon" aria-hidden="true"></i>
+            Buscar Archivo
+          </button>
+          <input type="file" class="custom-file-input d-none" id="filePicture">
+          <button id="btnUploadPicture" <% if(disabled) { %> disabled <% } %> class="btn btn-primary" style="margin-top: 3px; margin-left: 10px;">  
+            <i class="fa fa-upload btn-icon" aria-hidden="true"></i>
+            Subir
+          </button>
+          <button id="btnViewPicture" <% if(disabled) { %> disabled <% } %> class="btn btn-success" style="margin-top: 3px; margin-left: 10px;">  
+            <i class="fa fa-picture-o btn-icon" aria-hidden="true"></i>
+            Ver
+          </button>
+          <small id="txtPictureHelp" class="form-text"></small>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="txtAddress">Dirección</label>
+          <input type="text" class="form-control" id="txtAddress" aria-describedby="txtAddressHelp" <% if(disabled) { %> disabled <% } %> placeholder="Dirección de la Sede" value="<%= model.get('address') %>">
+          <small id="txtAddressHelp" class="form-text"></small>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="txtPhone">Teléfono</label>
+          <input type="text" class="form-control" id="txtPhone" aria-describedby="txtPhoneHelp" <% if(disabled) { %> disabled <% } %> placeholder="Número de teléfono de la sede" value="<%= model.get('phone') %>">
+          <small id="txtPhoneHelp" class="form-text"></small>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="txtWhastapp">Whastapp</label>
+          <input type="text" class="form-control" id="txtWhastapp" aria-describedby="txtWhastappHelp" <% if(disabled) { %> disabled <% } %> placeholder="Núermo de Whastapp" value="<%= model.get('whastapp') %>">
+          <small id="txtWhastappHelp" class="form-text"></small>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="txtEmergency">Emergencias</label>
+          <input type="text" class="form-control" id="txtEmergency" aria-describedby="txtEmergencyHelp" <% if(disabled) { %> disabled <% } %> placeholder="Número de Emergencias" value="<%= model.get('emergency') %>">
+          <small id="txtEmergencyHelp" class="form-text"></small>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <label for="txtLatitude">Latitud</label>
+          <input type="text" class="form-control" id="txtLatitude" aria-describedby="txtLatitudeHelp" <% if(disabled) { %> disabled <% } %> placeholder="Latitud" value="<%= model.get('latitude') %>">
+          <small id="txtLatitudeHelp" class="form-text"></small>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <label for="txtLongitude">Longitud</label>
+          <input type="text" class="form-control" id="txtLongitude" aria-describedby="txtLongitudeHelp" <% if(disabled) { %> disabled <% } %> placeholder="Longitud" value="<%= model.get('longitude') %>">
+          <small id="txtLongitudeHelp" class="form-text"></small>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="slcBranchType">Tipo de Sede</label>
+          <select class="form-control" id="slcBranchType" <% if(disabled) { %> disabled <% } %> placeholder="Tipo de sede">
+            <option value="E"></option>
+            <option vaues="1">LIMA</option>
+            <option vaues="2">PROVINCIA</option>
+          </select>
+          <small id="slcBranchTypeHelp" class="form-text"></small>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="form-group">
+          <label for="txtDirector">Director de Sede </label>
+          <input type="text" class="form-control" id="txtDirector" aria-describedby="txtDirectorHelp" <% if(disabled) { %> disabled <% } %> placeholder="Director de Sede" value="<%= model.get('Director') %>">
+          <small id="txtDirectorHelp" class="form-text"></small>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form-group">
+          <button id="btnSave" <% if(disabled) { %> disabled <% } %> class="btn btn-success pull-right" style="margin-top: 0px;" >
+            <i class="fa fa-check" style="margin-right:5px"></i>
+            Grabar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="row">
+      <div class="col-md-12">
+        <h6>Imágenes</h6>
+        <br>
+        <table class="table table-striped" styles="" id="imageTable">
+          <thead>
+            <tr>
+              <th style="width: 10px; display:none;">id</th>
+              <th style="width: 150px;">Nombre</th>
+              <th style="width: 80px; padding-left: 17px !important;">Botones</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <td colspan="1000" style="text-align:right">
+                <button <% if(disabled) { %> disabled <% } %> class="btn btn-primary add-row"> <i class="fa fa-plus" style="margin-right:5px"></i>Agregar Registro</button>
+                <button <% if(disabled) { %> disabled <% } %> class="btn btn-success save-table"> <i class="fa fa-check" style="margin-right:5px"></i>Guardar Cambios</button>
+                <input type="file" class="custom-file-input d-none" id="fileImage">
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
