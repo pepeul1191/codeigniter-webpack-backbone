@@ -15,7 +15,7 @@ class AdminDentist extends CI_Controller
     $rne = $this->input->post('rne');
     $image = $this->input->post('image');
     if($image == ''){
-      $image = 'asstes/img/default-user.png';
+      $image = 'assets/img/default-user.png';
     }
     $resp_data = '';
     $status = 200;
@@ -90,8 +90,13 @@ class AdminDentist extends CI_Controller
       // deletes
       if(count($deletes) > 0){
 				foreach ($deletes as &$delete) {
+          // delete dentist specialism
+          \Model::factory('\Models\Admin\DentistSpecialism', 'coa')
+            ->where('dentist_id', $delete)
+            ->delete_many();
+          // delete dentist
 			    $d = \Model::factory('\Models\Admin\Dentist', 'coa')->find_one($delete);
-			    $d->delete();
+          $d->delete();
 				}
       }
       // commit
@@ -151,27 +156,33 @@ class AdminDentist extends CI_Controller
     $rpta = '';
     $status = 200;
     try {
-      // $people = ORM::for_table('person')->raw_query('SELECT p.* FROM person p JOIN role r ON p.role_id = r.id WHERE r.name = :role', array('role' => 'janitor'))->find_many();
-      $query = <<<'EOT'
-      SELECT T.id AS id, T.name AS name, (CASE WHEN (P.exist = 1) THEN 1 ELSE 0 END) AS exist FROM
-      (
-        SELECT id, name, 0 AS exist FROM specialisms
-      ) T 
-      LEFT JOIN 
-      (
-        SELECT C.id, C.name, 1 AS exist FROM 
-        specialisms C INNER JOIN dentists_specialisms TC ON
-        C.id = TC.specialism_id
-        WHERE TC.dentist_id = :dentist_id
-      ) P 
-      ON P.id = T.id
-    EOT;
-      $rs = \ORM::get_db('coa')->raw_query($query, array('dentist_id' => dentist_id))->find_many();
+      $pdo = \ORM::get_db('coa');
+      $query = '
+        SELECT T.id AS id, T.name AS name, (CASE WHEN (P.exist = 1) THEN 1 ELSE 0 END) AS exist FROM
+        (
+          SELECT id, name, 0 AS exist FROM specialisms
+        ) T 
+        LEFT JOIN 
+        (
+          SELECT C.id, C.name, 1 AS exist FROM 
+          specialisms C INNER JOIN dentists_specialisms TC ON
+          C.id = TC.specialism_id
+          WHERE TC.dentist_id = %d
+        ) P 
+        ON P.id = T.id
+      ';
+      $rs = array();
+      foreach($pdo->query(sprintf($query, $this->input->get('id'))) as $row) {
+        array_push($rs, array(
+          'id' => $row['id'],
+          'name' => $row['name'],
+          'exist' => $row['exist'],
+        ));
+      }
       if($rs == false){
         $rpta = json_encode(['ups', 'Odotólogo no tiene especialidades asociadas']);
         $status = 404;
       }else{
-        $rs = $rs->as_array();
         $rpta = json_encode($rs);
       }
     }catch (Exception $e) {
@@ -181,6 +192,57 @@ class AdminDentist extends CI_Controller
     $this->output
       ->set_status_header($status)
       ->set_output($rpta);
+  }
+
+  public function specialismSave()
+  {
+    // load session
+    $this->load->library('session');
+    // libraries as filters
+    // ???
+    //controller function
+    \ORM::get_db('coa')->beginTransaction();
+    $data = json_decode($this->input->post('data'));
+		$edits = $data->{'edit'};
+    $dentist_id = $data->{'extra'}->{'dentist_id'};
+    $resp_data = '';
+    $status = 200;
+    try {
+      // edits
+      if(count($edits) > 0){
+				foreach ($edits as &$edit) {
+          $specialism_id = $edit->{'id'};
+          $exist = $edit->{'exist'};
+          $e = \Model::factory('\Models\Admin\DentistSpecialism', 'coa')
+            ->where('specialism_id', $specialism_id)
+            ->where('dentist_id', $dentist_id)
+            ->find_one();
+          if($exist == 0){
+            if($e != false){
+              $e->delete();
+            }
+          }else{
+            if($e == false){
+              $n = \Model::factory('\Models\Admin\DentistSpecialism', 'coa')->create();
+              $n->specialism_id = $specialism_id;
+              $n->dentist_id = $dentist_id;
+              $n->save();
+            }
+          }
+        }
+      }
+      // commit
+      \ORM::get_db('coa')->commit();
+      // response data
+      $resp_data = json_encode(array());
+    }catch (Exception $e) {
+      $status = 500;
+      var_dump($e->getTrace());
+      $resp_data = json_encode(['ups', $e->getMessage()]);
+    }
+    $this->output
+      ->set_status_header($status)
+      ->set_output($resp_data);
   }
 }
 

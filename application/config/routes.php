@@ -70,7 +70,7 @@ $route['admin/technologies/new']['GET'] = 'admin/adminIndex/index';
 $route['admin/branches']['GET'] = 'admin/adminIndex/index';
 $route['admin/branches/new']['GET'] = 'admin/adminIndex/index';
 $route['admin/dentists']['GET'] = 'admin/adminIndex/index';
-$route['admin/dentists/new']['GET'] = 'admin/adminIndex/index';
+$route['admin/dentist/new']['GET'] = 'admin/adminIndex/index';
 $route['admin/dentist/edit/(:num)']['GET'] = 'admin/adminIndex/index';
 # admin rest
   # specialism
@@ -91,6 +91,6 @@ $route['admin/dentist/save']['POST'] = 'admin/AdminDentist/save';
 $route['admin/dentist/delete']['POST'] = 'admin/AdminDentist/delete';
 $route['admin/dentist/get']['GET'] = 'admin/AdminDentist/get';
 $route['admin/dentist/specialism/list']['GET'] = 'admin/AdminDentist/specialismGet';
-// $route['admin/dentist/image/save']['POST'] = 'admin/AdminDentist/imageSave';
+$route['admin/dentist/specialism/save']['POST'] = 'admin/AdminDentist/specialismSave';
   # upload
 $route['upload/file']['POST'] = 'admin/AdminUpload/file';

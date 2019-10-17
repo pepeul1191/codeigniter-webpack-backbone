@@ -19,8 +19,12 @@ var AdminDentistDetailView = Backbone.View.extend({
     this.dentist = new Dentist();
 	},
 	events: {
+    // upload
     'click #btnSave': 'save',
     'click #btnViewPicture': 'viewPicture',
+    // specialimsTable
+    'click #specialimsTableSave': 'saveSpecialimsTable',
+    'change #specialimsTable > tbody > tr > td > input.input-check': 'clickCheckBoxSpecialimsTable',
   },
   render: function(data, type){
     this.dentist.unSet();
@@ -158,8 +162,8 @@ var AdminDentistDetailView = Backbone.View.extend({
       model: Specialism, // String
       collection: new SpecialismCollection(), // Backbone collection
       services: {
-        list: BASE_URL + 'admin/doctor/image/list', // String
-        save: BASE_URL + 'admin/branch/image/save', // String
+        list: BASE_URL + 'admin/doctor/specialism/list', // String
+        save: BASE_URL + 'admin/dentist/specialism/save', // String
       },
       extraData: null,
       observer: { // not initialize
@@ -174,11 +178,11 @@ var AdminDentistDetailView = Backbone.View.extend({
         save500: 'Ocurrió un error no esperado en grabar los cambios',
         save501: 'Ocurrió un error en grabar los cambios',
         save404: 'Recurso no encontrado - guardar especialidades',
-        save200: 'Imágenes actualizados',
+        save200: 'Especialdiades del odontólogo actualizadas',
       },
-      serverKeys: ['id', 'alt', 'url'],
+      serverKeys: ['id', 'name', 'exist'],
       row: {
-        table: ['id', 'alt', 'url'],
+        table: ['id', 'name', 'exist'],
         tds: [
           { // id
             type: 'tdId',
@@ -187,32 +191,23 @@ var AdminDentistDetailView = Backbone.View.extend({
             key: 'id',
           },
           { // namne
-            type: 'input[text]',
+            type: 'td',
             styles: '', 
             edit: true,
-            key: 'alt',
+            key: 'name',
+          },
+          { // exist
+            type: 'check',
+            styles: 'margin-left: 30px;', 
+            edit: true,
+            key: 'exist',
+            values: {
+              yes: 1,
+              no: 0,
+            },
           },
         ],
-        buttons: [
-          {
-            type: 'i',
-            operation: 'file-select',
-            class: 'fa-search',
-            styles: 'padding-left: 15px;',
-          },
-          {
-            type: 'i',
-            operation: 'file-upload',
-            class: 'fa-cloud-upload',
-            styles: 'padding-left: 15px;',
-          },
-          {
-            type: 'i',
-            operation: 'file-view',
-            class: 'fa-picture-o',
-            styles: 'padding-left: 15px;',
-          },
-        ],
+        buttons: [],
       },
       upload: {
         path: null,
@@ -236,21 +231,41 @@ var AdminDentistDetailView = Backbone.View.extend({
       }
     });
   },
+  saveSpecialimsTable: function(event){
+    if(this.dentist.get('id') != 'E'){
+      this.specialimsTable.extraData = {
+        dentist_id: parseInt(this.dentist.get('id')),
+      };
+      this.specialimsTable.saveTable(event);
+    }else{
+      $('#message').removeClass('alert-success');
+      $('#message').removeClass('alert-warning');
+      $('#message').addClass('alert-danger');
+      $('#message').html('Debe registrar primero al odontólogo');
+    }
+  },
+  clickCheckBoxSpecialimsTable: function(event){
+    this.specialimsTable.clickCheckBox(event);
+  },
   // ???
   setComponentsData: function(){
     var _this = this;
     this.upload.path = this.dentist.get('image');
     this.upload.url = STATIC_URL;
-    /* this.specialimsTable.services.list = BASE_URL + 'admin/dentist/image/list?id=' + this.dentist.get('id');
+    this.specialimsTable.services.list = BASE_URL + 'admin/dentist/specialism/list?id=' + this.dentist.get('id');
     this.specialimsTable.list();
     this.specialimsTable.extraData = {
       dentist_id: this.dentist.get('id'),
     };
-    */
   },
   unSetComponentsData: function(){
     this.upload.path = null;
     this.upload.url = STATIC_URL;
+    this.specialimsTable.services.list = BASE_URL + 'admin/dentist/specialism/list?id=0';
+    this.specialimsTable.list();
+    this.specialimsTable.extraData = {
+      dentist_id: this.dentist.get('id'),
+    };
   },
   save: function(){
     this.form.check();
