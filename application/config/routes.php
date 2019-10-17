@@ -90,7 +90,7 @@ $route['admin/dentist/list']['GET'] = 'admin/AdminDentist/list';
 $route['admin/dentist/save']['POST'] = 'admin/AdminDentist/save';
 $route['admin/dentist/delete']['POST'] = 'admin/AdminDentist/delete';
 $route['admin/dentist/get']['GET'] = 'admin/AdminDentist/get';
-// $route['admin/dentist/image/list']['GET'] = 'admin/AdminDentist/imageList';
+$route['admin/dentist/specialism/list']['GET'] = 'admin/AdminDentist/specialismGet';
 // $route['admin/dentist/image/save']['POST'] = 'admin/AdminDentist/imageSave';
   # upload
 $route['upload/file']['POST'] = 'admin/AdminUpload/file';

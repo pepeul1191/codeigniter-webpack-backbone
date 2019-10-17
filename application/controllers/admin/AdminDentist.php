@@ -140,6 +140,48 @@ class AdminDentist extends CI_Controller
       ->set_status_header($status)
       ->set_output($rpta);
   }
+
+  public function specialismGet()
+  {
+    // load session
+    $this->load->library('session');
+    // libraries as filters
+    // ???
+    //controller function
+    $rpta = '';
+    $status = 200;
+    try {
+      // $people = ORM::for_table('person')->raw_query('SELECT p.* FROM person p JOIN role r ON p.role_id = r.id WHERE r.name = :role', array('role' => 'janitor'))->find_many();
+      $query = <<<'EOT'
+      SELECT T.id AS id, T.name AS name, (CASE WHEN (P.exist = 1) THEN 1 ELSE 0 END) AS exist FROM
+      (
+        SELECT id, name, 0 AS exist FROM specialisms
+      ) T 
+      LEFT JOIN 
+      (
+        SELECT C.id, C.name, 1 AS exist FROM 
+        specialisms C INNER JOIN dentists_specialisms TC ON
+        C.id = TC.specialism_id
+        WHERE TC.dentist_id = :dentist_id
+      ) P 
+      ON P.id = T.id
+    EOT;
+      $rs = \ORM::get_db('coa')->raw_query($query, array('dentist_id' => dentist_id))->find_many();
+      if($rs == false){
+        $rpta = json_encode(['ups', 'Odotólogo no tiene especialidades asociadas']);
+        $status = 404;
+      }else{
+        $rs = $rs->as_array();
+        $rpta = json_encode($rs);
+      }
+    }catch (Exception $e) {
+      $status = 500;
+      $rpta = json_encode(['ups', $e->getMessage()]);
+    }
+    $this->output
+      ->set_status_header($status)
+      ->set_output($rpta);
+  }
 }
 
 ?>
