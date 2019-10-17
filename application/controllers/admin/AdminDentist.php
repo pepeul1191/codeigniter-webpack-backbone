@@ -14,6 +14,9 @@ class AdminDentist extends CI_Controller
     $cop = $this->input->post('cop');
     $rne = $this->input->post('rne');
     $image = $this->input->post('image');
+    if($image == ''){
+      $image = 'asstes/img/default-user.png';
+    }
     $resp_data = '';
     $status = 200;
     try {
