@@ -23,21 +23,6 @@ CREATE TABLE 'dentists' (
   'rne'	VARCHAR(10),
   'image'	VARCHAR(54) NOT NULL
 );
-CREATE TABLE 'branches' (
-	'id'	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-	'name'	VARCHAR(30) NOT NULL,
-  'addrress'	VARCHAR(50) NOT NULL,
-  'phone'	VARCHAR(25),
-  'whatsapp'	VARCHAR(25),
-  'emergency'	VARCHAR(25),
-  'image'	VARCHAR(54) NOT NULL,
-  'latitude' FLOAT,
-  'longitude' FLOAT,
-  'branch_type_id'	INTEGER,
-  'director_id'	INTEGER,
-  FOREIGN KEY(`branch_type_id`) REFERENCES 'branch_types' ( 'id' ) ON DELETE CASCADE,
-  FOREIGN KEY(`director_id`) REFERENCES 'dentists' ( 'id' ) ON DELETE CASCADE
-);
 CREATE TABLE 'branches_images' (
 	'id'	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	'branch_id'	INTEGER,
@@ -73,6 +58,20 @@ CREATE VIEW vw_technologies_images AS
   FROM images I
   JOIN technologies_images TI ON TI.image_id = I.id
   LIMIT 2000;
+CREATE TABLE "branches" (
+	`id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	`name`	VARCHAR(30) NOT NULL,
+	`address`	VARCHAR(50) NOT NULL,
+	`phone`	VARCHAR(25),
+	`whatsapp`	VARCHAR(25),
+	`emergency`	VARCHAR(25),
+	`image`	VARCHAR(54) NOT NULL,
+	`latitude`	FLOAT,
+	`longitude`	FLOAT,
+	`branch_type_id`	INTEGER,
+	`director_id`	INTEGER,
+	FOREIGN KEY(`branch_type_id`) REFERENCES 'branch_types' ( 'id' ) ON DELETE CASCADE
+);
 -- Dbmate schema migrations
 INSERT INTO schema_migrations (version) VALUES
   ('20191003022142'),
@@ -89,4 +88,6 @@ INSERT INTO schema_migrations (version) VALUES
   ('20191010231913'),
   ('20191012192521'),
   ('20191017231747'),
-  ('20191017232547');
+  ('20191017232547'),
+  ('20191017232821'),
+  ('20191017232941');
