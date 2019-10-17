@@ -1,8 +1,8 @@
 import Table from '../../libs/table';
-import BranchCollection from '../../collections/dentist_collection';
-import Branch from '../../models/dentist';
+import DentistCollection from '../../collections/dentist_collection';
+import Dentist from '../../models/dentist';
 
-var AdminBranchView = Backbone.View.extend({
+var AdminDentistView = Backbone.View.extend({
   el: '#workspace',
   system_id: null,
   dentistTable: null,
@@ -37,11 +37,11 @@ var AdminBranchView = Backbone.View.extend({
     this.dentistTable = new Table({
       el: 'dentistTable', // String
       messageLabelId: 'message', // String
-      model: Branch, // String
-      collection: new BranchCollection(), // Backbone collection
+      model: Dentist, // String
+      collection: new DentistCollection(), // Backbone collection
       services: {
-        list: BASE_URL + 'admin/branch/list', // String
-        save: BASE_URL + 'admin/branch/save', // String
+        list: BASE_URL + 'admin/dentist/list', // String
+        save: BASE_URL + 'admin/dentist/save', // String
       },
       extraData: null,
       observer: { // not initialize
@@ -58,9 +58,9 @@ var AdminBranchView = Backbone.View.extend({
         save404: 'Recurso no encontrado - guardar dentistas',
         save200: 'Dentistas actualizadas',
       },
-      serverKeys: ['id', 'name'],
+      serverKeys: ['id', 'name', 'cop', 'rne'],
       row: {
-        table: ['id', 'name'],
+        table: ['id', 'name', 'cop', 'rne'],
         tds: [
           { // id
             type: 'tdId',
@@ -68,11 +68,23 @@ var AdminBranchView = Backbone.View.extend({
             edit: false,
             key: 'id',
           },
-          { // namne
-            type: 'input[text]',
+          { // name
+            type: 'td',
             styles: '', 
             edit: true,
             key: 'name',
+          },
+          { // cop
+            type: 'td',
+            styles: '', 
+            edit: true,
+            key: 'cop',
+          },
+          { // rne
+            type: 'td',
+            styles: '', 
+            edit: true,
+            key: 'rne',
           },
         ],
         buttons: [
@@ -90,15 +102,9 @@ var AdminBranchView = Backbone.View.extend({
   deleteRowDentist: function(event){
     this.dentistTable.deleteRow(event);
   },
-  inputTextDentist: function(event){
-    this.dentistTable.keyUpInputText(event);
-  },
-  addRowDentist: function(event){
-    this.dentistTable.addRow(event);
-  },
   saveTableDentist: function(event){
     this.dentistTable.saveTable(event);
   },
 });
 
-export default AdminBranchView;
+export default AdminDentistView;
