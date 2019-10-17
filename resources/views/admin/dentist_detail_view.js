@@ -25,7 +25,7 @@ var AdminDentistDetailView = Backbone.View.extend({
   render: function(data, type){
     this.dentist.unSet();
     if(type == 'new'){
-      data.model = this.branch;
+      data.model = this.dentist;
       data.disabled = false;
       data.message = '';
       data.messageClass = '';
@@ -255,17 +255,18 @@ var AdminDentistDetailView = Backbone.View.extend({
     this.form.check();
     if(this.form.isOk == true){
       var _this = this;
+      console.log(this.dentist)
       this.dentist.set('name', $('#txtName').val());
       this.dentist.set('cop', $('#txtCop').val());
       this.dentist.set('rne', $('#txtRne').val());
       this.dentist.set('image', _this.upload.path);
-      var respData = DentistService.saveDetail(this.branch, 'message');
+      var respData = DentistService.saveDetail(this.dentist, 'message');
       if(respData.status == 200){
         if(respData.message == ''){
           // is a edited
         }else{
           // is a created, change title and set modelId
-          this.branch.set('id', respData.message);
+          this.dentist.set('id', respData.message);
           $('#formTitle').html('Editar ondontólogo');
         }
       }

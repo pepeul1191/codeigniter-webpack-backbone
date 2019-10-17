@@ -84,5 +84,12 @@ $route['admin/technology/delete']['POST'] = 'admin/AdminTechnology/delete';
 $route['admin/technology/get']['GET'] = 'admin/AdminTechnology/get';
 $route['admin/technology/image/list']['GET'] = 'admin/AdminTechnology/imageList';
 $route['admin/technology/image/save']['POST'] = 'admin/AdminTechnology/imageSave';
+  # dentist
+// $route['admin/dentist/list']['GET'] = 'admin/AdminTechnology/list';
+$route['admin/dentist/save']['POST'] = 'admin/AdminDentist/save';
+// $route['admin/dentist/delete']['POST'] = 'admin/AdminTechnology/delete';
+// $route['admin/dentist/get']['GET'] = 'admin/AdminTechnology/get';
+// $route['admin/dentist/image/list']['GET'] = 'admin/AdminTechnology/imageList';
+// $route['admin/dentist/image/save']['POST'] = 'admin/AdminTechnology/imageSave';
   # upload
 $route['upload/file']['POST'] = 'admin/AdminUpload/file';

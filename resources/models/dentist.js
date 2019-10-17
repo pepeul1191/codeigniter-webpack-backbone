@@ -7,11 +7,11 @@ var Dentist = Backbone.Model.extend({
     this.image = null;
   },
   unSet: function(){
-    this.id = 'E';
-    this.name = null;
-    this.cop = null;
-    this.rne = null;
-    this.image = null;
+    this.set('id', 'E');
+    this.set('name', null);
+    this.set('cop', null);
+    this.set('rne', null);
+    this.set('image', null);
   },
 });
 

@@ -112,7 +112,7 @@ var AdminRouter = Backbone.Router.extend({
       this.dentistDetailView = new AdminDentistDetailView();
     }
     var data = {
-      title: 'Crear Sede',
+      title: 'Gestión de Odontólogo',
       id: 'E',
       messageClass: '',
       disabled: false,
