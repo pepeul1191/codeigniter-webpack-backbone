@@ -239,13 +239,14 @@ var AdminDentistDetailView = Backbone.View.extend({
   // ???
   setComponentsData: function(){
     var _this = this;
-    this.upload.path = this.branch.get('image');
+    this.upload.path = this.dentist.get('image');
     this.upload.url = STATIC_URL;
-    this.specialimsTable.services.list = BASE_URL + 'admin/branch/image/list?id=' + this.branch.get('id');
+    /* this.specialimsTable.services.list = BASE_URL + 'admin/dentist/image/list?id=' + this.dentist.get('id');
     this.specialimsTable.list();
     this.specialimsTable.extraData = {
-      branch_id: this.branch.get('id'),
+      dentist_id: this.dentist.get('id'),
     };
+    */
   },
   unSetComponentsData: function(){
     this.upload.path = null;

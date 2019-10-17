@@ -72,6 +72,74 @@ class AdminDentist extends CI_Controller
       ->set_status_header($status)
       ->set_output($rpta);
   }
+
+  public function delete()
+  {
+    // load session
+    $this->load->library('session');
+    // libraries as filters
+    // ???
+    //controller function
+    \ORM::get_db('coa')->beginTransaction();
+    $data = json_decode($this->input->post('data'));
+    $deletes = $data->{'delete'};
+    $created_ids = [];
+    $resp_data = '';
+    $status = 200;
+    try {
+      // deletes
+      if(count($deletes) > 0){
+				foreach ($deletes as &$delete) {
+			    $d = \Model::factory('\Models\Admin\Dentist', 'coa')->find_one($delete);
+			    $d->delete();
+				}
+      }
+      // commit
+      \ORM::get_db('coa')->commit();
+      // response data
+      $resp_data = json_encode(array());
+    }catch (Exception $e) {
+      $status = 500;
+      $resp_data = json_encode(['ups', $e->getMessage()]);
+    }
+    $this->output
+      ->set_status_header($status)
+      ->set_output($resp_data);
+  }
+
+  public function get()
+  {
+    // load session
+    $this->load->library('session');
+    // libraries as filters
+    // ???
+    //controller function
+    $rpta = '';
+    $status = 200;
+    try {
+      $rs = \Model::factory('\Models\Admin\Dentist', 'coa')
+        ->select('id')
+        ->select('name')
+        ->select('rne')
+        ->select('cop')
+        ->select('image')
+        ->where('id', $this->input->get('id'))
+        ->find_one();
+      if($rs == false){
+        $rpta = json_encode(['ups', 'Odotólogo no encontrado']);
+        $status = 404;
+      }else{
+        $rs = $rs->as_array();
+        $rpta = json_encode($rs);
+      }
+    }catch (Exception $e) {
+      $status = 500;
+      $rpta = json_encode(['ups', $e->getMessage()]);
+    }
+    $this->output
+      ->set_status_header($status)
+      ->set_output($rpta);
+  }
 }
 
 ?>

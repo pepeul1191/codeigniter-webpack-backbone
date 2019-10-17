@@ -41,7 +41,7 @@ var AdminDentistView = Backbone.View.extend({
       collection: new DentistCollection(), // Backbone collection
       services: {
         list: BASE_URL + 'admin/dentist/list', // String
-        save: BASE_URL + 'admin/dentist/save', // String
+        save: BASE_URL + 'admin/dentist/delete', // String
       },
       extraData: null,
       observer: { // not initialize
@@ -88,6 +88,14 @@ var AdminDentistView = Backbone.View.extend({
           },
         ],
         buttons: [
+          {
+            type: 'a',
+            operation: '',
+            class: 'fa-pencil',
+            styles: 'padding-left: 0px;',
+            url: '/dentist/edit/{0}',
+            keysFormat: ['id', 'names', ],
+          },
           {
             type: 'i',
             operation: 'delete',

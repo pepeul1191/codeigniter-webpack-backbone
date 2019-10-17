@@ -24,7 +24,8 @@ var AdminRouter = Backbone.Router.extend({
     'branches/new': 'branchesNew',
     // dentist
     'dentists': 'dentists',
-    'dentists/new': 'dentistsNew',
+    'dentist/new': 'dentistsNew',
+    'dentist/edit/:id': 'dentistsEdit',
     // others
     '*path' : 'default',
   },
@@ -99,7 +100,7 @@ var AdminRouter = Backbone.Router.extend({
     this.branchDetailView.loadComponents();
     this.branchDetailView.unSetComponentsData();
   },
-  // doctor
+  // denitsts
   dentists: function(){
     if(this.dentistView == null){
       this.dentistView = new AdminDentistView();
@@ -121,6 +122,21 @@ var AdminRouter = Backbone.Router.extend({
     this.dentistDetailView.render(data, type);
     this.dentistDetailView.loadComponents();
     this.dentistDetailView.unSetComponentsData();
+  },
+  dentistsEdit: function(id){
+    if(this.dentistDetailView == null){
+      this.dentistDetailView = new AdminDentistDetailView();
+    }
+    var data = {
+      title: 'Editar Odontólogo',
+      id: id,
+      messageClass: 'alert-danger',
+      disabled: true,
+    };
+    var type = 'edit';
+    this.dentistDetailView.render(data, type);
+    this.dentistDetailView.loadComponents();
+    this.dentistDetailView.setComponentsData();
   },
   // default
   default: function(path){

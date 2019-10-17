@@ -71,6 +71,7 @@ $route['admin/branches']['GET'] = 'admin/adminIndex/index';
 $route['admin/branches/new']['GET'] = 'admin/adminIndex/index';
 $route['admin/dentists']['GET'] = 'admin/adminIndex/index';
 $route['admin/dentists/new']['GET'] = 'admin/adminIndex/index';
+$route['admin/dentist/edit/(:num)']['GET'] = 'admin/adminIndex/index';
 # admin rest
   # specialism
 $route['admin/specialism/list']['GET'] = 'admin/AdminSpecialism/list';
@@ -87,8 +88,8 @@ $route['admin/technology/image/save']['POST'] = 'admin/AdminTechnology/imageSave
   # dentist
 $route['admin/dentist/list']['GET'] = 'admin/AdminDentist/list';
 $route['admin/dentist/save']['POST'] = 'admin/AdminDentist/save';
-// $route['admin/dentist/delete']['POST'] = 'admin/AdminDentist/delete';
-// $route['admin/dentist/get']['GET'] = 'admin/AdminDentist/get';
+$route['admin/dentist/delete']['POST'] = 'admin/AdminDentist/delete';
+$route['admin/dentist/get']['GET'] = 'admin/AdminDentist/get';
 // $route['admin/dentist/image/list']['GET'] = 'admin/AdminDentist/imageList';
 // $route['admin/dentist/image/save']['POST'] = 'admin/AdminDentist/imageSave';
   # upload
