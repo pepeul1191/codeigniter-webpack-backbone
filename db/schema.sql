@@ -78,10 +78,11 @@ CREATE VIEW vw_branches_types AS
   JOIN branch_types T ON T.id = B.branch_type_id
   LIMIT 2000;
 CREATE VIEW vw_dentists_branches AS
-  SELECT DB.id AS dentist_id, B.id AS branch_id, (T.name || ', ' || B.name || ', ' || B.address) AS branch_name
+  SELECT DB.id, DB.dentist_id AS dentist_id, B.id AS branch_id, (T.name || ', ' || B.name || ', ' || B.address) AS branch_name
   FROM branches B
   JOIN branch_types T ON T.id = B.branch_type_id
   JOIN dentists_branches DB ON DB.branch_id = B.id
+  WHERE dentist_id = 27
   LIMIT 2000;
 -- Dbmate schema migrations
 INSERT INTO schema_migrations (version) VALUES

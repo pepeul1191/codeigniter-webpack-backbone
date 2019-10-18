@@ -278,10 +278,8 @@ class AdminDentist extends CI_Controller
     $rpta = '';
     $status = 200;
     try {
-      $name = $this->input->get('name');
       $rs = \Model::factory('\Models\Admin\VWDentistBranch', 'coa')
-        ->where_like('dentist_id', $this->input->get('id'))
-        ->limit(10)
+        ->where('dentist_id', $this->input->get('id'))
         ->find_array();
       $rpta = json_encode($rs);
     }catch (Exception $e) {
@@ -291,6 +289,69 @@ class AdminDentist extends CI_Controller
     $this->output
       ->set_status_header($status)
       ->set_output($rpta);
+  }
+
+  public function branchesSave()
+  {
+    // load session
+    $this->load->library('session');
+    // libraries as filters
+    // ???
+    //controller function
+    \ORM::get_db('coa')->beginTransaction();
+    $data = json_decode($this->input->post('data'));
+    $news = $data->{'new'};
+    $edits = $data->{'edit'};
+    $deletes = $data->{'delete'};
+    $dentist_id = $data->{'extra'}->{'dentist_id'};
+    $created_ids = [];
+    $resp_data = '';
+    $status = 200;
+    try {
+      // news
+      if(count($news) > 0){
+        foreach ($news as &$new) {
+          $n = \Model::factory('\Models\Admin\DentistBranch', 'coa')->create();
+          $n->branch_id = $new->{'branch_id'};
+          $n->dentist_id = $dentist_id;
+          $n->save();
+          $temp = [];
+          $temp['tempId'] = $new->{'id'};
+          $temp['newId'] = $n->id;
+          array_push( $created_ids, array(
+            'tempId' => $new->{'id'},
+            'newId' => $n->id,
+          ));
+        }
+      }
+      // edits
+      if(count($edits) > 0){
+        foreach ($edits as &$edit) {
+          $e = \Model::factory('\Models\Admin\DentistBranch', 'coa')
+            ->where('id', $edit->{'id'})
+            ->find_one();
+          $e->branch_id = $edit->{'branch_id'};
+          $e->save();
+        }
+      }
+      // deletes
+      if(count($deletes) > 0){
+        foreach ($deletes as &$delete) {
+          $d = \Model::factory('\Models\Admin\DentistBranch', 'coa')->find_one($delete);
+          $d->delete();
+        }
+      }
+      // commit
+      \ORM::get_db('coa')->commit();
+      // response data
+      $resp_data = json_encode($created_ids);
+    }catch (Exception $e) {
+      $status = 500;
+      $resp_data = json_encode(['ups', $e->getMessage()]);
+    }
+    $this->output
+      ->set_status_header($status)
+      ->set_output($resp_data);
   }
 }
 
