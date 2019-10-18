@@ -82,7 +82,6 @@ CREATE VIEW vw_dentists_branches AS
   FROM branches B
   JOIN branch_types T ON T.id = B.branch_type_id
   JOIN dentists_branches DB ON DB.branch_id = B.id
-  WHERE dentist_id = 27
   LIMIT 2000;
 -- Dbmate schema migrations
 INSERT INTO schema_migrations (version) VALUES
