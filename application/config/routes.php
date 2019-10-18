@@ -92,5 +92,8 @@ $route['admin/dentist/delete']['POST'] = 'admin/AdminDentist/delete';
 $route['admin/dentist/get']['GET'] = 'admin/AdminDentist/get';
 $route['admin/dentist/specialism/list']['GET'] = 'admin/AdminDentist/specialismGet';
 $route['admin/dentist/specialism/save']['POST'] = 'admin/AdminDentist/specialismSave';
+$route['admin/dentist/branch/list']['GET'] = 'admin/AdminDentist/branchesGet';
+  # branch
+$route['admin/branch/list']['GET'] = 'admin/AdminBranch/list';
   # upload
 $route['upload/file']['POST'] = 'admin/AdminUpload/file';

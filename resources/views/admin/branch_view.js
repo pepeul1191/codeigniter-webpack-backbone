@@ -5,15 +5,19 @@ import Branch from '../../models/branch';
 var AdminBranchView = Backbone.View.extend({
   el: '#workspace',
   system_id: null,
-  branchTable: null,
+  branchTableLima: null,
+  branchTableProvince: null,
 	initialize: function(){
 	},
 	events: {
-    // table departmentTable events
-    'click #branchTable > tbody > tr > td > i.delete': 'deleteRowBranch',
-    'keyup #branchTable > tbody > tr > td > input.text': 'inputTextBranch',
-    'click #branchTable > tfoot > tr > td > button.add-row': 'addRowBranch',
-    'click #branchTable > tfoot > tr > td > button.save-table': 'saveTableBranch',
+    // table departmentTableLima events
+    'click #branchTableLima > tbody > tr > td > i.delete': 'deleteRowBranchLima',
+    'click #branchTableLima > tfoot > tr > td > button.add-row': 'addRowBranchLima',
+    'click #branchTableLima > tfoot > tr > td > button.save-table': 'saveTableBranchLima',
+    // table departmentTableProvince events
+    'click #branchTableProvince > tbody > tr > td > i.delete': 'deleteRowBranchProvince',
+    'click #branchTableProvince > tfoot > tr > td > button.add-row': 'addRowBranchProvince',
+    'click #branchTableProvince > tfoot > tr > td > button.save-table': 'saveTableBranchProvince',
   },
   render: function(){
     var today = new Date();
@@ -40,13 +44,14 @@ var AdminBranchView = Backbone.View.extend({
 		this.$el.html(templateCompiled);
   },
   loadComponents: function(){
-    this.branchTable = new Table({
-      el: 'branchTable', // String
+    // branchTableLima
+    this.branchTableLima = new Table({
+      el: 'branchTableLima', // String
       messageLabelId: 'message', // String
       model: Branch, // String
       collection: new BranchCollection(), // Backbone collection
       services: {
-        list: BASE_URL + 'admin/branch/list', // String
+        list: BASE_URL + 'admin/branch/list?branch_type_id=1', // String
         save: BASE_URL + 'admin/branch/save', // String
       },
       extraData: null,
@@ -64,9 +69,9 @@ var AdminBranchView = Backbone.View.extend({
         save404: 'Recurso no encontrado - guardar sedes',
         save200: 'Sedes actualizadas',
       },
-      serverKeys: ['id', 'name'],
+      serverKeys: ['id', 'name', 'address'],
       row: {
-        table: ['id', 'name'],
+        table: ['id', 'name', 'address'],
         tds: [
           { // id
             type: 'tdId',
@@ -75,13 +80,27 @@ var AdminBranchView = Backbone.View.extend({
             key: 'id',
           },
           { // namne
-            type: 'input[text]',
+            type: 'td',
             styles: '', 
             edit: true,
             key: 'name',
           },
+          { // address
+            type: 'td',
+            styles: '', 
+            edit: true,
+            key: 'address',
+          },
         ],
         buttons: [
+          {
+            type: 'a',
+            operation: '',
+            class: 'fa-pencil',
+            styles: 'padding-left: 0px;',
+            url: '/branch/edit/{0}',
+            keysFormat: ['id', 'names', ],
+          },
           {
             type: 'i',
             operation: 'delete',
@@ -91,19 +110,94 @@ var AdminBranchView = Backbone.View.extend({
         ],
       },
     });
-    this.branchTable.list();
+    this.branchTableLima.list();
+    // branchTableProvince
+    this.branchTableProvince = new Table({
+      el: 'branchTableProvince', // String
+      messageLabelId: 'message', // String
+      model: Branch, // String
+      collection: new BranchCollection(), // Backbone collection
+      services: {
+        list: BASE_URL + 'admin/branch/list?branch_type_id=2', // String
+        save: BASE_URL + 'admin/branch/save', // String
+      },
+      extraData: null,
+      observer: { // not initialize
+      new: [],
+      edit: [],
+      delete: [],
+      },
+      messages: {
+        list500: 'Ocurrió un error no esperado en listar las sedes',
+        list501: 'Ocurrió un error en listar las sedes',
+        list404: 'Recurso no encontrado - listar sedes',
+        save500: 'Ocurrió un error no esperado en grabar los cambios',
+        save501: 'Ocurrió un error en grabar los cambios',
+        save404: 'Recurso no encontrado - guardar sedes',
+        save200: 'Sedes actualizadas',
+      },
+      serverKeys: ['id', 'name', 'address'],
+      row: {
+        table: ['id', 'name', 'address'],
+        tds: [
+          { // id
+            type: 'tdId',
+            styles: 'display: none; ', 
+            edit: false,
+            key: 'id',
+          },
+          { // namne
+            type: 'td',
+            styles: '', 
+            edit: true,
+            key: 'name',
+          },
+          { // address
+            type: 'td',
+            styles: '', 
+            edit: true,
+            key: 'address',
+          },
+        ],
+        buttons: [
+          {
+            type: 'a',
+            operation: '',
+            class: 'fa-pencil',
+            styles: 'padding-left: 0px;',
+            url: '/branch/edit/{0}',
+            keysFormat: ['id', 'names', ],
+          },
+          {
+            type: 'i',
+            operation: 'delete',
+            class: 'fa-times',
+            styles: 'padding-left: 15px;',
+          },
+        ],
+      },
+    });
+    this.branchTableProvince.list();
   },
-  deleteRowBranch: function(event){
-    this.branchTable.deleteRow(event);
+  // branchTableLima
+  deleteRowBranchLima: function(event){
+    this.branchTableLima.deleteRow(event);
   },
-  inputTextBranch: function(event){
-    this.branchTable.keyUpInputText(event);
+  addRowBranchLima: function(event){
+    this.branchTableLima.addRow(event);
   },
-  addRowBranch: function(event){
-    this.branchTable.addRow(event);
+  saveTableBranchLima: function(event){
+    this.branchTableLima.saveTable(event);
   },
-  saveTableBranch: function(event){
-    this.branchTable.saveTable(event);
+  // branchTableProvince
+  deleteRowBranchProvince: function(event){
+    this.branchTableProvince.deleteRow(event);
+  },
+  addRowBranchProvince: function(event){
+    this.branchTableProvince.addRow(event);
+  },
+  saveTableBranchProvince: function(event){
+    this.branchTableProvince.saveTable(event);
   },
 });
 

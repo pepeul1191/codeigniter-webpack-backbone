@@ -3,23 +3,46 @@
   <div class="col-md-12">
       <div class="alert" id="message" role="alert"></div>
   </div>
-  <div class="col-md-6" id="formTableBranch">
-    <h6 style="margin-bottom:15px">Lista de Sedes</h6>
-    <table class="table table-striped" styles="" id="branchTable">
+  <div class="col-md-6" id="formTableBranchLima">
+    <h6 style="margin-bottom:15px">Lista de Sedes de Lima</h6>
+    <table class="table table-striped" styles="" id="branchTableLima">
       <thead>
         <tr>
           <th style="width: 10px; display:none;">id</th>
           <th style="width: 250px;">Nombre</th>
+          <th style="width: 250px;">Dirección</th>
           <th style="width: 30px; ">Botones</th>
         </tr>
       </thead>
       <tfoot>
         <tr>
           <td colspan="1000" style="text-align:right">
-            <a class="btn btn-primary" href="/branches/new"> <i class="fa fa-plus" style="margin-right:5px; color: #fff !important;"></i>Agregar Registro</a>
+            <a class="btn btn-primary" href="/branches/new/lima"> <i class="fa fa-plus" style="margin-right:5px; color: #fff !important;"></i>Agregar Registro</a>
             <button class="btn btn-success save-table"> <i class="fa fa-check" style="margin-right:5px"></i>Guardar Cambios</button>
           </td>
         </tr>
       </tfoot>
     </table>
   </div>
+  <div class="col-md-6" id="formTableBranchProvincia">
+    <h6 style="margin-bottom:15px">Lista de Sedes de Provincia</h6>
+    <table class="table table-striped" styles="" id="branchTableProvince">
+      <thead>
+        <tr>
+          <th style="width: 10px; display:none;">id</th>
+          <th style="width: 250px;">Nombre</th>
+          <th style="width: 250px;">Dirección</th>
+          <th style="width: 30px; ">Botones</th>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <td colspan="1000" style="text-align:right">
+            <a class="btn btn-primary" href="/branches/new/province"> <i class="fa fa-plus" style="margin-right:5px; color: #fff !important;"></i>Agregar Registro</a>
+            <button class="btn btn-success save-table"> <i class="fa fa-check" style="margin-right:5px"></i>Guardar Cambios</button>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>

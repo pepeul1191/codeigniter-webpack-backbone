@@ -21,7 +21,7 @@ var AdminRouter = Backbone.Router.extend({
     'technologies/edit/:id': 'technologiesEdit',
     // branch
     'branches': 'branches',
-    'branches/new': 'branchesNew',
+    'branches/new/:type': 'branchesNew',
     // dentist
     'dentists': 'dentists',
     'dentist/new': 'dentistsNew',
