@@ -19,6 +19,9 @@ var AdminDentistView = Backbone.View.extend({
     'click #dentistTable > tfoot > tr > td > #btnGoPrevious': 'goPrevious',
     'click #dentistTable > tfoot > tr > td > #btnGoNext': 'goNext',
     'click #dentistTable > tfoot > tr > td > #btnGoLast': 'goLast',
+    // search params
+    'click #btnSearch': 'search',
+    'click #btnClean': 'clean',
   },
   render: function(){
 		var data = { };
@@ -148,6 +151,35 @@ var AdminDentistView = Backbone.View.extend({
   },
   goLast: function(event){
     this.dentistTable.goLast();
+  },
+  search: function(event){
+    // data
+    var name = $('#txtName').val();
+    var cop = $('#txtCop').val();
+    var rne = $('#txtRne').val();
+    // build url
+    var base = BASE_URL + 'admin/dentist/list?';
+    if(name != ''){
+      base = base + 'name=' + name + '&';
+    }
+    if(cop != ''){
+      base = base + 'cop=' + cop + '&';
+    }
+    if(rne != ''){
+      base = base + 'rne=' + rne + '&';
+    }
+    this.dentistTable.services.list = base;
+    this.dentistTable.list();
+  },
+  clean: function(event){
+    // data
+    $('#txtName').val('');
+    $('#txtCop').val('');
+    $('#txtRne').val('');
+    // build url
+    var base = BASE_URL + 'admin/dentist/list?';
+    this.dentistTable.services.list = base;
+    this.dentistTable.list();
   },
 });
 

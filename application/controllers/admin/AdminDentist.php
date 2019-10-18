@@ -57,32 +57,44 @@ class AdminDentist extends CI_Controller
     $rpta = '';
     $status = 200;
     try {
+      $rs = array();
+      $stmt = \Model::factory('\Models\Admin\Dentist', 'coa')
+        ->select('id')
+        ->select('name')
+        ->select('cop')
+        ->select('rne');
+      // filter name
+      if(
+        $this->input->get('name') != null
+      ){
+        $stmt = $stmt->where_like('name', '%' . $this->input->get('name') . '%');
+      }
+      // filter cop
+      if(
+        $this->input->get('cop') != null
+      ){
+        $stmt = $stmt->where_like('cop', '%' . $this->input->get('cop'). '%');
+      }
+      // filter rne
+      if(
+        $this->input->get('rne') != null
+      ){
+        $stmt = $stmt->where_like('rne', '%' . $this->input->get('rne'). '%');
+      }
+      // pages with final statement
       $pages = ceil(
-        \Model::factory('\Models\Admin\Dentist', 'coa')->count()
+        $stmt->count()
         / $this->input->get('step')
       );
-      $rs = array();
+      // pagination
       if(
-        $this->input->get('step') == null && 
-        $this->input->get('page') == null
+        $this->input->get('step') != null && 
+        $this->input->get('page') != null
       ){
-        $rs = \Model::factory('\Models\Admin\Dentist', 'coa')
-        ->select('id')
-        ->select('name')
-        ->select('cop')
-        ->select('rne')
-        ->find_array();
-      }else{
         $offset = ($this->input->get('page') - 1) * $this->input->get('step');
-        $rs = \Model::factory('\Models\Admin\Dentist', 'coa')
-        ->select('id')
-        ->select('name')
-        ->select('cop')
-        ->select('rne')
-        ->offset($offset)
-        ->limit($this->input->get('step'))
-        ->find_array();
+        $stmt = $stmt->offset($offset)->limit($this->input->get('step'));
       }
+      $rs = $stmt->find_array();
       $rpta = json_encode(array(
         'list' => $rs,
         'pages' => $pages,
