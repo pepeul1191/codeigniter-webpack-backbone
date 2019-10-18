@@ -365,6 +365,37 @@ class AdminDentist extends CI_Controller
       ->set_status_header($status)
       ->set_output($resp_data);
   }
+
+  public function search()
+  {
+    // load session
+    $this->load->library('session');
+    // libraries as filters
+    // ???
+    //controller function
+    $rpta = '';
+    $status = 200;
+    try {
+      $rs = \Model::factory('\Models\Admin\Dentist', 'coa')
+        ->where_like('name', '%' . $this->input->get('name') . '%')
+        ->find_array();
+      $temp = array();
+      foreach ($rs as &$r) {
+        $t = array(
+          'id' => $r['id'],
+          'name' => $r['name'] . ', COP: ' . $r['cop'] . ', RNE: ' . $r['rne'],
+        );
+        array_push($temp, $t);
+      }
+      $rpta = json_encode($temp);
+    }catch (Exception $e) {
+      $status = 500;
+      $rpta = json_encode(['ups', $e->getMessage()]);
+    }
+    $this->output
+      ->set_status_header($status)
+      ->set_output($rpta);
+  }
 }
 
 ?>

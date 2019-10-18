@@ -88,17 +88,24 @@
         </div>
       </div>
       <div class="col-md-5">
-        <div class="form-group">
+        <div class="form-group" id="directorForm">
           <label for="txtDirector">Director de Sede </label>
           <input type="text" class="form-control" id="txtDirector" aria-describedby="txtDirectorHelp" <% if(disabled) { %> disabled <% } %> placeholder="Director de Sede" value="<%= model.get('Director') %>">
           <small id="txtDirectorHelp" class="form-text"></small>
+          <ul id="directorList" class="d-none hint-container"></ul>
         </div>
       </div>
-      <div class="col-md-12">
+      <div class="col-md-12" style="margin-bottom: 20px;">
         <div class="form-group">
-          <button id="btnSave" <% if(disabled) { %> disabled <% } %> class="btn btn-success pull-right" style="margin-top: 0px;" >
+          <button id="btnSave" <% if(disabled) { %> disabled <% } %> class="btn btn-success pull-right" style="margin-top: 12px; margin-left: 20px;" >
             <i class="fa fa-check" style="margin-right:5px"></i>
             Grabar
+          </button>
+        </div>
+        <div class="form-group">
+          <button id="btnMap" <% if(disabled) { %> disabled <% } %> class="btn btn-warning pull-right" style="margin-top: 0px;" >
+            <i class="fa fa-map-marker" style="margin-right:5px"></i>
+            Ver Mapa
           </button>
         </div>
       </div>

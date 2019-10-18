@@ -1,15 +1,19 @@
 import Table from '../../libs/table';
 import Upload from '../../libs/upload';
+import Autocomplete from '../../libs/autocomplete';
 import ValidationForm from '../../libs/validation_form';
 import BranchService from '../../services/admin/branch_service';
 import Branch from '../../models/branch';
 import Image from '../../models/image';
 import ImageCollection from '../../collections/image_collection';
+import Dentist from '../../models/dentist';
+import DentistCollection from '../../collections/dentist_collection';
 
 var AdminBranchDetailView = Backbone.View.extend({
   el: '#workspace',
   system_id: null,
   imagesTable: null,
+  directorAutocomplete: null,
   upload: null,
   form: null,
   branch: null,
@@ -121,6 +125,28 @@ var AdminBranchDetailView = Backbone.View.extend({
         message: 'Archivo supera el máximo permitido',
       },
     });
+    // director autocomplete
+    this.directorAutocomplete = new Autocomplete({
+      el: '#directorForm',
+      inputText: 'txtDirector',
+      inputHelp: 'txtDirectorHelp',
+      hintList: 'directorList',
+      service: {
+        url: BASE_URL + 'admin/dentist/search',
+        param: 'name',
+      },
+      model: Dentist,
+      collection: new DentistCollection(),
+      formatResponseData: {
+        id: 'id',
+        name: 'name',
+      },
+      formatModelData: {
+        id: 'id',
+        name: 'name',
+      },
+    });
+    console.log(this.directorAutocomplete)
     // form
     this.form = new ValidationForm({
       el: '#form',
@@ -386,8 +412,15 @@ var AdminBranchDetailView = Backbone.View.extend({
     if(this.form.isOk == true){
       var _this = this;
       this.branch.set('name', $('#txtName').val());
-      this.branch.set('description', CKEDITOR.instances['detailTxt'].getData());
+      this.branch.set('address', $('#txtAddress').val());
+      this.branch.set('phone', $('#txtPhone').val());
+      this.branch.set('whatsapp', $('#txtWhastapp').val());
+      this.branch.set('emergency', $('#txtEmergency').val());
       this.branch.set('image', _this.upload.path);
+      this.branch.set('latitude', $('#txtLatitude').val());
+      this.branch.set('longitude', $('#txtLongitude').val());
+      this.branch.set('branch_type_id', $('#slcBranchType').val());
+      // this.branch.set('director_id', $('#txtName').val()); TODO
       var respData = branchService.saveDetail(this.branch, 'message');
       if(respData.status == 200){
         if(respData.message == ''){
