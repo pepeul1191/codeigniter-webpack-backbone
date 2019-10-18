@@ -101,5 +101,6 @@ $route['admin/branch/list']['GET'] = 'admin/AdminBranch/list';
 $route['admin/branch/search']['GET'] = 'admin/AdminBranch/search';
 $route['admin/branch/save']['POST'] = 'admin/AdminBranch/save';
 $route['admin/branch/image/save']['POST'] = 'admin/AdminBranch/imageSave';
+$route['admin/branch/delete']['POST'] = 'admin/AdminBranch/delete';
   # upload
 $route['upload/file']['POST'] = 'admin/AdminUpload/file';

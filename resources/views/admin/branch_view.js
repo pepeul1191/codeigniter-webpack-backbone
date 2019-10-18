@@ -52,7 +52,7 @@ var AdminBranchView = Backbone.View.extend({
       collection: new BranchCollection(), // Backbone collection
       services: {
         list: BASE_URL + 'admin/branch/list?branch_type_id=1', // String
-        save: BASE_URL + 'admin/branch/save', // String
+        save: BASE_URL + 'admin/branch/delete', // String
       },
       extraData: null,
       observer: { // not initialize
@@ -119,7 +119,7 @@ var AdminBranchView = Backbone.View.extend({
       collection: new BranchCollection(), // Backbone collection
       services: {
         list: BASE_URL + 'admin/branch/list?branch_type_id=2', // String
-        save: BASE_URL + 'admin/branch/save', // String
+        save: BASE_URL + 'admin/branch/delete', // String
       },
       extraData: null,
       observer: { // not initialize

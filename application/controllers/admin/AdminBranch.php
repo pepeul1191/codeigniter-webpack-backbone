@@ -186,6 +186,40 @@ class AdminBranch extends CI_Controller
       ->set_status_header($status)
       ->set_output($resp_data);
   }
+
+  public function delete()
+  {
+    // load session
+    $this->load->library('session');
+    // libraries as filters
+    // ???
+    //controller function
+    \ORM::get_db('coa')->beginTransaction();
+    $data = json_decode($this->input->post('data'));
+    $deletes = $data->{'delete'};
+    $created_ids = [];
+    $resp_data = '';
+    $status = 200;
+    try {
+      // deletes
+      if(count($deletes) > 0){
+				foreach ($deletes as &$delete) {
+			    $d = \Model::factory('\Models\Admin\Branch', 'coa')->find_one($delete);
+			    $d->delete();
+				}
+      }
+      // commit
+      \ORM::get_db('coa')->commit();
+      // response data
+      $resp_data = json_encode(array());
+    }catch (Exception $e) {
+      $status = 500;
+      $resp_data = json_encode(['ups', $e->getMessage()]);
+    }
+    $this->output
+      ->set_status_header($status)
+      ->set_output($resp_data);
+  }
 }
 
 ?>
