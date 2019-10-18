@@ -83,6 +83,16 @@ CREATE VIEW vw_dentists_branches AS
   JOIN branch_types T ON T.id = B.branch_type_id
   JOIN dentists_branches DB ON DB.branch_id = B.id
   LIMIT 2000;
+CREATE VIEW vw_branches_images AS
+  SELECT I.id, I.alt, I.url, B.branch_id AS branch_id
+  FROM images I
+  JOIN branches_images B ON B.image_id = I.id
+  LIMIT 2000;
+CREATE VIEW vw_branches_directors AS
+  SELECT B.id,	B.name, B.address, B.phone, B.whatsapp, B.emergency, B.image, B.latitude, B.longitude, B.branch_type_id, B.director_id, (D.name || ', ' || D.cop || ', ' || D.rne) AS director_name
+  FROM branches B
+  JOIN dentists D ON B.director_id = D.id
+  LIMIT 2000;
 -- Dbmate schema migrations
 INSERT INTO schema_migrations (version) VALUES
   ('20191003022142'),
@@ -103,4 +113,6 @@ INSERT INTO schema_migrations (version) VALUES
   ('20191017232821'),
   ('20191017232941'),
   ('20191018020837'),
-  ('20191018025153');
+  ('20191018025153'),
+  ('20191018224914'),
+  ('20191018225908');

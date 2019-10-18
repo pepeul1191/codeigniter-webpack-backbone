@@ -220,6 +220,61 @@ class AdminBranch extends CI_Controller
       ->set_status_header($status)
       ->set_output($resp_data);
   }
+
+  public function get()
+  {
+    // load session
+    $this->load->library('session');
+    // libraries as filters
+    // ???
+    //controller function
+    $rpta = '';
+    $status = 200;
+    try {
+      $rs = \Model::factory('\Models\Admin\VWBranchDirector', 'coa')
+        ->where('id', $this->input->get('id'))
+        ->find_one();
+      if($rs == false){
+        $rpta = json_encode(['ups', 'Sede no encontrada']);
+        $status = 404;
+      }else{
+        $rs = $rs->as_array();
+        $rpta = json_encode($rs);
+      }
+    }catch (Exception $e) {
+      $status = 500;
+      $rpta = json_encode(['ups', $e->getMessage()]);
+    }
+    $this->output
+      ->set_status_header($status)
+      ->set_output($rpta);
+  }
+
+  public function imageList()
+  {
+    // load session
+    $this->load->library('session');
+    // libraries as filters
+    // ???
+    //controller function
+    $rpta = '';
+    $status = 200;
+    try {
+      $rs = \Model::factory('\Models\Admin\VWBranchImage', 'coa')
+        ->select('id')
+        ->select('url')
+        ->select('alt')
+        ->where('branch_id', intval($this->input->get('id')))
+        ->find_array();
+      $rpta = json_encode($rs);
+    }catch (Exception $e) {
+      $status = 500;
+      $rpta = json_encode(['ups', $e->getMessage()]);
+    }
+    $this->output
+      ->set_status_header($status)
+      ->set_output($rpta);
+  }
 }
 
 ?>

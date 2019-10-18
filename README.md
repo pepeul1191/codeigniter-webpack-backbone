@@ -18,6 +18,16 @@ Migraciones con DBMATE - accesos:
     $ dbmate -d "db/migrations" -e "DB" up
     $ dbmate -d "db/migrations" -e "DB" rollback
 
+### TODOD
+
++ Al eliminar branches y tecnologies, debe de borrar branches_images y tecnologies_images.
++ Al eliminar branches y tecnologies, debe de borrar imagen almacenada.
++ Eliminar images de braches
++ Eliminar images de tecnolgies
++ Ver mapa de branch
++ CRUD de doctores de branch (modal)
+
+
 ---
 
 Fuentes:

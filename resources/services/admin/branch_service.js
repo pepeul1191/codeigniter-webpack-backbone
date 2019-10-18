@@ -61,6 +61,30 @@ var TechnologyService = {
     });
     return resp;
   },
+  getDetail: function(id){
+    var resp = {};
+    $.ajax({
+      type: 'GET',
+      url: BASE_URL + 'admin/branch/get',
+      data: {
+        id: id,
+      },
+      headers: {
+        [CSRF_KEY]: CSRF,
+      },
+      async: false,
+      success: function(data){
+        resp.message = JSON.parse(data);
+        resp.status = 200;
+      },
+      error: function(xhr, status, error){
+        console.error(error);
+				resp.message = JSON.parse(xhr.responseText);
+        resp.status = xhr.status;
+      }
+    });
+    return resp;
+  },
 };
 
 export default TechnologyService;

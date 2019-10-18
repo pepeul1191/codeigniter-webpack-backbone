@@ -63,10 +63,17 @@ var AdminBranchDetailView = Backbone.View.extend({
         this.branch.set('branch_type_id', respData.message.branch_type_id);
         this.branch.set('director_id', respData.message.director_id);
         this.branch.set('image', respData.message.image);
+        this.branch.set('director_name', respData.message.director_name);
         data.model = this.branch;
         data.disabled = false;
         data.message = '';
         data.messageClass = '';
+        // set branchType
+        if(this.branch.get('branch_type_id') == '1'){
+          data.branchType = 'lima';
+        }else{
+          data.branchType = 'province';
+        }
       }else if(respData.status == 404){
         data.message = 'Recurso que busca no encontrado';
         data.messageClass = 'alert-warning';
@@ -401,10 +408,12 @@ var AdminBranchDetailView = Backbone.View.extend({
     this.imageTable.extraData = {
       branch_id: this.branch.get('id'),
     };
+    this.directorAutocomplete.id = this.branch.get('director_id');
   },
   unSetComponentsData: function(){
     this.upload.path = null;
     this.upload.url = STATIC_URL;
+    this.directorAutocomplete.id = 'E';
   },
   save: function(){
     this.form.check();
