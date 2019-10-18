@@ -85,7 +85,7 @@ var AdminRouter = Backbone.Router.extend({
     this.branchView.render();
     this.branchView.loadComponents();
   },
-  branchesNew: function(){
+  branchesNew: function(branchType){
     if(this.branchDetailView == null){
       this.branchDetailView = new AdminBranchDetailView();
     }
@@ -94,6 +94,7 @@ var AdminRouter = Backbone.Router.extend({
       id: 'E',
       messageClass: '',
       disabled: false,
+      branchType: branchType,
     };
     var type = 'new';
     this.branchDetailView.render(data, type);

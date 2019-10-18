@@ -81,8 +81,8 @@
           <label for="slcBranchType">Tipo de Sede</label>
           <select class="form-control" id="slcBranchType" <% if(disabled) { %> disabled <% } %> placeholder="Tipo de sede">
             <option value="E"></option>
-            <option vaues="1">LIMA</option>
-            <option vaues="2">PROVINCIA</option>
+            <% if(branchType == 'lima') { %> <option selected value="1">LIMA</option> <% } else { %> <option value="1">LIMA</option> <% } %> 
+            <% if(branchType == 'province') { %> <option selected value="2">PROVINCIA</option> <% } else { %> <option value="2">PROVINCIA</option> <% } %> 
           </select>
           <small id="slcBranchTypeHelp" class="form-text"></small>
         </div>
