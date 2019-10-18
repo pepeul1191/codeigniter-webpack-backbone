@@ -57,13 +57,36 @@ class AdminDentist extends CI_Controller
     $rpta = '';
     $status = 200;
     try {
-      $rs = \Model::factory('\Models\Admin\Dentist', 'coa')
+      $pages = ceil(
+        \Model::factory('\Models\Admin\Dentist', 'coa')->count()
+        / $this->input->get('step')
+      );
+      $rs = array();
+      if(
+        $this->input->get('step') == null && 
+        $this->input->get('page') == null
+      ){
+        $rs = \Model::factory('\Models\Admin\Dentist', 'coa')
         ->select('id')
         ->select('name')
         ->select('cop')
         ->select('rne')
         ->find_array();
-      $rpta = json_encode($rs);
+      }else{
+        $offset = ($this->input->get('page') - 1) * $this->input->get('step');
+        $rs = \Model::factory('\Models\Admin\Dentist', 'coa')
+        ->select('id')
+        ->select('name')
+        ->select('cop')
+        ->select('rne')
+        ->offset($offset)
+        ->limit($this->input->get('step'))
+        ->find_array();
+      }
+      $rpta = json_encode(array(
+        'list' => $rs,
+        'pages' => $pages,
+      ));
     }catch (Exception $e) {
       $status = 500;
       $rpta = json_encode(['ups', $e->getMessage()]);

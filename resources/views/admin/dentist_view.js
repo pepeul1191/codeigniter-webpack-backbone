@@ -14,6 +14,11 @@ var AdminDentistView = Backbone.View.extend({
     'keyup #dentistTable > tbody > tr > td > input.text': 'inputTextDentist',
     'click #dentistTable > tfoot > tr > td > button.add-row': 'addRowDentist',
     'click #dentistTable > tfoot > tr > td > button.save-table': 'saveTableDentist',
+    // pagination departmentTable
+    'click #dentistTable > tfoot > tr > td > #btnGoBegin': 'goBegin',
+    'click #dentistTable > tfoot > tr > td > #btnGoPrevious': 'goPrevious',
+    'click #dentistTable > tfoot > tr > td > #btnGoNext': 'goNext',
+    'click #dentistTable > tfoot > tr > td > #btnGoLast': 'goLast',
   },
   render: function(){
 		var data = { };
@@ -104,6 +109,24 @@ var AdminDentistView = Backbone.View.extend({
           },
         ],
       },
+      pagination: {
+        buttons: {
+          next: 'btnGoNext',
+          prev: 'btnGoPrevious',
+          begin: 'btnGoBegin',
+          last: 'btnGoLast',
+        },
+        service: {
+          paramPage: 'page',
+          paramStep: 'step',
+          respList: 'list',
+          respPages: 'pages',
+        },
+        number: 'pagination',
+        step: 20,
+        pageActual: 1,
+        pageNumber: null,
+      },
     });
     this.dentistTable.list();
   },
@@ -112,6 +135,19 @@ var AdminDentistView = Backbone.View.extend({
   },
   saveTableDentist: function(event){
     this.dentistTable.saveTable(event);
+  },
+  // pagination
+  goBegin: function(event){
+    this.dentistTable.goBegin();
+  },
+  goPrevious: function(event){
+    this.dentistTable.goPrevious();
+  },
+  goNext: function(event){
+    this.dentistTable.goNext();
+  },
+  goLast: function(event){
+    this.dentistTable.goLast();
   },
 });
 
