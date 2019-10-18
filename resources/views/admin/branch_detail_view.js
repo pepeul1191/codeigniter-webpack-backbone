@@ -427,6 +427,9 @@ var AdminBranchDetailView = Backbone.View.extend({
         }else{
           // is a created, change title and set modelId
           this.branch.set('id', respData.message);
+          this.imageTable.extraData = {
+            branch_id: respData.message,
+          };
           $('#formTitle').html('Editar sede');
         }
       }

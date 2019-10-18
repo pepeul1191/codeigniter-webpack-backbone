@@ -118,6 +118,74 @@ class AdminBranch extends CI_Controller
       ->set_status_header($status)
       ->set_output($resp_data);
   }
+
+  public function imageSave()
+  {
+    // load session
+    $this->load->library('session');
+    // libraries as filters
+    // ???
+    //controller function
+    \ORM::get_db('coa')->beginTransaction();
+    $data = json_decode($this->input->post('data'));
+		$news = $data->{'new'};
+		$edits = $data->{'edit'};
+    $deletes = $data->{'delete'};
+    $branch_id = $data->{'extra'}->{'branch_id'};
+    $created_ids = [];
+    $resp_data = '';
+    $status = 200;
+    try {
+      // news
+      if(count($news) > 0){
+				foreach ($news as &$new) {
+				  $n = \Model::factory('\Models\Admin\Image', 'coa')->create();
+          $n->alt = $new->{'alt'};
+          $n->url = $new->{'url'};
+					$n->save();
+				  $temp = [];
+				  $temp['tempId'] = $new->{'id'};
+	        $temp['newId'] = $n->id;
+	        array_push( $created_ids, array(
+            'tempId' => $new->{'id'},
+            'newId' => $n->id,
+          ));
+          $n_ti = \Model::factory('\Models\Admin\BranchImage', 'coa')->create();
+          $n_ti->image_id = $n->id;
+          $n_ti->branch_id = $branch_id;
+          $n_ti->save();
+				}
+      }
+      // edits
+      if(count($edits) > 0){
+				foreach ($edits as &$edit) {
+          $e = \Model::factory('\Models\Admin\Image', 'coa')->find_one($edit->{'id'});
+          $e->alt = $edit->{'alt'};
+          $e->url = $edit->{'url'};
+					$e->save();
+        }
+      }
+      // deletes
+      if(count($deletes) > 0){
+				foreach ($deletes as &$delete) {
+          $ti = \Model::factory('\Models\Admin\BranchImage', 'coa')-find_one('image_id', $delete);
+          $ti->delete();
+			    $d = \Model::factory('\Models\Admin\Image', 'coa')->find_one($delete);
+			    $d->delete();
+				}
+      }
+      // commit
+      \ORM::get_db('coa')->commit();
+      // response data
+      $resp_data = json_encode($created_ids);
+    }catch (Exception $e) {
+      $status = 500;
+      $resp_data = json_encode(['ups', $e->getMessage()]);
+    }
+    $this->output
+      ->set_status_header($status)
+      ->set_output($resp_data);
+  }
 }
 
 ?>

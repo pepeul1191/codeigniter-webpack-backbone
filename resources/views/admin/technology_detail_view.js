@@ -305,6 +305,9 @@ var AdminTechnologyDetailView = Backbone.View.extend({
         }else{
           // is a created, change title and set modelId
           this.technology.set('id', respData.message);
+          this.imageTable.extraData = {
+            technology_id: respData.message,
+          };
           $('#formTitle').html('Editar Tecnología');
         }
       }
