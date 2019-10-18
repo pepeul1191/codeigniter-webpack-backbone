@@ -267,6 +267,31 @@ class AdminDentist extends CI_Controller
       ->set_status_header($status)
       ->set_output($resp_data);
   }
+
+  public function branchesGet()
+  {
+    // load session
+    $this->load->library('session');
+    // libraries as filters
+    // ???
+    //controller function
+    $rpta = '';
+    $status = 200;
+    try {
+      $name = $this->input->get('name');
+      $rs = \Model::factory('\Models\Admin\VWDentistBranch', 'coa')
+        ->where_like('dentist_id', $this->input->get('id'))
+        ->limit(10)
+        ->find_array();
+      $rpta = json_encode($rs);
+    }catch (Exception $e) {
+      $status = 500;
+      $rpta = json_encode(['ups', $e->getMessage()]);
+    }
+    $this->output
+      ->set_status_header($status)
+      ->set_output($rpta);
+  }
 }
 
 ?>

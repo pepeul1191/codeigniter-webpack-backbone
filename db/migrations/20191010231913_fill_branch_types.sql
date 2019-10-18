@@ -2,7 +2,7 @@
 
 INSERT INTO branch_types (id, name) VALUES
   (1, 'LIMA'),
-  (2, 'PROVINICA');
+  (2, 'PROVINCIA');
 
 -- migrate:down
 

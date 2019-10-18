@@ -11,7 +11,7 @@ var AdminDentistDetailView = Backbone.View.extend({
   el: '#workspace',
   system_id: null,
   specialimsTable: null,
-  branchesTable: null,
+  branchTable: null,
   upload: null,
   form: null,
   dentist: null,
@@ -25,6 +25,12 @@ var AdminDentistDetailView = Backbone.View.extend({
     // specialimsTable
     'click #specialimsTableSave': 'saveSpecialimsTable',
     'change #specialimsTable > tbody > tr > td > input.input-check': 'clickCheckBoxSpecialimsTable',
+    // branchTable autcomplete
+    'keyup #branchTable > tbody > tr > td > input.text-autocomplete': 'autocompleteBranch',
+    'click #branchTable > tbody > tr > td > .hint-container': 'clickHint',
+    'click #branchTable > tfoot > tr > td > button.add-row': 'addRowBranch',
+    'click #branchTable > tfoot > tr > td > button.save-table': 'saveTableBranch',
+    'click #branchTable > tbody > tr > td > i.delete': 'deleteRowBranch',
   },
   render: function(data, type){
     this.dentist.unSet();
@@ -155,14 +161,14 @@ var AdminDentistDetailView = Backbone.View.extend({
       },
       messageForm: 'message',
     });
-    // table
+    // specialimsTable
     this.specialimsTable = new Table({
       el: 'specialimsTable', // String
       messageLabelId: 'message', // String
       model: Specialism, // String
       collection: new SpecialismCollection(), // Backbone collection
       services: {
-        list: BASE_URL + 'admin/doctor/specialism/list', // String
+        list: BASE_URL + 'admin/dentist/specialism/list', // String
         save: BASE_URL + 'admin/dentist/specialism/save', // String
       },
       extraData: null,
@@ -209,27 +215,75 @@ var AdminDentistDetailView = Backbone.View.extend({
         ],
         buttons: [],
       },
-      upload: {
-        path: null,
-        inputFile: 'fileImage', // String
-        service: {
-          url: BASE_URL + 'upload/file',
-          formDataKey: 'file',
-          uploadMessage: 'Subiendo archivo...',
-          errorMessage: 'Ocurrió un error en subir el archivo',
-          successMessage: 'Carga completada'
-        },
-        keyModel: 'url',
-        extensions: {
-          allow: ['image/jpeg', 'image/png'],
-          message: 'Archivo no es de la extensión permitida',
-        },
-        size: {
-          allow: 500000, // bytes
-          message: 'Archivo supera el máximo permitido (0.5MB)',
-        },
-      }
     });
+    // branchTable
+    this.branchTable = new Table({
+      el: 'branchTable', // String
+      messageLabelId: 'message', // String
+      model: Specialism, // String
+      collection: new SpecialismCollection(), // Backbone collection
+      services: {
+        list: BASE_URL + 'admin/dentist/branch/list', // String
+        save: BASE_URL + 'admin/dentist/branch/save', // String
+      },
+      extraData: null,
+      observer: { // not initialize
+      new: [],
+      edit: [],
+      delete: [],
+      },
+      messages: {
+        list500: 'Ocurrió un error no esperado en listar las sedes',
+        list501: 'Ocurrió un error en listar las sedes',
+        list404: 'Recurso no encontrado - listar sedes',
+        save500: 'Ocurrió un error no esperado en grabar los cambios',
+        save501: 'Ocurrió un error en grabar los cambios',
+        save404: 'Recurso no encontrado - guardar sedes',
+        save200: 'Especialdiades del odontólogo actualizadas',
+      },
+      serverKeys: ['id', 'branch_id',],
+      row: {
+        table: ['id', 'branch_id',],
+        tds: [
+          { // id
+            type: 'tdId',
+            styles: 'display: none; ', 
+            edit: false,
+            key: 'id',
+          },
+          { // districts
+            type: 'autocomplete',
+            styles: '', 
+            edit: true,
+            key: 'name',
+            service: {
+              url: BASE_URL + 'admin/branch/search',
+              param: 'name',
+            },
+            formatResponseData: {
+              id: 'id',
+              name: 'name',
+            },
+            keyModel: 'branch_id',
+            keyName: 'branch_name',
+          },
+        ],
+        buttons: [
+          {
+            type: 'i',
+            operation: 'delete',
+            class: 'fa-times',
+            styles: 'padding-left: 30px;',
+          },
+        ],
+      },
+    });
+  },
+  autocompleteBranch: function(event){
+    this.branchTable.keyUpAutocomplete(event);
+  },
+  clickHint: function(event){
+    this.branchTable.clickHint(event);
   },
   saveSpecialimsTable: function(event){
     if(this.dentist.get('id') != 'E'){
@@ -247,6 +301,25 @@ var AdminDentistDetailView = Backbone.View.extend({
   clickCheckBoxSpecialimsTable: function(event){
     this.specialimsTable.clickCheckBox(event);
   },
+  saveTableBranch: function(event){
+    if(this.dentist.get('id') != 'E'){
+      this.branchTable.extraData = {
+        dentist_id: parseInt(this.dentist.get('id')),
+      };
+      this.branchTable.saveTable(event);
+    }else{
+      $('#message').removeClass('alert-success');
+      $('#message').removeClass('alert-warning');
+      $('#message').addClass('alert-danger');
+      $('#message').html('Debe registrar primero al odontólogo');
+    }    
+  },
+  addRowBranch: function(event){
+    this.branchTable.addRow(event);
+  },
+  deleteRowBranch: function(event){
+    this.branchTable.deleteRow(event);
+  },
   // ???
   setComponentsData: function(){
     var _this = this;
@@ -255,6 +328,11 @@ var AdminDentistDetailView = Backbone.View.extend({
     this.specialimsTable.services.list = BASE_URL + 'admin/dentist/specialism/list?id=' + this.dentist.get('id');
     this.specialimsTable.list();
     this.specialimsTable.extraData = {
+      dentist_id: this.dentist.get('id'),
+    };
+    this.branchTable.services.list = BASE_URL + 'admin/dentist/branch/list?id=' + this.dentist.get('id');
+    this.branchTable.list();
+    this.branchTable.extraData = {
       dentist_id: this.dentist.get('id'),
     };
   },
@@ -266,12 +344,16 @@ var AdminDentistDetailView = Backbone.View.extend({
     this.specialimsTable.extraData = {
       dentist_id: this.dentist.get('id'),
     };
+    this.branchTable.services.list = BASE_URL + 'admin/dentist/specialism/list?id=0';
+    this.branchTable.list();
+    this.branchTable.extraData = {
+      dentist_id: this.dentist.get('id'),
+    };
   },
   save: function(){
     this.form.check();
     if(this.form.isOk == true){
       var _this = this;
-      console.log(this.dentist)
       this.dentist.set('name', $('#txtName').val());
       this.dentist.set('cop', $('#txtCop').val());
       this.dentist.set('rne', $('#txtRne').val());
