@@ -41,13 +41,6 @@ CREATE TABLE 'dentists_specialisms' (
   FOREIGN KEY(`dentist_id`) REFERENCES 'dentists' ( 'id' ) ON DELETE CASCADE,
   FOREIGN KEY(`specialism_id`) REFERENCES 'specialisms' ( 'id' ) ON DELETE CASCADE
 );
-CREATE TABLE 'dentists_branches' (
-	'id'	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-	'dentist_id'	INTEGER,
-  'branche_id'	INTEGER,
-  FOREIGN KEY(`dentist_id`) REFERENCES 'dentists' ( 'id' ) ON DELETE CASCADE,
-  FOREIGN KEY(`branche_id`) REFERENCES 'branches' ( 'id' ) ON DELETE CASCADE
-);
 CREATE TABLE "images" (
 	`id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	`url`	VARCHAR(54) NOT NULL,
@@ -71,6 +64,13 @@ CREATE TABLE "branches" (
 	`branch_type_id`	INTEGER,
 	`director_id`	INTEGER,
 	FOREIGN KEY(`branch_type_id`) REFERENCES 'branch_types' ( 'id' ) ON DELETE CASCADE
+);
+CREATE TABLE "dentists_branches" (
+	`id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	`dentist_id`	INTEGER,
+	`branch_id`	INTEGER,
+	FOREIGN KEY(`dentist_id`) REFERENCES 'dentists' ( 'id' ) ON DELETE CASCADE,
+	FOREIGN KEY(`branch_id`) REFERENCES 'branches' ( 'id' ) ON DELETE CASCADE
 );
 -- Dbmate schema migrations
 INSERT INTO schema_migrations (version) VALUES
