@@ -50,7 +50,7 @@ var AdminBranchDetailView = Backbone.View.extend({
       data.message = '';
       data.messageClass = '';
     }else{ // is edit, set model from server
-      var respData = branchService.getDetail(data.id);
+      var respData = BranchService.getDetail(data.id);
       if(respData.status == 200){
         this.branch.set('id', data.id);
         this.branch.set('name', respData.message.name);
@@ -146,7 +146,6 @@ var AdminBranchDetailView = Backbone.View.extend({
         name: 'name',
       },
     });
-    console.log(this.directorAutocomplete)
     // form
     this.form = new ValidationForm({
       el: '#form',
@@ -419,9 +418,9 @@ var AdminBranchDetailView = Backbone.View.extend({
       this.branch.set('image', _this.upload.path);
       this.branch.set('latitude', $('#txtLatitude').val());
       this.branch.set('longitude', $('#txtLongitude').val());
+      this.branch.set('director_id', _this.directorAutocomplete.id);
       this.branch.set('branch_type_id', $('#slcBranchType').val());
-      // this.branch.set('director_id', $('#txtName').val()); TODO
-      var respData = branchService.saveDetail(this.branch, 'message');
+      var respData = BranchService.saveDetail(this.branch, 'message');
       if(respData.status == 200){
         if(respData.message == ''){
           // is a edited

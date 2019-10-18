@@ -99,5 +99,6 @@ $route['admin/dentist/search']['GET'] = 'admin/AdminDentist/search';
   # branch
 $route['admin/branch/list']['GET'] = 'admin/AdminBranch/list';
 $route['admin/branch/search']['GET'] = 'admin/AdminBranch/search';
+$route['admin/branch/save']['POST'] = 'admin/AdminBranch/save';
   # upload
 $route['upload/file']['POST'] = 'admin/AdminUpload/file';
