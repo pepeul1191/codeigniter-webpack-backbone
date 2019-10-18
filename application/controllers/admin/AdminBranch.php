@@ -168,7 +168,9 @@ class AdminBranch extends CI_Controller
       // deletes
       if(count($deletes) > 0){
 				foreach ($deletes as &$delete) {
-          $ti = \Model::factory('\Models\Admin\BranchImage', 'coa')-find_one('image_id', $delete);
+          $ti = \Model::factory('\Models\Admin\BranchImage', 'coa')
+            ->where('image_id', $delete)
+            ->find_one();
           $ti->delete();
 			    $d = \Model::factory('\Models\Admin\Image', 'coa')->find_one($delete);
 			    $d->delete();

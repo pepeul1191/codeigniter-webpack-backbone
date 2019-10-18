@@ -26,6 +26,7 @@ var AdminTechnologyDetailView = Backbone.View.extend({
     'click #imageTable > tfoot > tr > td > button.save-table': 'saveTableImage',
     'keyup #imageTable > tbody > tr > td > input.text': 'inputTextImage',
     'click #imageTable > tfoot > tr > td > button.add-row': 'addRowImage',
+    'click #imageTable > tbody > tr > td > i.delete': 'deleteRowImage',
   },
   render: function(data, type){
     this.technology.set('id', 'E');
@@ -232,6 +233,12 @@ var AdminTechnologyDetailView = Backbone.View.extend({
             class: 'fa-picture-o',
             styles: 'padding-left: 15px;',
           },
+          {
+            type: 'i',
+            operation: 'delete',
+            class: 'fa-times',
+            styles: 'padding-left: 15px;',
+          },
         ],
       },
       upload: {
@@ -273,6 +280,9 @@ var AdminTechnologyDetailView = Backbone.View.extend({
   },
   addRowImage: function(event){
     this.imageTable.addRow(event);
+  },
+  deleteRowImage: function(event){
+    this.imageTable.deleteRow(event);
   },
  // ???
   setComponentsData: function(){
