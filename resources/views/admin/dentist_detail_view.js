@@ -344,7 +344,7 @@ var AdminDentistDetailView = Backbone.View.extend({
     this.specialimsTable.extraData = {
       dentist_id: this.dentist.get('id'),
     };
-    this.branchTable.services.list = BASE_URL + 'admin/dentist/specialism/list?id=0';
+    this.branchTable.services.list = BASE_URL + 'admin/dentist/branch/list?id=0';
     this.branchTable.list();
     this.branchTable.extraData = {
       dentist_id: this.dentist.get('id'),
