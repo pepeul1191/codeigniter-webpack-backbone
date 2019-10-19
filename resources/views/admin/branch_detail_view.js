@@ -8,6 +8,7 @@ import Image from '../../models/image';
 import ImageCollection from '../../collections/image_collection';
 import Dentist from '../../models/dentist';
 import DentistCollection from '../../collections/dentist_collection';
+import 'bootstrap/js/dist/modal';
 
 var AdminBranchDetailView = Backbone.View.extend({
   el: '#workspace',
@@ -31,6 +32,7 @@ var AdminBranchDetailView = Backbone.View.extend({
     'keyup #imageTable > tbody > tr > td > input.text': 'inputTextImage',
     'click #imageTable > tfoot > tr > td > button.add-row': 'addRowImage',
     'click #imageTable > tbody > tr > td > i.delete': 'deleteRowImage',
+    'click #btnMap': 'map',
   },
   render: function(data, type){
     this.branch.set('id', 'E');
@@ -458,6 +460,42 @@ var AdminBranchDetailView = Backbone.View.extend({
     var url = this.upload.url + this.upload.path;
     var win = window.open(url, '_blank');
     win.focus();
+  },
+  // map
+  map: function(){
+    var latitude = $('#txtLatitude').val();
+    var longitude = $('#txtLongitude').val();
+    var resource = `
+      <div class="modal-dialog modal-lg" role="document" id="modal-workspace">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"><%= title %></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="col-md-12">
+              <div id="googleMap" style="width:100%;height:400px;"></div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                <i class="fa fa-times" style="margin-right:5px"></i>
+              Cerrar
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+    var template = _.template(resource);
+    var templateCompiled = template({
+      title: $('#txtName').val() + ', ' + $('#slcBranchType option:selected').html(),
+    });
+    $('#modal').html(templateCompiled);
+    $('#modal').modal('show');
+    // map
+    // TODO
   },
 });
 
