@@ -74,6 +74,7 @@ $route['admin/dentists']['GET'] = 'admin/adminIndex/index';
 $route['admin/dentist/new']['GET'] = 'admin/adminIndex/index';
 $route['admin/dentist/edit/(:num)']['GET'] = 'admin/adminIndex/index';
 $route['admin/branch/edit/(:num)']['GET'] = 'admin/adminIndex/index';
+$route['admin/branch/(:num)/dentists']['GET'] = 'admin/adminIndex/index';
 # admin rest
   # specialism
 $route['admin/specialism/list']['GET'] = 'admin/AdminSpecialism/list';

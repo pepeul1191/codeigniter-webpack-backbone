@@ -5,6 +5,7 @@ import AdminBranchView from '../views/admin/branch_view';
 import AdminBranchDetailView from '../views/admin/branch_detail_view';
 import AdminDentistView from '../views/admin/dentist_view';
 import AdminDentistDetailView from '../views/admin/dentist_detail_view';
+import AdminBranchDentistView from '../views/admin/branch_dentist_view';
 
 var AdminRouter = Backbone.Router.extend({
   specialismView: null,
@@ -23,6 +24,7 @@ var AdminRouter = Backbone.Router.extend({
     'branches': 'branches',
     'branches/new/:type': 'branchesNew',
     'branch/edit/:id': 'branchesEdit',
+    'branch/:id/dentists': 'branchDentists',
     // dentist
     'dentists': 'dentists',
     'dentist/new': 'dentistsNew',
@@ -116,21 +118,22 @@ var AdminRouter = Backbone.Router.extend({
     this.branchDetailView.render(data, type);
     this.branchDetailView.loadComponents();
     this.branchDetailView.setComponentsData();
-    /*
-    if(this.dentistDetailView == null){
-      this.dentistDetailView = new AdminDentistDetailView();
+  },
+  branchDentists: function(id){
+    if(this.branchBranchDentist == null){
+      this.branchBranchDentist = new AdminBranchDentistView();
     }
     var data = {
-      title: 'Editar Odontólogo',
+      title: 'Odontólogos de la Sede',
       id: id,
       messageClass: 'alert-danger',
       disabled: true,
+      message: '',
     };
     var type = 'edit';
-    this.dentistDetailView.render(data, type);
-    this.dentistDetailView.loadComponents();
-    this.dentistDetailView.setComponentsData();
-    */
+    this.branchBranchDentist.render(data, type);
+    this.branchBranchDentist.loadComponents();
+    // this.branchBranchDentist.setComponentsData();
   },
   // denitsts
   dentists: function(){
