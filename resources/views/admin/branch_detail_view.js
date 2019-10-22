@@ -72,7 +72,7 @@ var AdminBranchDetailView = Backbone.View.extend({
         this.branch.set('name', respData.message.name);
         this.branch.set('address', respData.message.address);
         this.branch.set('phone', respData.message.phone);
-        this.branch.set('whastapp', respData.message.whastapp);
+        this.branch.set('whatsapp', respData.message.whatsapp);
         this.branch.set('emergency', respData.message.emergency);
         this.branch.set('latitude', respData.message.latitude);
         this.branch.set('longitude', respData.message.longitude);
