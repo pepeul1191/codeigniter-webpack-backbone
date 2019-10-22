@@ -7,7 +7,7 @@ var entries = {
   // main: ['./resources/entries/admin.js'],
   // admin entires
   'admin': ['./resources/entries/admin.js', ], 
-  'admin.vendor.js': ['backbone', 'jquery', 'underscore', ],
+  'admin.vendor.js': ['backbone', 'jquery', 'underscore', 'ol', ],
   'admin.vendor.css': ['bootstrap/dist/css/bootstrap.min.css', ],
   // login entries
   'login': ['./resources/entries/login.js', ], 

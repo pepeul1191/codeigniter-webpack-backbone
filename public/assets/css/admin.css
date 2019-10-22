@@ -103,3 +103,7 @@ footer > a {
 .btn > i {
   margin-right: 5px;
 }
+
+.modal-content{
+  border-radius: 0px !important;
+}

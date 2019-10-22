@@ -24,10 +24,13 @@ Migraciones con DBMATE - accesos:
 + Al eliminar branches y tecnologies, debe de borrar imagen almacenada.
 + Ver mapa de branch
 + CRUD de doctores de branch (modal)
-
++ Corrergir whatapp en bd al editar o crear sede
 
 ---
 
 Fuentes:
 
 + https://github.com/pepeul1191/codeigniter-boilerplate
++ https://openstreetmap.be/en/projects/howto/openlayers.html
++ https://openlayers.org/en/latest/doc/quickstart.html
++ https://openlayers.org/en/latest/doc/tutorials/bundle.html
