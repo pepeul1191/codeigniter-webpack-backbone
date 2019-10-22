@@ -5,7 +5,7 @@ CREATE TABLE 'technologies' (
   'description'	TEXT NOT NULL,
   'image'	VARCHAR(54) NOT NULL
 );
-CREATE TABLE "technologies_images" (
+CREATE TABLE 'technologies_images' (
 	'id'	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	'technology_id'	INTEGER,
   'image_id'	INTEGER,
@@ -22,6 +22,20 @@ CREATE TABLE 'dentists' (
   'cop'	VARCHAR(10) NOT NULL,
   'rne'	VARCHAR(10),
   'image'	VARCHAR(54) NOT NULL
+);
+CREATE TABLE 'branches' (
+	'id'	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	'name'	VARCHAR(30) NOT NULL,
+  'address'	VARCHAR(50) NOT NULL,
+  'phone'	VARCHAR(25),
+  'whatsapp'	VARCHAR(25),
+  'emergency'	VARCHAR(25),
+  'image'	VARCHAR(54) NOT NULL,
+  'latitude' FLOAT,
+  'longitude' FLOAT,
+  'branch_type_id'	INTEGER,
+  'director_id'	INTEGER,
+  FOREIGN KEY(`branch_type_id`) REFERENCES 'branch_types' ( 'id' ) ON DELETE CASCADE
 );
 CREATE TABLE 'branches_images' (
 	'id'	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
@@ -41,44 +55,30 @@ CREATE TABLE 'dentists_specialisms' (
   FOREIGN KEY(`dentist_id`) REFERENCES 'dentists' ( 'id' ) ON DELETE CASCADE,
   FOREIGN KEY(`specialism_id`) REFERENCES 'specialisms' ( 'id' ) ON DELETE CASCADE
 );
-CREATE TABLE "images" (
-	`id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-	`url`	VARCHAR(54) NOT NULL,
-	`alt`	VARCHAR(40)
+CREATE TABLE 'dentists_branches' (
+	'id'	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	'dentist_id'	INTEGER,
+  'branch_id'	INTEGER,
+  FOREIGN KEY(`dentist_id`) REFERENCES 'dentists' ( 'id' ) ON DELETE CASCADE,
+  FOREIGN KEY(`branch_id`) REFERENCES 'branches' ( 'id' ) ON DELETE CASCADE
 );
 CREATE VIEW vw_technologies_images AS
   SELECT I.id, I.alt, I.url, TI.technology_id AS technology_id
   FROM images I
   JOIN technologies_images TI ON TI.image_id = I.id
   LIMIT 2000;
-CREATE TABLE "branches" (
-	`id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-	`name`	VARCHAR(30) NOT NULL,
-	`address`	VARCHAR(50) NOT NULL,
-	`phone`	VARCHAR(25),
-	`whatsapp`	VARCHAR(25),
-	`emergency`	VARCHAR(25),
-	`image`	VARCHAR(54) NOT NULL,
-	`latitude`	FLOAT,
-	`longitude`	FLOAT,
-	`branch_type_id`	INTEGER,
-	`director_id`	INTEGER,
-	FOREIGN KEY(`branch_type_id`) REFERENCES 'branch_types' ( 'id' ) ON DELETE CASCADE
-);
-CREATE TABLE "dentists_branches" (
-	`id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-	`dentist_id`	INTEGER,
-	`branch_id`	INTEGER,
-	FOREIGN KEY(`dentist_id`) REFERENCES 'dentists' ( 'id' ) ON DELETE CASCADE,
-	FOREIGN KEY(`branch_id`) REFERENCES 'branches' ( 'id' ) ON DELETE CASCADE
-);
 CREATE VIEW vw_branches_types AS
   SELECT B.id, (T.name || ', ' || B.name || ', ' || B.address) AS name
   FROM branches B
   JOIN branch_types T ON T.id = B.branch_type_id
   LIMIT 2000;
+CREATE TABLE "images" (
+	`id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	`alt`	VARCHAR(45) NOT NULL,
+	`url`	VARCHAR(54) NOT NULL
+);
 CREATE VIEW vw_dentists_branches AS
-  SELECT DB.id, B.id AS branch_id, (T.name || ', ' || B.name || ', ' || B.address) AS branch_name, DB.dentist_id AS dentist_id, (D.name || ', ' || D.cop || ', ' || D.rne) AS director_name
+  SELECT DB.id, B.id AS branch_id, (T.name || ', ' || B.name || ', ' || B.address) AS branch_name, DB.dentist_id AS dentist_id, (D.name || ', ' || D.cop || ', ' || D.rne) AS dentist_name
   FROM branches B
   JOIN branch_types T ON T.id = B.branch_type_id
   JOIN dentists_branches DB ON DB.branch_id = B.id

@@ -22,8 +22,6 @@ Migraciones con DBMATE - accesos:
 
 + Al eliminar branches y tecnologies, debe de borrar branches_images y tecnologies_images.
 + Al eliminar branches y tecnologies, debe de borrar imagen almacenada.
-+ Ver mapa de branch
-+ CRUD de doctores de branch (modal)
 + Corrergir whatapp en bd al editar o crear sede
 
 ---

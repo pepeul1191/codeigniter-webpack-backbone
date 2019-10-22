@@ -126,11 +126,12 @@ var AdminRouter = Backbone.Router.extend({
     var data = {
       title: 'Odontólogos de la Sede',
       id: id,
-      messageClass: 'alert-danger',
-      disabled: true,
+      messageClass: null,
+      disabled: false,
       message: '',
     };
     var type = 'edit';
+    this.branchBranchDentist.branch_id = id;
     this.branchBranchDentist.render(data, type);
     this.branchBranchDentist.loadComponents();
     // this.branchBranchDentist.setComponentsData();
