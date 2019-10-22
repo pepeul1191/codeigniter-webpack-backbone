@@ -78,10 +78,11 @@ CREATE VIEW vw_branches_types AS
   JOIN branch_types T ON T.id = B.branch_type_id
   LIMIT 2000;
 CREATE VIEW vw_dentists_branches AS
-  SELECT DB.id, DB.dentist_id AS dentist_id, B.id AS branch_id, (T.name || ', ' || B.name || ', ' || B.address) AS branch_name
+  SELECT DB.id, B.id AS branch_id, (T.name || ', ' || B.name || ', ' || B.address) AS branch_name, DB.dentist_id AS dentist_id, (D.name || ', ' || D.cop || ', ' || D.rne) AS director_name
   FROM branches B
   JOIN branch_types T ON T.id = B.branch_type_id
   JOIN dentists_branches DB ON DB.branch_id = B.id
+  JOIN dentists D ON DB.dentist_id = D.id
   LIMIT 2000;
 CREATE VIEW vw_branches_images AS
   SELECT I.id, I.alt, I.url, B.branch_id AS branch_id
