@@ -3,7 +3,7 @@
   <head>
     <title><?php echo $title;?></title>
     <?php echo load_csss($this->config, $csss);?>
-    <link rel="shortcut icon" href="<?php echo $this->config->item('static_url'); ?>favicon.ico">
+    <link rel="shortcut icon" href="<?php echo $this->config->item('static_url'); ?>favicon-admin.ico">
     <base href="/admin/" />
     <script>
       var BASE_URL = '<?php echo $this->config->item('base_url');?>';
