@@ -5,6 +5,10 @@ const CopyPlugin = require('copy-webpack-plugin');
 
 var entries = {
   // main: ['./resources/entries/admin.js'],
+  // site entrires
+  'site': ['./resources/entries/site.js', ], 
+  'site.vendor.css': ['materialize-css/dist/css/materialize.min.css', ], 
+  'site.vendor.js': ['materialize-css/dist/js/materialize.min.js', ], 
   // admin entires
   'admin': ['./resources/entries/admin.js', ], 
   'admin.vendor.js': ['backbone', 'jquery', 'underscore', 'ol', ],
@@ -88,6 +92,18 @@ var optimization = {
       adminVendorCSS: {
         test: 'admin.vendor.css',
         name: 'admin.vendor',
+        chunks: 'all', 
+        enforce: true,
+      },
+      siteVendor: {
+        test: 'site.vendor.js',
+        name: 'site.vendor',
+        chunks: 'all', 
+        enforce: true,
+      },
+      siteVendorCSS: {
+        test: 'site.vendor.css',
+        name: 'site.vendor',
         chunks: 'all', 
         enforce: true,
       },

@@ -8,7 +8,8 @@ if ( ! function_exists('home_css'))
     switch($config->item('env_static')){
       case 'dev':
         $rpta = [
-          
+          'dist/site.vendor',
+          'dist/site',
         ];
         break;
       case 'prod':
@@ -30,13 +31,13 @@ if ( ! function_exists('home_js'))
       case 'dev':
         $rpta = [
           'dist/admin.vendor',
-          'dist/admin',
+          'dist/site',
         ];
         break;
       case 'prod':
         $rpta = [
           'dist/admin.vendor.min',
-          'dist/admin.min',
+          'dist/site.min',
         ];
         break;
     }
