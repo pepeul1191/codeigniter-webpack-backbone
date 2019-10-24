@@ -3,46 +3,74 @@
   <div class="col-md-12">
       <div class="alert" id="message" role="alert"></div>
   </div>
-  <div class="col-md-6" id="formTableBranchLima">
-    <h6 style="margin-bottom:15px">Lista de Sedes de Lima</h6>
-    <table class="table table-striped" styles="" id="branchTableLima">
-      <thead>
-        <tr>
-          <th style="width: 10px; display:none;">id</th>
-          <th style="width: 250px;">Nombre</th>
-          <th style="width: 250px;">Dirección</th>
-          <th style="width: 30px; ">Botones</th>
-        </tr>
-      </thead>
-      <tfoot>
-        <tr>
-          <td colspan="1000" style="text-align:right">
-            <a class="btn btn-primary" href="/admin/branches/new/lima"> <i class="fa fa-plus" style="margin-right:5px; color: #fff !important;"></i>Agregar Registro</a>
-            <button class="btn btn-success save-table"> <i class="fa fa-check" style="margin-right:5px"></i>Guardar Cambios</button>
-          </td>
-        </tr>
-      </tfoot>
-    </table>
-  </div>
-  <div class="col-md-6" id="formTableBranchProvincia">
-    <h6 style="margin-bottom:15px">Lista de Sedes de Provincia</h6>
-    <table class="table table-striped" styles="" id="branchTableProvince">
-      <thead>
-        <tr>
-          <th style="width: 10px; display:none;">id</th>
-          <th style="width: 250px;">Nombre</th>
-          <th style="width: 250px;">Dirección</th>
-          <th style="width: 30px; ">Botones</th>
-        </tr>
-      </thead>
-      <tfoot>
-        <tr>
-          <td colspan="1000" style="text-align:right">
-            <a class="btn btn-primary" href="/admin/branches/new/province"> <i class="fa fa-plus" style="margin-right:5px; color: #fff !important;"></i>Agregar Registro</a>
-            <button class="btn btn-success save-table"> <i class="fa fa-check" style="margin-right:5px"></i>Guardar Cambios</button>
-          </td>
-        </tr>
-      </tfoot>
-    </table>
+  <div class="col-md-12">
+    <div class="accordion" id="accordionExample">
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <h2 class="mb-0">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              Lista de Sedes de Lima
+            </button>
+          </h2>
+        </div>
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="card-body">
+            <div class="col-md-12" id="formTableBranchLima">
+              <table class="table table-striped" styles="" id="branchTableLima">
+                <thead>
+                  <tr>
+                    <th style="width: 10px; display:none;">id</th>
+                    <th style="width: 250px;">Nombre</th>
+                    <th style="width: 250px;">Dirección</th>
+                    <th style="width: 30px; ">Botones</th>
+                  </tr>
+                </thead>
+                <tfoot>
+                  <tr>
+                    <td colspan="1000" style="text-align:right">
+                      <a class="btn btn-primary" href="/admin/branches/new/lima"> <i class="fa fa-plus" style="margin-right:5px; color: #fff !important;"></i>Agregar Registro</a>
+                      <button class="btn btn-success save-table"> <i class="fa fa-check" style="margin-right:5px"></i>Guardar Cambios</button>
+                    </td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingTwo">
+          <h2 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Lista de Sedes de Provincia
+            </button>
+          </h2>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+          <div class="card-body">
+            <div class="col-md-12" id="formTableBranchProvincia">
+              <table class="table table-striped" styles="" id="branchTableProvince">
+                <thead>
+                  <tr>
+                    <th style="width: 10px; display:none;">id</th>
+                    <th style="width: 250px;">Nombre</th>
+                    <th style="width: 250px;">Dirección</th>
+                    <th style="width: 30px; ">Botones</th>
+                  </tr>
+                </thead>
+                <tfoot>
+                  <tr>
+                    <td colspan="1000" style="text-align:right">
+                      <a class="btn btn-primary" href="/admin/branches/new/province"> <i class="fa fa-plus" style="margin-right:5px; color: #fff !important;"></i>Agregar Registro</a>
+                      <button class="btn btn-success save-table"> <i class="fa fa-check" style="margin-right:5px"></i>Guardar Cambios</button>
+                    </td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

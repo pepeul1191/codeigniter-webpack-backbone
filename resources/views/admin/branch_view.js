@@ -1,6 +1,7 @@
 import Table from '../../libs/table';
 import BranchCollection from '../../collections/branch_collection';
 import Branch from '../../models/branch';
+import 'bootstrap/js/dist/collapse';
 
 var AdminBranchView = Backbone.View.extend({
   el: '#workspace',
