@@ -78,7 +78,7 @@ var AdminTechnologyView = Backbone.View.extend({
             operation: '',
             class: 'fa-pencil',
             styles: 'padding-left: 0px;',
-            url: '/technologies/edit/{0}',
+            url: '/admin/technologies/edit/{0}',
             keysFormat: ['id', 'names', ],
           },
           {

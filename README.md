@@ -23,6 +23,35 @@ Migraciones con DBMATE - accesos:
 + Al eliminar branches y tecnologies, debe de borrar branches_images y tecnologies_images.
 + Al eliminar branches y tecnologies, debe de borrar imagen almacenada.
 
+### .htaccess
+
+Desarrollo
+
+```
+# html5 pushstate (history) support:
+<ifModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /admin/
+    RewriteCond %{THE_REQUEST} ^.*/index.php 
+    RewriteRule ^(.*)index.php$ /admin/$1 [R,L] 
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} !^/index\.php
+    RewriteRule (.*) index.php
+</ifModule>
+```
+
+Hosting
+
+```
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+```
 ---
 
 Fuentes:
