@@ -543,8 +543,12 @@ if(ENV == 'localhost'){
   $config['base_url'] = 'http://localhost:8080/';
   $config['static_url'] = 'http://localhost:8080/public/';
   $config['admin_path'] = 'admin';
-}else{
-  $config['base_url'] = 'http://softweb.pe/';
-  $config['static_url'] = 'http://softweb.pe/public/';
+}else if(ENV == 'softweb'){
+  $config['base_url'] = 'http://softweb.pe/coa/';
+  $config['static_url'] = 'http://softweb.pe/coa/public/';
+  $config['admin_path'] = 'coa/admin';
+}else if(ENV == 'coa'){
+  $config['base_url'] = '???';
+  $config['static_url'] = '???public/';
   $config['admin_path'] = 'coa/admin';
 }

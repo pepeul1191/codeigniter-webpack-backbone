@@ -52,6 +52,12 @@ RewriteCond %{REQUEST_FILENAME} !-l
 
 RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
 ```
+
+### Pasos de despligue
+
+    $ git reset --hard origin/master
+
+
 ---
 
 Fuentes:
