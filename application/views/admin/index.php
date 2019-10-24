@@ -4,9 +4,10 @@
     <title><?php echo $title;?></title>
     <?php echo load_csss($this->config, $csss);?>
     <link rel="shortcut icon" href="<?php echo $this->config->item('static_url'); ?>favicon-admin.ico">
-    <base href="/admin/" />
+    <base href="/<?php echo $this->config->item('admin_path');?>/" />
     <script>
       var BASE_URL = '<?php echo $this->config->item('base_url');?>';
+      var SPA_PATH = '<?php echo $this->config->item('admin_path');?>';
       var STATIC_URL  = '<?php echo $this->config->item('static_url');?>';
       var CSRF = "<?php echo $this->config->item('csrf')['value']; ?>";
       var CSRF_KEY = '<?php echo $this->config->item('csrf')['key']; ?>';
@@ -23,7 +24,7 @@
     <header class="bg-primary fixed-top" id="nav1">
       <ul class="">
         <li class="">
-          <a class="" href="/admin/">Home</a>
+          <a class="" href="/<?php echo $this->config->item('admin_path');?>/">Home</a>
         </li>
         <li class="">
           <a class="" href="/help">Ayuda</a>
@@ -39,7 +40,7 @@
       </ul>
     </header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top" id="nav2">
-      <a class="navbar-brand" href="/admin/">
+      <a class="navbar-brand" href="/<?php echo $this->config->item('admin_path');?>/">
         <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
         Administración de Contenidos
       </a>
@@ -54,16 +55,16 @@
           </li>
           -->
           <li class="nav-item">
-            <a class="nav-link" href="/admin/specialisms">Especialidades</a>
+            <a class="nav-link" href="/<?php echo $this->config->item('admin_path');?>/specialisms">Especialidades</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/admin/technologies">Tecnología</a>
+            <a class="nav-link" href="/<?php echo $this->config->item('admin_path');?>/technologies">Tecnología</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/admin/dentists">Odontólogos</a>
+            <a class="nav-link" href="/<?php echo $this->config->item('admin_path');?>/dentists">Odontólogos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/admin/branches">Sedes</a>
+            <a class="nav-link" href="/<?php echo $this->config->item('admin_path');?>/branches">Sedes</a>
           </li>
           <!--
           <li class="nav-item dropdown">

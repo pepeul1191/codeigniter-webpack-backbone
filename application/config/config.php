@@ -530,8 +530,6 @@ $config['proxy_ips'] = '';
 
 $config['env_static'] = 'dev';
 $config['env_session'] = false;
-$config['base_url'] = 'http://localhost:8080/';
-$config['static_url'] = 'http://localhost:8080/public/';
 $config['csrf'] = array(
   'key' => 'csrf_key',
   'value' => 'PKBcauXg6sTXz7Ddlty0nejVgoUodXL89KNxcrfwkEme0Huqtj6jjt4fP7v2uF4L', 
@@ -540,3 +538,13 @@ $config['login'] = array(
   'user' => 'admin',
   'password' => 'sistema123', 
 );
+
+if(ENV == 'localhost'){
+  $config['base_url'] = 'http://localhost:8080/';
+  $config['static_url'] = 'http://localhost:8080/public/';
+  $config['admin_path'] = 'admin';
+}else{
+  $config['base_url'] = 'http://softweb.pe/';
+  $config['static_url'] = 'http://softweb.pe/public/';
+  $config['admin_path'] = 'coa/admin';
+}

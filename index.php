@@ -307,6 +307,7 @@ switch (ENVIRONMENT)
 	define('DBPATH', getcwd() . DIRECTORY_SEPARATOR . 'db' . DIRECTORY_SEPARATOR);
 	define('UPLOAD_PATH', getcwd() . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR);
 
+
 /*
  * --------------------------------------------------------------------
  * LOAD THE BOOTSTRAP FILE
@@ -314,4 +315,7 @@ switch (ENVIRONMENT)
  *
  * And away we go...
  */
+
+define('ENV', 'localhost');
+
 require_once BASEPATH.'core/CodeIgniter.php';

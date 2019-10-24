@@ -14,22 +14,22 @@ var AdminRouter = Backbone.Router.extend({
   initialize: function() {
   },
   routes:{
-    'admin': 'specialisms',
-    'admin/': 'specialisms',
-    'admin/specialisms': 'specialisms',
+    [SPA_PATH + '']: 'specialisms',
+    [SPA_PATH + '/']: 'specialisms',
+    [SPA_PATH + '/specialisms']: 'specialisms',
     // techonology
-    'admin/technologies': 'technologies',
-    'admin/technologies/new': 'technologiesNew',
-    'admin/technologies/edit/:id': 'technologiesEdit',
+    [SPA_PATH + '/technologies']: 'technologies',
+    [SPA_PATH + '/technologies/new']: 'technologiesNew',
+    [SPA_PATH + '/technologies/edit/:id']: 'technologiesEdit',
     // branch
-    'admin/branches': 'branches',
-    'admin/branches/new/:type': 'branchesNew',
-    'admin/branch/edit/:id': 'branchesEdit',
-    'admin/branch/:id/dentists': 'branchDentists',
+    [SPA_PATH + '/branches']: 'branches',
+    [SPA_PATH + '/branches/new/:type']: 'branchesNew',
+    [SPA_PATH + '/branch/edit/:id']: 'branchesEdit',
+    [SPA_PATH + '/branch/:id/dentists']: 'branchDentists',
     // dentist
-    'admin/dentists': 'dentists',
-    'admin/dentist/new': 'dentistsNew',
-    'admin/dentist/edit/:id': 'dentistsEdit',
+    [SPA_PATH + '/dentists']: 'dentists',
+    [SPA_PATH + '/dentist/new']: 'dentistsNew',
+    [SPA_PATH + '/dentist/edit/:id']: 'dentistsEdit',
     // others
     '*path' : 'default',
   },
@@ -60,6 +60,7 @@ var AdminRouter = Backbone.Router.extend({
       id: 'E',
       messageClass: '',
       disabled: false,
+      SPA_PATH: SPA_PATH,
     };
     var type = 'new';
     this.technologyDetailView.render(data, type);
@@ -75,6 +76,7 @@ var AdminRouter = Backbone.Router.extend({
       id: id,
       messageClass: 'alert-danger',
       disabled: true,
+      SPA_PATH: SPA_PATH,
     };
     var type = 'edit';
     this.technologyDetailView.render(data, type);
@@ -99,6 +101,7 @@ var AdminRouter = Backbone.Router.extend({
       messageClass: '',
       disabled: false,
       branchType: branchType,
+      SPA_PATH: SPA_PATH,
     };
     var type = 'new';
     this.branchDetailView.render(data, type);
@@ -114,6 +117,7 @@ var AdminRouter = Backbone.Router.extend({
       id: id,
       messageClass: 'alert-danger',
       disabled: true,
+      SPA_PATH: SPA_PATH,
     };
     var type = 'edit';
     this.branchDetailView.render(data, type);
@@ -130,6 +134,7 @@ var AdminRouter = Backbone.Router.extend({
       messageClass: null,
       disabled: false,
       message: '',
+      SPA_PATH: SPA_PATH,
     };
     var type = 'edit';
     this.branchBranchDentist.branch_id = id;
@@ -154,6 +159,7 @@ var AdminRouter = Backbone.Router.extend({
       id: 'E',
       messageClass: '',
       disabled: false,
+      SPA_PATH: SPA_PATH,
     };
     var type = 'new';
     this.dentistDetailView.render(data, type);
@@ -169,6 +175,7 @@ var AdminRouter = Backbone.Router.extend({
       id: id,
       messageClass: 'alert-danger',
       disabled: true,
+      SPA_PATH: SPA_PATH,
     };
     var type = 'edit';
     this.dentistDetailView.render(data, type);

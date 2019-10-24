@@ -101,7 +101,7 @@ var AdminDentistView = Backbone.View.extend({
             operation: '',
             class: 'fa-pencil',
             styles: 'padding-left: 0px;',
-            url: '/admin/dentist/edit/{0}',
+            url: '/' + SPA_PATH + '/dentist/edit/{0}',
             keysFormat: ['id', 'names', ],
           },
           {
