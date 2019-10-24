@@ -98,7 +98,7 @@ var AdminBranchView = Backbone.View.extend({
             operation: '',
             class: 'fa-pencil',
             styles: 'padding-left: 0px;',
-            url: '/branch/edit/{0}',
+            url: '/admin/branch/edit/{0}',
             keysFormat: ['id', 'names', ],
           },
           {
@@ -106,7 +106,7 @@ var AdminBranchView = Backbone.View.extend({
             operation: '',
             class: 'fa-list',
             styles: 'padding-left: 0px;',
-            url: '/branch/{0}/dentists', 
+            url: '/admin/branch/{0}/dentists', 
             keysFormat: ['id', 'names', ],
           },
           {
@@ -173,7 +173,7 @@ var AdminBranchView = Backbone.View.extend({
             operation: '',
             class: 'fa-pencil',
             styles: 'padding-left: 0px;',
-            url: '/branch/edit/{0}',
+            url: '/admin/branch/edit/{0}',
             keysFormat: ['id', 'names', ],
           },
           {
@@ -181,7 +181,7 @@ var AdminBranchView = Backbone.View.extend({
             operation: '',
             class: 'fa-list',
             styles: 'padding-left: 0px;',
-            url: '/branch/{0}/dentists', 
+            url: '/admin/branch/{0}/dentists', 
             keysFormat: ['id', 'names', ],
           },
           {
