@@ -23,7 +23,7 @@
     <header class="bg-primary fixed-top" id="nav1">
       <ul class="">
         <li class="">
-          <a class="" href="/">Home</a>
+          <a class="" href="/admin/">Home</a>
         </li>
         <li class="">
           <a class="" href="/help">Ayuda</a>
@@ -39,7 +39,7 @@
       </ul>
     </header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top" id="nav2">
-      <a class="navbar-brand" href="/">
+      <a class="navbar-brand" href="/admin/">
         <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
         Administración de Contenidos
       </a>
@@ -54,16 +54,16 @@
           </li>
           -->
           <li class="nav-item">
-            <a class="nav-link" href="/specialisms">Especialidades</a>
+            <a class="nav-link" href="/admin/specialisms">Especialidades</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/technologies">Tecnología</a>
+            <a class="nav-link" href="/admin/technologies">Tecnología</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/dentists">Odontólogos</a>
+            <a class="nav-link" href="/admin/dentists">Odontólogos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/branches">Sedes</a>
+            <a class="nav-link" href="/admin/branches">Sedes</a>
           </li>
           <!--
           <li class="nav-item dropdown">

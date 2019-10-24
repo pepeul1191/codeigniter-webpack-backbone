@@ -14,21 +14,22 @@ var AdminRouter = Backbone.Router.extend({
   initialize: function() {
   },
   routes:{
-    '': 'specialisms',
-    'specialisms': 'specialisms',
+    'admin': 'specialisms',
+    'admin/': 'specialisms',
+    'admin/specialisms': 'specialisms',
     // techonology
-    'technologies': 'technologies',
-    'technologies/new': 'technologiesNew',
-    'technologies/edit/:id': 'technologiesEdit',
+    'admin/technologies': 'technologies',
+    'admin/technologies/new': 'technologiesNew',
+    'admin/technologies/edit/:id': 'technologiesEdit',
     // branch
-    'branches': 'branches',
-    'branches/new/:type': 'branchesNew',
-    'branch/edit/:id': 'branchesEdit',
-    'branch/:id/dentists': 'branchDentists',
+    'admin/branches': 'branches',
+    'admin/branches/new/:type': 'branchesNew',
+    'admin/branch/edit/:id': 'branchesEdit',
+    'admin/branch/:id/dentists': 'branchDentists',
     // dentist
-    'dentists': 'dentists',
-    'dentist/new': 'dentistsNew',
-    'dentist/edit/:id': 'dentistsEdit',
+    'admin/dentists': 'dentists',
+    'admin/dentist/new': 'dentistsNew',
+    'admin/dentist/edit/:id': 'dentistsEdit',
     // others
     '*path' : 'default',
   },

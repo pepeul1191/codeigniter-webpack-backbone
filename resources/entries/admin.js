@@ -9,7 +9,7 @@ $(document).ready(function(){
   // alert("document ready occurred!");
   Backbone.history.start({
     pushState: true, 
-    root: '/admin/',
+    root: '/',
   });
 });
 
