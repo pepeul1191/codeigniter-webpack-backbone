@@ -1,11 +1,7 @@
-# html5 pushstate (history) support:
-<ifModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteBase /admin/
-    RewriteCond %{THE_REQUEST} ^.*/index.php 
-    RewriteRule ^(.*)index.php$ /admin/$1 [R,L] 
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_URI} !^/index\.php
-    RewriteRule (.*) index.php
-</ifModule>
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
