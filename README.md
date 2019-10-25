@@ -55,8 +55,15 @@ RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
 
 ### Pasos de despligue
 
+1. SSH - pull and rewrite
+
     $ git reset --hard origin/master
 
+2. CPanel - Configurar versión de PHP a 7.1
+
+3. SSH - con nano cambiar el ambiente en index.php
+
+4. FTP - subir los archivos public/dist y public/templates
 
 ---
 

@@ -31,6 +31,7 @@ if ( ! function_exists('home_js'))
       case 'dev':
         $rpta = [
           'dist/admin.vendor',
+          'dist/site.vendor',
           'dist/site',
         ];
         break;

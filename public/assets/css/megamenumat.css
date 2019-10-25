@@ -1,0 +1,101 @@
+nav li:hover {
+  background: #444;
+}
+
+nav li:hover a {
+  color: #fff;
+}
+
+.menu-sub {
+  position: absolute;
+  left: 0;
+  background: #444;
+  width: 100%;
+  display: none;
+  color: #fff;
+  padding: 2em;
+  transition: 3s;
+}
+
+nav li:hover .menu-sub {
+  display: block;
+  opacity: 1;
+}
+
+.menu-sub li {
+}
+
+.menu-sub a {
+  padding: 0;
+  margin-bottom: .35em;
+}
+
+.menu-sub a:hover {
+  text-decoration: underline;
+}
+
+.menu-category {
+  margin: 2.5em 0 .5em;
+}
+
+.menu-category:first-of-type {
+  margin-top: 0;
+}
+
+.menu-col-1,
+.menu-col-2,
+.menu-col-3,
+.menu-col-4 {
+  float: left;
+}
+
+.menu-col-1 {
+  width: 25%;
+}
+
+.menu-col-2 {
+  width: 50%;
+}
+
+/* Menu inferior */
+
+menu{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: fit-content;
+  margin-bottom: 0px;
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+}
+
+.menu-top{
+  top: 49px;
+}
+
+/*-- slider--*/
+
+#homeVideo{ 
+  width: 100%;
+}
+
+#homeVideoModal{
+  width: 100%;
+  margin-bottom: -6px;
+}
+
+.overlay {
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:1;
+  text-align: center;
+  width: 100%;
+  margin-top: 20%;
+}
+
+.nav-no-shadow{
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.0), 0 3px 1px -2px rgba(0,0,0,0.0), 0 1px 5px 0 rgba(0,0,0,0.0);
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.0), 0 3px 1px -2px rgba(0,0,0,0.0), 0 1px 5px 0 rgba(0,0,0,0.0);
+}
+

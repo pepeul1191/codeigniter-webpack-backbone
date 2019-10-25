@@ -15,8 +15,6 @@ var entries = {
   'admin.vendor.css': ['bootstrap/dist/css/bootstrap.min.css', ],
   // login entries
   'login': ['./resources/entries/login.js', ], 
-  // site entries
-  'site.vendor.css': ['materialize-css/dist/css/materialize.min.css', ],
   // error entries
   'error': ['./resources/entries/error.js', ], 
 };
@@ -25,6 +23,8 @@ var plugins = [
   new webpack.ProvidePlugin({
     // import globally this libs
     '$': 'jquery',
+    'jQuery':'jquery',
+    'window.jQuery':'jquery',
     'Backbone': 'backbone',
     '_': 'underscore',
   }),

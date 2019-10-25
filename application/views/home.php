@@ -13,6 +13,15 @@
     <?php echo load_csss($this->config, $csss);?>
   </head>
   <body>   
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+      <video loop autoplay muted controls id="homeVideoModal">
+        <source src=http://techslides.com/demos/sample-videos/small.webm type=video/webm> 
+        <source src=http://techslides.com/demos/sample-videos/small.ogv type=video/ogg> 
+        <source src=http://techslides.com/demos/sample-videos/small.mp4 type=video/mp4>
+        <source src=http://techslides.com/demos/sample-videos/small.3gp type=video/3gp>
+      </video>
+    </div>
     <!-- navbar -->
     <nav>
       <div class="">
@@ -79,6 +88,50 @@
       </li>
     </ul>
     <!-- end sidebar -->
+    <!-- slider -->
+    <!--
+    <div class="carousel carousel-slider ">
+      <a class="carousel-item"><img src="/img/foto01.jpg"></a>
+      <a class="carousel-item"><img src="/img/foto02.jpg"></a>
+      <a class="carousel-item"><img src="/img/foto03.jpg"></a>
+    </div>
+    -->
+    <!-- /slider -->
+    <!-- video -->
+    <div class="video-container">
+      <video loop autoplay muted id="homeVideo">
+        <source src=http://techslides.com/demos/sample-videos/small.webm type=video/webm> 
+        <source src=http://techslides.com/demos/sample-videos/small.ogv type=video/ogg> 
+        <source src=http://techslides.com/demos/sample-videos/small.mp4 type=video/mp4>
+        <source src=http://techslides.com/demos/sample-videos/small.3gp type=video/3gp>
+      </video>
+      <div class="overlay">
+        <p>Content above your video</p>
+        <div class="valign-wrapper center-align">
+          <h5 class="">This should be vertically aligned</h5>
+          <a class="waves-effect waves-light btn modal-trigger" href="#modal1">button</a>
+        </div>
+      </div>
+    </div>
+    <!-- end -->
+    <div class="box container green">
+    </div>
+    <menu id="menu" class="blue">
+      <div class="row">
+        <div class="col s1 m1">1</div>
+        <div class="col s1 m1">2</div>
+        <div class="col s1 m1">3</div>
+        <div class="col s1 m1">4</div>
+        <div class="col s1 m1">5</div>
+        <div class="col s1 m1">6</div>
+        <div class="col s1 m1">7</div>
+        <div class="col s1 m1">8</div>
+        <div class="col s1 m1">9</div>
+        <div class="col s1 m1">10</div>
+        <div class="col s1 m1">11</div>
+        <div class="col s1 m1">12</div>
+      </div>
+    </menu>
     <?php echo load_jss($this->config, $jss);?>
   </body>
 </html>
