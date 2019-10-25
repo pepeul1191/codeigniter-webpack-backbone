@@ -1,9 +1,17 @@
 import '../../public/assets/css/site.css';
 import '../../public/assets/css/megamenumat.css';
+import '../../public/assets/css/preloader.css';
 import 'materialize-css/dist/js/materialize.min.js';
 import 'webpack-jquery-ui/effects';
 
 $(document).ready(function(){
+  // preloader
+  $('.preloader').addClass('complete');
+      setTimeout(function(){
+        $('.preloader').css('background', 'transparent'); 
+        $('.wrapper').css('display', 'none'); 
+        $('.preloader').css('z-index', 0); 
+      }, 1000);
   // navbar scrool
   $(window).scroll(function(event){
     var sc = $(window).scrollTop();
