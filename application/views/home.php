@@ -143,6 +143,27 @@
         </div>
       </div>
     </menu>
+    <!-- footer -->
+    <footer class="page-footer green">
+      <div class="container">
+        <div class="row">
+          <h1>futuros hipervinculos</h1>
+        </div>
+      </div>
+      <div class="footer-copyright secondary">
+        <div class="row">
+          <div class="col l6 s12">
+            <span class="grey-text text-lighten-4 bold">D</span> Sede Central: Av Juan de Arona 425 San isidro <span class="grey-text text-lighten-4 bold">T</span> 421 6323<br>
+            central@coa.pe<br>
+            <span class="grey-text text-lighten-4 bold" id="terminos-condiciones">Términos y Condiciones<span>
+          </div>
+          <div class="col l6 s12">
+            © 2018 Centro Ondontológico Americano - Derechos Reservados<br>
+            <a class="grey-text text-lighten-4 bold" href="http://softweb.pe/website/">Sitio Desarollado por Software Web Perú ©</a>
+          </div>
+        </div>
+      </div>
+    </footer>
     <!-- JSs -->
     <?php echo load_jss($this->config, $jss);?>
   </body>
