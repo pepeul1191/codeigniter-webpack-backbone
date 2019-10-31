@@ -22,6 +22,33 @@ body {
   background:  var(--gray-light) !important;
 }
 
+/* form */
+
+[type="checkbox"]+span:not(.lever):before, [type="checkbox"]:not(.filled-in)+span:not(.lever):after, [type="radio"]:not(:checked)+span:before, [type="radio"]:not(:checked)+span:after{ border: 2px solid var(--gray-dark);}
+[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:after{
+  background-color: var(--gray-dark) !important;
+
+}
+[type="checkbox"]:checked+span:not(.lever):before{ 
+  border-right: 2px solid var(--gray-dark); border-bottom: 1px solid var(--gray-dark);
+}
+
+input.valid[type=text]:not(.browser-default),input[type=text]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]), textarea.materialize-textarea:not(.browser-default), {
+  border-bottom: 1px solid var(--gray-dark); box-shadow: 0 1px 0 0 #fdfdfd; color: #616161;
+}
+
+input[type=text]:not(.browser-default):focus:not([readonly]) + label, textarea + label, textarea.materialize-textarea:focus:not([readonly]) + label {
+  color: #616161;
+}
+
+input[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:before, [type="radio"].with-gap:checked+span:after{
+  border: 0px solid #616161; 
+}
+
+input[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:before, [type="radio"].with-gap:checked+span:after{
+  border: 0px solid #616161; 
+}
+
 /* nav */
 
 .brand-logo > img {
@@ -69,6 +96,8 @@ nav{
 #contacto {
   background:  var(--gray-light) !important;
   padding: 30px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
 }
 
 #contacto > .col > img{

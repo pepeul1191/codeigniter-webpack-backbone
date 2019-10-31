@@ -146,26 +146,87 @@
     <!-- footer -->
     <footer class="page-footer  gray">
       <div class="row" id="contacto">
-      <div class="col s6">
-        <img src="/public/assets/site/img/logo-gris.png" alt="Centro Odontológico Americano">
-        <h4 class="gray-text">Dudas o consultas adicionales?</h4>
-        <p class="gray-text">Para contactarnos complete todos los campos del siguiente fomulario, le responderemos en la brevedad posible.</p>
-        <div class="social">
-          <a href="/#/facebook" style="padding: 3px;">
-            <i class="fa fa-facebook-official" aria-hidden="true"></i>
-          </a>
-          <a href="/#/youtube" style="padding: 2px;">
-            <i class="fa fa-youtube-play" aria-hidden="true"></i>
-          </a>
-          <a href="/#/instagram" style="padding: 3px; padding-top: 1px;">
-            <i class="fa fa-instagram" aria-hidden="true"></i>
-          </a>
+        <div class="col s6">
+          <img src="/public/assets/site/img/logo-gris.png" alt="Centro Odontológico Americano">
+          <h4 class="gray-text">Dudas o consultas adicionales?</h4>
+          <p class="gray-text">Para contactarnos complete todos los campos del siguiente fomulario, le responderemos en la brevedad posible.</p>
+          <div class="social">
+            <a href="/#/facebook" style="padding: 3px;">
+              <i class="fa fa-facebook-official" aria-hidden="true"></i>
+            </a>
+            <a href="/#/youtube" style="padding: 2px;">
+              <i class="fa fa-youtube-play" aria-hidden="true"></i>
+            </a>
+            <a href="/#/instagram" style="padding: 3px; padding-top: 1px;">
+              <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col s12 l6" style="">
+          <div class="col s12 l12" style="">
+            <h4 class="bold gray-text" style="margin-top: 0px;">Contacto</h4>
+            <br>
+            <div class="row row-form">
+              <div class="input-field col s6">
+                <input id="nombre" type="text" class="validate">
+                <label for="nombre">Nombre</label>
+              </div>
+              <div class="input-field col s6">
+                <input id="apellido" type="text" class="validate">
+                <label for="apellido">Apellido</label>
+              </div>
+            </div>
+            <div class="row row-form">
+              <div class="input-field col s6">
+                <input id="email" type="text" class="validate">
+                <label for="email">Email</label>
+              </div>
+              <div class="input-field col s6">
+                <input id="dni" type="text" class="validate">
+                <label for="dni">DNI</label>
+              </div>
+            </div>
+            <div class="row row-form">
+              <div class="input-field col s12">
+                <textarea id="textarea1" class="materialize-textarea" rows="4"></textarea>
+                <label for="textarea1">Consulta</label>
+              </div>
+            </div>
+            <div class="row row-form">
+              <div class="col s12">
+                <p>
+                  <label>
+                    <input type="checkbox" />
+                    <span class="gray-text">
+                      He leído y estoy informado sobre la Ley N° 29733 - Ley de Protección de Datos Personales y su reglamento aprobado mediante Decreto Supremo N° 003-2013-JUS.
+                    </span>
+                  </label>
+                </p>
+                <p class="gray-text">
+                  Condiciones
+                </p>
+              </div>
+            </div>
+            <div class="row row-form">
+              <div class="col s6">
+                <label>
+                  <input name="group1" type="radio" />
+                  <span class="gray-text">Acepto</span>
+                </label>
+              </div>
+              <div class="col s6" style="margin-bottom: 40px;">
+                <label>
+                  <input name="group1" type="radio" />
+                  <span class="gray-text">No Acepto</span>
+                </label>
+              </div>
+            </div>
+            <div class="row row-form">
+              <a class="waves-effect waves-light btn">button</a>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="col s6">
-      
-      </div>
-    </div>
       <div class="footer-copyright secondary">
         <div class="row">
           <div class="col l6 s12">
