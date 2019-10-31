@@ -8,6 +8,7 @@ if ( ! function_exists('home_css'))
     switch($config->item('env_static')){
       case 'dev':
         $rpta = [
+          'bower_components/font-awesome/css/font-awesome.min',
           'dist/site.vendor',
           'dist/site',
         ];

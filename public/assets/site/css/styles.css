@@ -1,10 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:100,300,400");
 
-:root {
-  --bg-primary: #343434;
-  --bg-secondary: #454545;
-}
-
 .bg-primary { 
   background: var(--bg-primary) !important;
 }
@@ -15,10 +10,6 @@
 
 body {
   background: #F1EFE2;
-}
-
-html {
-  font-size:0.75rem !important;
 }
 
 a {

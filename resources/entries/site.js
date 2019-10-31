@@ -1,6 +1,7 @@
-import '../../public/assets/css/site.css';
-import '../../public/assets/css/megamenumat.css';
-import '../../public/assets/css/preloader.css';
+import '../../public/assets/site/css/constants.css';
+import '../../public/assets/site/css/megamenumat.css';
+import '../../public/assets/site/css/preloader.css';
+import '../../public/assets/site/css/styles.css';
 import 'materialize-css/dist/js/materialize.min.js';
 import 'webpack-jquery-ui/effects';
 import SiteRouter from '../routes/site';
@@ -13,13 +14,6 @@ $(document).ready(function(){
     pushState: true, 
     root: '/',
   });
-  // preloader
-  $('.preloader').addClass('complete');
-      setTimeout(function(){
-        $('.preloader').css('background', 'transparent'); 
-        $('.wrapper').css('display', 'none'); 
-        $('.preloader').css('z-index', 0); 
-      }, 1000);
   // navbar scrool
   $(window).scroll(function(event){
     var sc = $(window).scrollTop();
