@@ -2,6 +2,7 @@ import '../../public/assets/site/css/constants.css';
 import '../../public/assets/site/css/megamenumat.css';
 import '../../public/assets/site/css/preloader.css';
 import '../../public/assets/site/css/styles.css';
+import '../../public/assets/site/css/home.css';
 import 'materialize-css/dist/js/materialize.min.js';
 import 'webpack-jquery-ui/effects';
 import SiteRouter from '../routes/site';
@@ -19,11 +20,11 @@ $(document).ready(function(){
     var sc = $(window).scrollTop();
     // console.log(sc);
     if(sc >= 650){
-      $('nav').addClass('red', 1000);
+      $('nav').addClass('primary', 1000);
       $('nav').addClass('nav-no-shadow', 1000);
       $('menu').addClass('menu-top', 1000);
     }else{
-      $('nav').removeClass('red', 1000);
+      $('nav').removeClass('primary', 1000);
       $('nav').removeClass('nav-no-shadow', 1000);
       $('menu').removeClass('menu-top', 1000);
     }
