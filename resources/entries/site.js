@@ -3,8 +3,16 @@ import '../../public/assets/css/megamenumat.css';
 import '../../public/assets/css/preloader.css';
 import 'materialize-css/dist/js/materialize.min.js';
 import 'webpack-jquery-ui/effects';
+import SiteRouter from '../routes/site';
+
+var router = new SiteRouter();
 
 $(document).ready(function(){
+  // backbone app
+  Backbone.history.start({
+    pushState: true, 
+    root: '/',
+  });
   // preloader
   $('.preloader').addClass('complete');
       setTimeout(function(){
