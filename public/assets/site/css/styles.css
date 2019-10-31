@@ -14,6 +14,14 @@ body {
   background: #F1EFE2;
 }
 
+.gray-text{
+  color:  var(--gray-dark) !important;
+}
+
+.gray{
+  background:  var(--gray-light) !important;
+}
+
 /* nav */
 
 .brand-logo > img {
@@ -58,6 +66,35 @@ nav{
 
 /* footer */
 
+#contacto {
+  background:  var(--gray-light) !important;
+  padding: 30px;
+}
+
+#contacto > .col > img{
+  max-width:50%; 
+  height:auto; 
+}
+
+.social > a{
+  border-radius: 100%;
+  background: #f9f9f9;
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  color: var(--gray-dark) !important;
+  margin-right: 15px;
+}
+
+.social > a > i{
+  font-size: 30px;
+  padding: 6px;
+}
+
 .footer-copyright > .row{
   margin-bottom: 0px;
+}
+
+.footer-copyright{
+  color: red;
 }

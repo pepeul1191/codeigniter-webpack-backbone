@@ -144,22 +144,38 @@
       </div>
     </menu>
     <!-- footer -->
-    <footer class="page-footer green">
-      <div class="container">
-        <div class="row">
-          <h1>futuros hipervinculos</h1>
+    <footer class="page-footer  gray">
+      <div class="row" id="contacto">
+      <div class="col s6">
+        <img src="/public/assets/site/img/logo-gris.png" alt="Centro Odontológico Americano">
+        <h4 class="gray-text">Dudas o consultas adicionales?</h4>
+        <p class="gray-text">Para contactarnos complete todos los campos del siguiente fomulario, le responderemos en la brevedad posible.</p>
+        <div class="social">
+          <a href="/#/facebook" style="padding: 3px;">
+            <i class="fa fa-facebook-official" aria-hidden="true"></i>
+          </a>
+          <a href="/#/youtube" style="padding: 2px;">
+            <i class="fa fa-youtube-play" aria-hidden="true"></i>
+          </a>
+          <a href="/#/instagram" style="padding: 3px; padding-top: 1px;">
+            <i class="fa fa-instagram" aria-hidden="true"></i>
+          </a>
         </div>
       </div>
+      <div class="col s6">
+      
+      </div>
+    </div>
       <div class="footer-copyright secondary">
         <div class="row">
           <div class="col l6 s12">
-            <span class="grey-text text-lighten-4 bold">D</span> Sede Central: Av Juan de Arona 425 San isidro <span class="grey-text text-lighten-4 bold">T</span> 421 6323<br>
+            <span class="white-text text-lighten-4 bold">D</span> Sede Central: Av Juan de Arona 425 San isidro <span class="white-text text-lighten-4 bold">T</span> 421 6323<br>
             central@coa.pe<br>
-            <span class="grey-text text-lighten-4 bold" id="terminos-condiciones">Términos y Condiciones<span>
+            <span class="white-text text-lighten-4 bold" id="terminos-condiciones">Términos y Condiciones<span>
           </div>
           <div class="col l6 s12">
             © 2018 Centro Ondontológico Americano - Derechos Reservados<br>
-            <a class="grey-text text-lighten-4 bold" href="http://softweb.pe/website/">Sitio Desarollado por Software Web Perú ©</a>
+            <a class="white-text text-lighten-4 bold" href="http://softweb.pe/website/">Sitio Desarollado por Software Web Perú ©</a>
           </div>
         </div>
       </div>
