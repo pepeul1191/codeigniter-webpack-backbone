@@ -71,10 +71,13 @@
             </div>
           </li>
           <li>
-            <a href="#">Blog</a>
+            <a href="/tecnologia">Tecnología</a>
           </li>
           <li>
-            <a href="#">Sedes</a>
+            <a href="/odontologos">Odontólogos</a>
+          </li>
+          <li>
+            <a href="/sedes">Sedes</a>
           </li>
           <li>
             <a href="/contacto">Contacto</a>
@@ -115,30 +118,30 @@
       <div class="row">
         <div class="col m2 offset-m2 menu">
           <a href="#">
-            <i class="fa fa-address-book" aria-hidden="true"></i>
+            <i class="fa fa-list" aria-hidden="true"></i>
             <br>
-            menu link 1
+            Especialidades
           </a>
         </div>
         <div class="col m2 menu">
           <a href="#">
             <i class="fa fa-area-chart" aria-hidden="true"></i>
             <br>
-            menu link 2
+            Calidad
           </a>
         </div>
         <div class="col m2 menu">
           <a href="#">
-            <i class="fa fa-assistive-listening-systems" aria-hidden="true"></i>
+            <i class="fa fa-globe" aria-hidden="true"></i>
             <br>.
-            menu link 3
+            Convenios
           </a>
         </div>
         <div class="col m2 menu">
           <a href="#">
-            <i class="fa fa-balance-scale" aria-hidden="true"></i>
+            <i class="fa fa-address-book" aria-hidden="true"></i>
             <br>
-            menu link 4
+            Pacientes
           </a>
         </div>
       </div>
