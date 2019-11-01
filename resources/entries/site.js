@@ -17,16 +17,19 @@ $(document).ready(function(){
   });
   // navbar scrool
   $(window).scroll(function(event){
-    var sc = $(window).scrollTop();
-    // console.log(sc);
-    if(sc >= 650){
-      $('nav').addClass('primary', 1000);
-      $('nav').addClass('nav-no-shadow', 1000);
-      $('menu').addClass('menu-top', 1000);
-    }else{
-      $('nav').removeClass('primary', 1000);
-      $('nav').removeClass('nav-no-shadow', 1000);
-      $('menu').removeClass('menu-top', 1000);
+    var pathname = window.location.pathname; 
+    if(pathname == '/'){
+      var sc = $(window).scrollTop();
+      // console.log(sc);
+      if(sc >= 650){
+        $('nav').addClass('primary', 1000);
+        $('nav').addClass('nav-no-shadow', 1000);
+        $('menu').addClass('menu-top', 1000);
+      }else{
+        $('nav').removeClass('primary', 1000);
+        $('nav').removeClass('nav-no-shadow', 1000);
+        $('menu').removeClass('menu-top', 1000);
+      }
     }
   });
   // materialize js
@@ -36,6 +39,7 @@ $(document).ready(function(){
     indicators: true
   });
   $('.modal').modal();
+  $('select').formSelect();
 });
 
 $('#terminos-condiciones').click(function(){

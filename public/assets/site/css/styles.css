@@ -53,6 +53,9 @@ input[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:bef
   border: 0px solid #616161; 
 }
 
+.dropdown-content li>a, .dropdown-content li>span{
+  color: #343434;
+}
 
 .row .input-field input:focus {
   border-bottom: 1px solid rgb(199, 197, 197) !important;
@@ -61,6 +64,14 @@ input[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:bef
 
 .row-contact{
   margin-bottom: 0px;
+}
+
+button > i {
+  margin-right: 10px;
+}
+
+.input-field > button {
+  margin-top: 10px;
 }
 
 /* nav */
@@ -77,6 +88,7 @@ nav{
   z-index: 10;
   -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0), 0 3px 1px -2px rgba(0,0,0,0), 0 1px 5px 0 rgba(0,0,0,0);
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0), 0 3px 1px -2px rgba(0,0,0,0), 0 1px 5px 0 rgba(0,0,0,0);
+  top: 0px;
 }
 
 /* menu */
@@ -103,6 +115,7 @@ nav{
 #menu{
   -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+  z-index: 2;
 }
 
 menu{
@@ -165,3 +178,24 @@ menu{
 #terminosCondiciones:hover{
   cursor: pointer;
 }
+
+/* workspace */
+
+.workpace-inner{
+  margin-top: 64px;
+}
+
+.parallax-img-header{
+  height: 200px;
+}
+
+.parallax-container > .row > .col > h1 {
+  color: white;
+  font-size: 30px;
+  font-weight: 600;
+} 
+
+.parallax-container > .row > .col > p {
+  color: white;
+  font-weight: 600;
+} 

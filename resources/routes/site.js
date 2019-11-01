@@ -5,6 +5,7 @@ import SiteContactoView from '../views/site/contacto_view';
 import SiteOdontologosView from '../views/site/odontologos_view';
 
 var SiteRouter = Backbone.Router.extend({
+  workspace: '#workspace',
   homeView: null,
   contactoView: null,
   odontologosView: null,
@@ -33,6 +34,8 @@ var SiteRouter = Backbone.Router.extend({
         _this.contactoView.render();
         _this.contactoView.rendered = true;
       }
+      $(_this.workspace).removeClass('workpace-inner');
+      $('nav').removeClass('primary');
     }, 1000);
   },
   contacto: function(){
@@ -48,12 +51,17 @@ var SiteRouter = Backbone.Router.extend({
         this.odontologosView = new SiteOdontologosView();
       }
       this.odontologosView.render(); 
+      this.odontologosView.loadComponents();
       hideLoader();
       // render contacto?
       if(!_this.contactoView.rendered){
         _this.contactoView.render();
         _this.contactoView.rendered = true;
       }
+      $(_this.workspace).addClass('workpace-inner');
+      $('nav').addClass('primary');
+      $('.parallax').parallax();
+      $('select').formSelect();
     }, 1000);
   },
   default: function(path){
