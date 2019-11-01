@@ -6,6 +6,7 @@ var SiteContactoView = Backbone.View.extend({
 	},
 	events: {
     'click #terminosCondiciones': 'terminosCondiciones',
+    'change #leyCheck': 'leyCheck',
   },
   render: function(){
 		var data = {};
@@ -44,6 +45,25 @@ var SiteContactoView = Backbone.View.extend({
     $('#modalBottom').append(template);
     var btnModal = document.getElementById('modal-bottom-btn');
     btnModal.click();
+  },
+  leyCheck: function(event){
+    var checked = event.target.checked;
+    if(checked){
+      $('#modalBottom').empty();
+      $('#modalBottom').css('max-height', '75%');
+      var template = null;
+      $.ajax({
+        url: STATIC_URL + 'templates/site/ley_de_proteccion.html',
+        type: 'GET',
+        async: false,
+        success: function(source) {
+          template = source;
+        }
+      });
+      $('#modalBottom').append(template);
+      var btnModal = document.getElementById('modal-bottom-btn');
+      btnModal.click();
+    }
   },
 });
 
