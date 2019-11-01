@@ -54,3 +54,8 @@ $('#terminos-condiciones').click(function(){
   var btnModal = document.getElementById('modal-bottom-btn');
   btnModal.click();
 });
+
+$('body').on('click', 'a[href^="/"]', function(evt) {
+  evt.preventDefault();
+  router.navigate($(this).attr('href'), {trigger: true});
+})

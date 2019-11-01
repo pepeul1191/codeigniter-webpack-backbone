@@ -11,6 +11,7 @@ var SiteRouter = Backbone.Router.extend({
   },
   routes:{
     '': 'index',
+    ['contacto']: 'contacto',
     // others
     '*path' : 'default',
   },
@@ -26,7 +27,13 @@ var SiteRouter = Backbone.Router.extend({
       // render contacto?
       if(!_this.contactoView.rendered){
         _this.contactoView.render();
+        _this.contactoView.rendered = true;
       }
+    }, 1000);
+  },
+  contacto: function(){
+    $('html, body').animate({ 
+      scrollTop: $('footer').offset().top 
     }, 1000);
   },
   default: function(path){

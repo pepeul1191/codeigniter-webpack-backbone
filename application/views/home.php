@@ -4,10 +4,11 @@
     <title><?php echo $title;?></title>
     <link rel="shortcut icon" href="<?php echo $this->config->item('static_url'); ?>favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <base href="/" />
+    <base href="/<?php echo $this->config->item('admin_path');?>/" />
     <script>
       const BASE_URL = '<?php echo $this->config->item('base_url');?>';
       const STATIC_URL  = '<?php echo $this->config->item('static_url');?>';
+      const SPA_PATH = '<?php echo $this->config->item('site_path');?>';
       const CSRF = "<?php echo $this->config->item('csrf')['value']; ?>";
       const CSRF_KEY = '<?php echo $this->config->item('csrf')['key']; ?>';
       var FIRST_LOAD = true;
@@ -75,16 +76,16 @@
             </div>
           </li>
           <li>
-            <a href="/tecnologia">Tecnología</a>
+            <a href="<?php echo $this->config->item('site_path');?>/tecnologia">Tecnología</a>
           </li>
           <li>
-            <a href="/odontologos">Odontólogos</a>
+            <a href="<?php echo $this->config->item('site_path');?>/odontologos">Odontólogos</a>
           </li>
           <li>
-            <a href="/sedes">Sedes</a>
+            <a href="<?php echo $this->config->item('site_path');?>/sedes">Sedes</a>
           </li>
           <li>
-            <a href="/contacto">Contacto</a>
+            <a href="<?php echo $this->config->item('site_path');?>/contacto">Contacto</a>
           </li>
         </ul>
       </div>
