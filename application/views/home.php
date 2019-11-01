@@ -4,7 +4,7 @@
     <title><?php echo $title;?></title>
     <link rel="shortcut icon" href="<?php echo $this->config->item('static_url'); ?>favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <base href="/<?php echo $this->config->item('admin_path');?>/" />
+    <base href="/" />
     <script>
       const BASE_URL = '<?php echo $this->config->item('base_url');?>';
       const STATIC_URL  = '<?php echo $this->config->item('static_url');?>';
@@ -39,7 +39,7 @@
     <!-- navbar -->
     <nav>
       <div class="">
-        <a href="/" class="brand-logo">
+        <a href="<?php echo $this->config->item('site_path');?>/" class="brand-logo">
           <img src="/public/assets/site/img/logo-coa-blanco.png" alt="Centro Ondontológico Americano">
         </a>
         <a href="#" class="sidenav-trigger" data-target="mobile-nav">
@@ -47,7 +47,7 @@
         </a>
         <ul class="right hide-on-med-and-down">
           <li>
-            <a href="#">Home</a>
+            <a href="<?php echo $this->config->item('site_path');?>/">Home</a>
             <div class="menu-sub">
               <div class="menu-col-1">
                 <h3 class="">Category</h3>
