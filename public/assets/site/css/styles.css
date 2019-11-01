@@ -22,6 +22,10 @@ body {
   background:  var(--gray-light) !important;
 }
 
+.gray-dark{
+  background:  var(--gray-dark) !important;
+}
+
 /* form */
 
 [type="checkbox"]+span:not(.lever):before, [type="checkbox"]:not(.filled-in)+span:not(.lever):after, [type="radio"]:not(:checked)+span:before, [type="radio"]:not(:checked)+span:after{ border: 2px solid var(--gray-dark);}
@@ -33,7 +37,7 @@ body {
   border-right: 2px solid var(--gray-dark); border-bottom: 1px solid var(--gray-dark);
 }
 
-input.valid[type=text]:not(.browser-default),input[type=text]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]), textarea.materialize-textarea:not(.browser-default), {
+input.valid[type=text]:not(.browser-default),input[type=text]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]), textarea.materialize-textarea:not(.browser-default) {
   border-bottom: 1px solid var(--gray-dark); box-shadow: 0 1px 0 0 #fdfdfd; color: #616161;
 }
 
@@ -47,6 +51,16 @@ input[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:bef
 
 input[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:before, [type="radio"].with-gap:checked+span:after{
   border: 0px solid #616161; 
+}
+
+
+.row .input-field input:focus {
+  border-bottom: 1px solid rgb(199, 197, 197) !important;
+  box-shadow: 0 1px 0 0 var(--gray-dark) !important;
+}
+
+.row-contact{
+  margin-bottom: 0px;
 }
 
 /* nav */
@@ -91,13 +105,28 @@ nav{
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
 }
 
+menu{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: fit-content;
+  margin-bottom: 0px;
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+}
+
+.menu-top{
+  top: 49px;
+  z-index: 2;
+}
+
 /* footer */
 
 #contacto {
   background:  var(--gray-light) !important;
   padding: 30px;
   margin-bottom: 0px;
-  padding-bottom: 0px;
+  padding-bottom: 30px;
 }
 
 #contacto > .col > img{
@@ -126,4 +155,13 @@ nav{
 
 .footer-copyright{
   color: red;
+}
+
+.page-footer{
+  border-top: solid 0.5px #ccc;
+  margin-top: 40px;
+}
+
+#terminosCondiciones:hover{
+  cursor: pointer;
 }

@@ -5,6 +5,9 @@ const hideLoader = function(){
     $('.wrapper').css('display', 'none'); 
     $('.preloader').css('z-index', 0); 
   }, 250);
+  setTimeout(function(){
+    $('.preloader').css('display', 'none'); 
+  }, 1000);
   if(FIRST_LOAD){
     FIRST_LOAD = false;
   }

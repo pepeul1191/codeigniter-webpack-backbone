@@ -37,3 +37,20 @@ $(document).ready(function(){
   });
   $('.modal').modal();
 });
+
+$('#terminos-condiciones').click(function(){
+  $('#modalBottom').empty();
+  $('#modalBottom').css('max-height', '75%');
+  var template = null;
+	$.ajax({
+	   url: BASE_URL + '/modals/terminos-condiciones.html',
+	   type: 'GET',
+	   async: false,
+	   success: function(source) {
+	     template = source;
+	   }
+	});
+  $('#modalBottom').append(template);
+  var btnModal = document.getElementById('modal-bottom-btn');
+  btnModal.click();
+});

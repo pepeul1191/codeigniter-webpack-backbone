@@ -1,10 +1,13 @@
 import hideLoader from '../helpers/hide_loader';
 import showLoader from '../helpers/show_loader';
 import SiteHomeView from '../views/site/home_view';
+import SiteContactoView from '../views/site/contacto_view';
 
 var SiteRouter = Backbone.Router.extend({
   homeView: null,
+  contactoView: null,
   initialize: function() {
+    this.contactoView = new SiteContactoView();
   },
   routes:{
     '': 'index',
@@ -12,6 +15,7 @@ var SiteRouter = Backbone.Router.extend({
     '*path' : 'default',
   },
   index: function(){
+    var _this = this;
     showLoader();
     setTimeout(function(){
       if(this.homeView == null){
@@ -19,6 +23,10 @@ var SiteRouter = Backbone.Router.extend({
       }
       this.homeView.render(); 
       hideLoader();
+      // render contacto?
+      if(!_this.contactoView.rendered){
+        _this.contactoView.render();
+      }
     }, 1000);
   },
   default: function(path){
