@@ -53,13 +53,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'home';
 $route['odontologos']['GET'] = 'home';
 $route['contacto']['GET'] = 'home';
-
+# site api
+$route['specialism/list']['GET'] = 'site/siteSpecialism/list';
+$route['branch/list']['GET'] = 'site/siteBranch/list';
+# default routes
 $route['404_override'] = 'customError/orverride';
 $route['translate_uri_dashes'] = FALSE;
-
 # errores
 $route['error/access/(:num)']['GET'] = 'customError/access/$1';
-
 # login
 $route['admin/login']['GET'] = 'admin/adminLogin/index';
 $route['admin/login']['POST'] = 'admin/adminLogin/access';

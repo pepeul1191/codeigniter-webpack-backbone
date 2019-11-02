@@ -27,7 +27,7 @@ var SiteOdontologosView = Backbone.View.extend({
 		var resp = {};
 		$.ajax({
 			type: 'GET',
-			url: BASE_URL + 'admin/specialism/list',
+			url: BASE_URL + 'specialism/list',
 			data: {},
 			headers: {
 				[CSRF_KEY]: CSRF,
@@ -58,10 +58,11 @@ var SiteOdontologosView = Backbone.View.extend({
 	changeTipoSede: function(event){
 		var valueSelected = $(event.target).val();
 		var resp = {};
+		console.log(valueSelected);
 		if(valueSelected != 'E'){
 			$.ajax({
 				type: 'GET',
-				url: BASE_URL + 'admin/branch/list',
+				url: BASE_URL + 'branch/list',
 				data: {
 					branch_type_id: valueSelected,
 				},
@@ -91,6 +92,8 @@ var SiteOdontologosView = Backbone.View.extend({
 					resp.status = xhr.status;
 				}
 			});
+		}else{
+			$('#slcSedes').empty();
 		}
 	},
 });
