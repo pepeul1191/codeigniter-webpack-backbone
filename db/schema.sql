@@ -94,6 +94,24 @@ CREATE VIEW vw_branches_directors AS
   FROM branches B
   JOIN dentists D ON B.director_id = D.id
   LIMIT 2000;
+CREATE VIEW vw_dentists_branches_specialisms AS
+	SELECT branch_types_id, branch_id, branch_name, dentist_id, dentist_name, cop, rne, specialism_id, specialism_name FROM
+	(
+		SELECT DB.id, T.id AS branch_types_id , B.id AS branch_id,  B.name AS branch_name, DB.dentist_id AS dentist_id, D.name AS dentist_name , D. cop, D.rne
+		FROM branches B
+		JOIN branch_types T ON T.id = B.branch_type_id
+		JOIN dentists_branches DB ON DB.branch_id = B.id
+		JOIN dentists D ON DB.dentist_id = D.id
+		LIMIT 2000
+	) T
+	LEFT JOIN (
+		SELECT DS.dentist_id AS p_dentist_id, (D.name || ', ' || D.cop || ', ' || D.rne) AS p_dentist_name , SP.id AS specialism_id, SP.name AS specialism_name
+		FROM specialisms SP
+		JOIN dentists_specialisms DS ON DS.specialism_id = SP.id
+		JOIN dentists D ON DS.dentist_id = D.id
+		LIMIT 2000
+	) P
+	ON T.dentist_id = P.p_dentist_id;
 -- Dbmate schema migrations
 INSERT INTO schema_migrations (version) VALUES
   ('20191003022142'),
@@ -116,4 +134,5 @@ INSERT INTO schema_migrations (version) VALUES
   ('20191018020837'),
   ('20191018025153'),
   ('20191018224914'),
-  ('20191018225908');
+  ('20191018225908'),
+  ('20191102030733');
