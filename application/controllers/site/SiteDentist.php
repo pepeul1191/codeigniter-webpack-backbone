@@ -10,9 +10,9 @@ class SiteDentist extends CI_Controller
     $status = 200;
     try {
       $rs = array();
-      $stmt = \Model::factory('\Models\Admin\Dentist', 'coa')
-        ->select('id')
-        ->select('name')
+      $stmt = \Model::factory('\Models\Admin\VWDentistBrancheSpecialism', 'coa')
+        ->select('dentist_id', 'id')
+        ->select('dentist_name', 'name')
         ->select('cop')
         ->select('rne');
       // filter name
@@ -20,6 +20,30 @@ class SiteDentist extends CI_Controller
         $this->input->get('name') != null
       ){
         $stmt = $stmt->where_like('name', '%' . $this->input->get('name') . '%');
+      }
+      // filter specialism
+      if(
+        $this->input->get('specialism_id') != null
+      ){
+        if(
+          $this->input->get('specialism_id') == 'E'
+        ){
+          $stmt = $stmt->where('specialism_id', 1);
+        }else{
+          $stmt = $stmt->where('specialism_id', $this->input->get('specialism_id')); 
+        }
+      }
+      // filter branch
+      if(
+        $this->input->get('branch_id') != null
+      ){
+        if(
+          $this->input->get('branch_id') == 'E'
+        ){
+          $stmt = $stmt->where('branch_id', 1);
+        }else{
+          $stmt = $stmt->where('branch_id', $this->input->get('branch_id')); 
+        }
       }
       // pages with final statement
       $pages = ceil(
