@@ -19,7 +19,7 @@ class SiteDentist extends CI_Controller
       if(
         $this->input->get('name') != null
       ){
-        $stmt = $stmt->where_like('name', '%' . $this->input->get('name') . '%');
+        $stmt = $stmt->where_like('dentist_name', '%' . $this->input->get('name') . '%');
       }
       // filter specialism
       if(
