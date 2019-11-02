@@ -54,8 +54,9 @@ $route['default_controller'] = 'home';
 $route['odontologos']['GET'] = 'home';
 $route['contacto']['GET'] = 'home';
 # site api
-$route['specialism/list']['GET'] = 'site/siteSpecialism/list';
-$route['branch/list']['GET'] = 'site/siteBranch/list';
+$route['especialidad/listar']['GET'] = 'site/siteSpecialism/list';
+$route['sede/listar']['GET'] = 'site/siteBranch/list';
+$route['odontologo/buscar']['GET'] = 'site/siteDentist/search';
 # default routes
 $route['404_override'] = 'customError/orverride';
 $route['translate_uri_dashes'] = FALSE;
