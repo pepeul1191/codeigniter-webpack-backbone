@@ -35,7 +35,7 @@ var SiteContactoView = Backbone.View.extend({
     $('#modalBottom').css('max-height', '75%');
     var template = null;
     $.ajax({
-      url: STATIC_URL + 'templates/site/terminos_y_condiciones.html',
+      url: STATIC_URL + 'templates/site/_terminos_y_condiciones.html',
       type: 'GET',
       async: false,
       success: function(source) {
@@ -53,7 +53,7 @@ var SiteContactoView = Backbone.View.extend({
       $('#modalBottom').css('max-height', '75%');
       var template = null;
       $.ajax({
-        url: STATIC_URL + 'templates/site/ley_de_proteccion.html',
+        url: STATIC_URL + 'templates/site/_ley_de_proteccion.html',
         type: 'GET',
         async: false,
         success: function(source) {

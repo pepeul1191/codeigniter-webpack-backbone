@@ -1,5 +1,5 @@
 nav li:hover {
-  background: #444;
+  background: var(--secondary-color) !important;
 }
 
 nav li:hover a {
@@ -9,7 +9,7 @@ nav li:hover a {
 .menu-sub {
   position: absolute;
   left: 0;
-  background: #444;
+  background: var(--secondary-color) !important;
   width: 100%;
   display: none;
   color: #fff;
