@@ -77,12 +77,20 @@
           </li>
           <li>
             <a href="<?php echo $this->config->item('site_path');?>/tecnologia">Tecnología</a>
+            <div class="menu-sub row" id="menuTecnologia">
+            </div>
           </li>
           <li>
             <a href="<?php echo $this->config->item('site_path');?>/odontologos">Odontólogos</a>
           </li>
           <li>
             <a href="<?php echo $this->config->item('site_path');?>/sedes">Sedes</a>
+            <div class="menu-sub row">
+              <div class="col s6 menu-sede" id="sedesLima">
+              </div>
+              <div class="col s6 menu-sede" id="sedesProvincia">
+              </div>
+            </div>
           </li>
           <li>
             <a href="<?php echo $this->config->item('site_path');?>/contacto">Contacto</a>

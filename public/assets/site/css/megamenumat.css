@@ -13,8 +13,8 @@ nav li:hover a {
   width: 100%;
   display: none;
   color: #fff;
-  padding: 2em;
   transition: 3s;
+  padding-bottom: 20px;
 }
 
 nav li:hover .menu-sub {
@@ -55,6 +55,39 @@ nav li:hover .menu-sub {
 
 .menu-col-2 {
   width: 50%;
+}
+
+.submenu-item{
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.submenu-item:hover{
+  font-weight: 600;
+  text-decoration: none !important;
+  
+}
+
+.submenu-item > a:hover{
+  text-decoration: none !important;
+  border: solid 1px white;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.submenu-item > a{
+  position: relative;
+  float: left;
+  background: var(--primary-color) !important;
+  padding: 20px;
+  margin-right: 20px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  margin-bottom: 10px;
+}
+
+.menu-sede > h3{
+  font-size: 30px;
 }
 
 /*-- slider--*/

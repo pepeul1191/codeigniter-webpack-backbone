@@ -1,3 +1,5 @@
+import menuMaker from './menu_maker';
+
 const showLoader = function(){
   if(!FIRST_LOAD){
     setTimeout(function(){
@@ -7,6 +9,8 @@ const showLoader = function(){
     $('.wrapper').css('display', 'block'); 
     $('.preloader').css('z-index', 1000000); 
     $('.preloader').addClass('complete');
+  }else{
+    menuMaker();
   }
 }
 

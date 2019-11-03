@@ -19,7 +19,7 @@ class SiteMenu extends CI_Controller
         ->find_array();
       $resp = json_encode(array(
         'branches' => $branches,
-        'techonologies' => $technologies,
+        'technologies' => $technologies,
       ));
     }catch (Exception $e) {
       $status = 500;
