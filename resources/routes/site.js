@@ -3,20 +3,23 @@ import showLoader from '../helpers/show_loader';
 import SiteHomeView from '../views/site/home_view';
 import SiteContactoView from '../views/site/contacto_view';
 import SiteOdontologosView from '../views/site/odontologos_view';
+import SiteSedeDetalleView from '../view/site/sede_detalle_view';
 
 var SiteRouter = Backbone.Router.extend({
   workspace: '#workspace',
   homeView: null,
   contactoView: null,
   odontologosView: null,
+  sedeDetalleView: null,
   initialize: function() {
     this.contactoView = new SiteContactoView();
   },
   routes:{
     [SPA_PATH + '']: 'index',
     [SPA_PATH + '/']: 'index',
-    ['contacto']: 'contacto',
-    ['odontologos']: 'odontologos',
+    [SPA_PATH +'contacto']: 'contacto',
+    [SPA_PATH + 'odontologos']: 'odontologos',
+    [SPA_PATH + 'sedes/:branchType/:branchName']: 'sedeBranch',
     // others
     '*path' : 'default',
   },
@@ -64,10 +67,32 @@ var SiteRouter = Backbone.Router.extend({
       $('select').formSelect();
     }, 1000);
   },
+  sedeBranch: function(branchType, branchName){
+    var _this = this;
+    showLoader();
+    setTimeout(function(){
+      if(this.sedeDetalleView == null){
+        this.sedeDetalleView = new SiteSedeDetalleView(branchType, branchName);
+      }
+      this.sedeDetalleView.render(); 
+      this.sedeDetalleView.loadComponents();
+      hideLoader();
+      // render contacto?
+      if(!_this.contactoView.rendered){
+        _this.contactoView.render();
+        _this.contactoView.rendered = true;
+      }
+      $(_this.workspace).addClass('workpace-inner');
+      $('nav').addClass('primary');
+      $('.parallax').parallax();
+      $('select').formSelect();
+    }, 1000);
+  },
   default: function(path){
     // console.log(path);
     var newURL = '/' + path;
     window.location = newURL;
+    return fasle;
   },
 });
 

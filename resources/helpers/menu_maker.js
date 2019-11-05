@@ -9,11 +9,15 @@ const menuMaker = function(){
   for(var i = 0; i < branches.length; i++){
     var temp = '';
     if(branches[i].branch_type_id == '1'){
-      temp = '<span class="submenu-item"><a href="#">' + branches[i].name + '</a></span>';
+      temp = '<span class="submenu-item"><a href="' 
+        + SPA_PATH + '/sedes/lima/' + branches[i].name.toLowerCase() + '">' 
+        + branches[i].name + '</a></span>';
       limaBracnches = limaBracnches + temp;
     }
     if(branches[i].branch_type_id == '2'){
-      temp = '<span class="submenu-item"><a href="#">' + branches[i].name + '</a></span>';
+      temp = '<span class="submenu-item"><a href="' 
+        + SPA_PATH + '/sedes/provincia/' + branches[i].name.toLowerCase() + '">' 
+        + branches[i].name + '</a></span>';
       provinciaBranches = provinciaBranches + temp;
     }
   }
