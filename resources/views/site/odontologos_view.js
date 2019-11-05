@@ -112,7 +112,7 @@ var SiteOdontologosView = Backbone.View.extend({
 			<div class="col s12 m2 l3">
 				<div class="card">
 					<div class="card-image">
-						<img src="<%= STATIC_URL %><%= 'assets/site/img/default-user.png' %>">
+						<img src="<%= STATIC_URL %><%= odontologo.image %>">
 						<span class="card-title"></span>
 					</div>
 					<div class="card-content">

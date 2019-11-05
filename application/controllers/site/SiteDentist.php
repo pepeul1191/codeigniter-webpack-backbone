@@ -14,6 +14,7 @@ class SiteDentist extends CI_Controller
         ->select('dentist_id', 'id')
         ->select('dentist_name', 'name')
         ->select('cop')
+        ->select('image')
         ->select('rne');
       // filter name
       if(
