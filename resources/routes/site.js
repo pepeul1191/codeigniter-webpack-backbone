@@ -3,7 +3,7 @@ import showLoader from '../helpers/show_loader';
 import SiteHomeView from '../views/site/home_view';
 import SiteContactoView from '../views/site/contacto_view';
 import SiteOdontologosView from '../views/site/odontologos_view';
-import SiteSedeDetalleView from '../view/site/sede_detalle_view';
+import SiteSedeDetalleView from '../views/site/sede_detalle_view';
 
 var SiteRouter = Backbone.Router.extend({
   workspace: '#workspace',
@@ -72,9 +72,9 @@ var SiteRouter = Backbone.Router.extend({
     showLoader();
     setTimeout(function(){
       if(this.sedeDetalleView == null){
-        this.sedeDetalleView = new SiteSedeDetalleView(branchType, branchName);
+        this.sedeDetalleView = new SiteSedeDetalleView();
       }
-      this.sedeDetalleView.render(); 
+      this.sedeDetalleView.render(branchType, branchName); 
       this.sedeDetalleView.loadComponents();
       hideLoader();
       // render contacto?
