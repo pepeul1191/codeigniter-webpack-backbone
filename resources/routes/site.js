@@ -4,6 +4,7 @@ import SiteHomeView from '../views/site/home_view';
 import SiteContactoView from '../views/site/contacto_view';
 import SiteOdontologosView from '../views/site/odontologos_view';
 import SiteSedeDetalleView from '../views/site/sede_detalle_view';
+import MenuView from '../views/site/menu_view';
 
 var SiteRouter = Backbone.Router.extend({
   workspace: '#workspace',
@@ -11,8 +12,10 @@ var SiteRouter = Backbone.Router.extend({
   contactoView: null,
   odontologosView: null,
   sedeDetalleView: null,
+  menuView: null,
   initialize: function() {
     this.contactoView = new SiteContactoView();
+    this.menuView = new MenuView();
   },
   routes:{
     [SPA_PATH + '']: 'index',
