@@ -130,32 +130,24 @@
     <menu id="menu" class="secondary">
       <div class="row">
         <div class="col m2 offset-m2 menu">
-          <a href="#">
-            <i class="fa fa-list" aria-hidden="true"></i>
-            <br>
-            Especialidades
-          </a>
+          <i class="fa fa-list" aria-hidden="true"></i>
+          <br>
+          Especialidades
         </div>
         <div class="col m2 menu">
-          <a href="#">
-            <i class="fa fa-area-chart" aria-hidden="true"></i>
-            <br>
-            Calidad
-          </a>
+          <i class="fa fa-area-chart" aria-hidden="true"></i>
+          <br>
+          Calidad
         </div>
         <div class="col m2 menu">
-          <a href="#">
-            <i class="fa fa-globe" aria-hidden="true"></i>
-            <br>
-            Convenios
-          </a>
+          <i class="fa fa-globe" aria-hidden="true"></i>
+          <br>
+          Convenios
         </div>
         <div class="col m2 menu">
-          <a href="#">
-            <i class="fa fa-address-book" aria-hidden="true"></i>
-            <br>
-            Pacientes
-          </a>
+          <i class="fa fa-address-book" aria-hidden="true"></i>
+          <br>
+          Pacientes
         </div>
       </div>
     </menu>

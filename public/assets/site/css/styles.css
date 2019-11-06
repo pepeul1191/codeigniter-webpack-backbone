@@ -93,23 +93,34 @@ nav{
 
 /* menu */
 
-.menu > a{
+.menu {
   color: white;
   font-weight: 600;
   text-transform: uppercase;
 }
 
-.menu > a > i{
-  font-size: 20px;
+.menu:hover{
+  cursor: pointer;
+  background:var(--primary-color) !important;
 }
 
-.menu > a > br{
+.menu > i{
+  font-size: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.menu > br{
   line-height:22px;
 }
 
 .menu{
-  margin-top: 20px;
+  margin-top: 10px;
   text-align: center;
+}
+
+#menu > .row{
+  margin-bottom: 10px;
 }
 
 #menu{
