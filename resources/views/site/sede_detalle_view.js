@@ -27,6 +27,7 @@ var SiteSedeDetalleView = Backbone.View.extend({
 		  async: false,
 		  success: function(resource) {
         var template = _.template(resource);
+        data.STATIC_URL = STATIC_URL;
         templateCompiled = template(data);
       },
       error: function(xhr, status, error){
@@ -35,10 +36,9 @@ var SiteSedeDetalleView = Backbone.View.extend({
       }
 		});
     this.$el.html(templateCompiled);
+    $('.materialboxed').materialbox();
     // map
     var features = [];
-    console.log(data);
-    console.log(data.detail);
     var longitude = data.detail.longitude;
     var latitude = data.detail.latitude;
     this.map = new Map({
