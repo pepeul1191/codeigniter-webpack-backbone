@@ -214,3 +214,13 @@ menu{
 #map{
   height: 300px;
 } 
+
+#verMapa{
+  font-weight: 600;
+  color: var(--primary-color) !important;
+}
+
+#verMapa:hover{
+  cursor: pointer;
+  color:var(--secondary-color) !important;
+}

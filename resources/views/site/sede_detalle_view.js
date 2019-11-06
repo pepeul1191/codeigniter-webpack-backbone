@@ -15,7 +15,7 @@ var SiteSedeDetalleView = Backbone.View.extend({
 	initialize: function(){
 	},
 	events: {
-
+    'click #verMapa': 'verMapa',
   },
   render: function(branchType, branchName){
     var data = this.getData(branchType, branchName);
@@ -99,6 +99,11 @@ var SiteSedeDetalleView = Backbone.View.extend({
       });
     }
     return resp;
+  },
+  verMapa: function(){
+    $('html, body').animate({ 
+      scrollTop: $('#map').offset().top 
+    }, 1000);
   },
 });
 
