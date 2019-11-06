@@ -199,3 +199,7 @@ menu{
   color: white;
   font-weight: 600;
 } 
+
+#map{
+  height: 300px;
+} 

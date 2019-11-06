@@ -1,3 +1,15 @@
+import {Map, View} from 'ol';
+import TileLayer from 'ol/layer/Tile';
+import OSM from 'ol/source/OSM';
+import VectorLayer from 'ol/layer/Vector';
+import Feature from 'ol/Feature';
+import Vector from 'ol/source/Vector';
+import {fromLonLat} from 'ol/proj';
+import Point from 'ol/geom/Point';
+import Style from 'ol/style/Style';
+import Icon from 'ol/style/Icon';
+import 'ol/ol.css';
+
 var SiteSedeDetalleView = Backbone.View.extend({
 	el: '#workspace',
 	initialize: function(){
@@ -22,7 +34,44 @@ var SiteSedeDetalleView = Backbone.View.extend({
 				console.log(JSON.parse(xhr.responseText));
       }
 		});
-		this.$el.html(templateCompiled);
+    this.$el.html(templateCompiled);
+    // map
+    var features = [];
+    console.log(data);
+    console.log(data.detail);
+    var longitude = data.detail.longitude;
+    var latitude = data.detail.latitude;
+    this.map = new Map({
+      target: 'map',
+      layers: [
+        new TileLayer({
+          source: new OSM()
+        })
+      ],
+      view: new View({
+        center: fromLonLat([longitude, latitude]),
+        zoom: 15
+      })
+    });
+    // icon
+    var iconStyle = new Style({
+      image: new Icon(({
+          anchor: [0.5, 1],
+          src: STATIC_URL + 'assets/img/marker.png',
+      }))
+    });
+    var iconFeature = new Feature({
+      geometry: new Point(fromLonLat([longitude, latitude]))
+    });
+    iconFeature.setStyle(iconStyle);
+    features.push(iconFeature);
+    // marker
+    var layer = new VectorLayer({
+      source: new Vector({
+        features: features,
+      })
+    });
+    this.map.addLayer(layer);
   },
   loadComponents: function(){
 
@@ -41,8 +90,7 @@ var SiteSedeDetalleView = Backbone.View.extend({
         type: 'GET',
         async: false,
         success: function(data) {
-          var respData = JSON.parse(data);
-          console.log(respData);
+          resp = JSON.parse(data);
         },
         error: function(xhr, status, error){
           console.error(error);
