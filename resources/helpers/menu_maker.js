@@ -24,10 +24,15 @@ const menuMaker = function(){
   $('#sedesLima').html(limaBracnches);
   $('#sedesProvincia').html(provinciaBranches);
   // technologies (tecnologia)
+  var tecnologiasDOM = '<h3>Lista de Tecnologías</h3>';
   var technologies = resp.message.technologies;
   for(var i = 0; i < technologies.length; i++){
-    console.log(technologies[i]);
+    var temp = '<span class="submenu-item"><a href="' 
+    + SPA_PATH + '/tecnologias/' + technologies[i].name.toLowerCase() + '">' 
+    + technologies[i].name + '</a></span>';
+    tecnologiasDOM = tecnologiasDOM + temp;
   }
+  $('#menuTecnologia').html(tecnologiasDOM);
 }
 
 export default menuMaker;

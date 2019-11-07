@@ -43,27 +43,16 @@ end
 
 def fill_techonlogies_images
   technologies = Technology.all.to_a
-  puts '1 ++++++++++++++++++++++++++'
-  puts technologies
-  puts '2 ++++++++++++++++++++++++++'
   DB.transaction do
     begin
-      puts '3 ++++++++++++++++++++++++++'
       for technology in technologies
-        puts '4 ++++++++++++++++++++++++++'
         for i in 1..8 do
-          puts '5 ++++++++++++++++++++++++++'
           n = TechnologyImage.new(
             :technology_id => technology.id,
             :image_id => 4,
           )
-          puts n.technology_id
-          puts n.image_id
-          puts '6 ++++++++++++++++++++++++++'
           n.save
-          puts 'X ++++++++++++++++++++++++++'
         end
-        puts '7 ++++++++++++++++++++++++++'
       end
     rescue Exception => e
       Sequel::Rollback

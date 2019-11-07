@@ -77,7 +77,9 @@
           </li>
           <li>
             <a href="<?php echo $this->config->item('site_path');?>/tecnologia">Tecnología</a>
-            <div class="menu-sub row" id="menuTecnologia">
+            <div class="menu-sub row">
+              <div class="col s12 menu-sede" id="menuTecnologia">
+              </div>
             </div>
           </li>
           <li>
