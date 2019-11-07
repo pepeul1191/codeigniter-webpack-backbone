@@ -53,6 +53,11 @@ RewriteCond %{REQUEST_FILENAME} !-l
 RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
 ```
 
+### EMail Templates
+
++ https://colorlib.com/wp/responsive-html-email-templates/
++ https://colorlib.com/etc/email-template/1/index.html
+
 ### Pasos de despligue
 
 1. SSH - pull and rewrite
