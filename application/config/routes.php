@@ -57,6 +57,7 @@ $route['contacto']['GET'] = 'home';
 $route['especialidad/listar']['GET'] = 'site/siteSpecialism/list';
 $route['sede/listar']['GET'] = 'site/siteBranch/list';
 $route['sede/buscar']['GET'] = 'site/siteBranch/search';
+$route['tecnologia/buscar']['GET'] = 'site/siteTechnology/search';
 $route['odontologo/buscar']['GET'] = 'site/siteDentist/search';
 $route['menu']['GET'] = 'site/siteMenu/get';
 # default routes

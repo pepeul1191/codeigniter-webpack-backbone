@@ -4,6 +4,7 @@ import SiteHomeView from '../views/site/home_view';
 import SiteContactoView from '../views/site/contacto_view';
 import SiteOdontologosView from '../views/site/odontologos_view';
 import SiteSedeDetalleView from '../views/site/sede_detalle_view';
+import SiteTecnologiaDetalleView from '../views/site/tecnologia_detalle_view';
 import MenuView from '../views/site/menu_view';
 
 var SiteRouter = Backbone.Router.extend({
@@ -22,7 +23,8 @@ var SiteRouter = Backbone.Router.extend({
     [SPA_PATH + '/']: 'index',
     [SPA_PATH +'contacto']: 'contacto',
     [SPA_PATH + 'odontologos']: 'odontologos',
-    [SPA_PATH + 'sedes/:branchType/:branchName']: 'sedeBranch',
+    [SPA_PATH + 'sedes/:branchType/:branchName']: 'sedeDetalle',
+    [SPA_PATH + 'tecnologias/:technologyName']: 'tecnologiaDetalle',
     // others
     '*path' : 'default',
   },
@@ -70,7 +72,28 @@ var SiteRouter = Backbone.Router.extend({
       $('select').formSelect();
     }, 1000);
   },
-  sedeBranch: function(branchType, branchName){
+  tecnologiaDetalle: function(technologyName){
+    var _this = this;
+    showLoader();
+    setTimeout(function(){
+      if(this.tecnologiaDetalleView == null){
+        this.tecnologiaDetalleView = new SiteTecnologiaDetalleView();
+      }
+      this.tecnologiaDetalleView.render(technologyName); 
+      this.tecnologiaDetalleView.loadComponents();
+      hideLoader();
+      // render contacto?
+      if(!_this.contactoView.rendered){
+        _this.contactoView.render();
+        _this.contactoView.rendered = true;
+      }
+      $(_this.workspace).addClass('workpace-inner');
+      $('nav').addClass('primary');
+      $('.parallax').parallax();
+      $('select').formSelect();
+    }, 1000);
+  },
+  sedeDetalle: function(branchType, branchName){
     var _this = this;
     showLoader();
     setTimeout(function(){
