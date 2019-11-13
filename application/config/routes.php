@@ -121,3 +121,4 @@ $route['admin/branch/dentist/save']['POST'] = 'admin/AdminBranch/dentistSave';
 $route['upload/file']['POST'] = 'admin/AdminUpload/file';
 
 $route['demo']['GET'] = 'services/SiteIndex/index';
+$route['demo/mail']['GET'] = 'site/siteMail/demo';

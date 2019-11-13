@@ -1,3 +1,7 @@
+<?php
+
+return <<<EOD
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en"
 >
@@ -6,7 +10,8 @@
 	<meta charset="utf-8"> 
 	<meta name="viewport" content="width=device-width"> 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-	<meta name="x-apple-disable-message-reformatting"> 
+  <meta name="x-apple-disable-message-reformatting"> 
+  <link rel="shortcut icon" href="%favicon">
 	<title></title> 
 	<style>
 		html,
@@ -325,11 +330,11 @@
 				<tbody>
 					<tr>
 						<td class="bg_white logo" style="padding: 1em 2.5em; text-align: center">
-							<img src="/public/assets/site/img/logo-coa-celeste.png" alt="Centro Odontológico Americano" width="200">
+							<img src="%logo_url" alt="Centro Odontológico Americano" width="200">
 						</td>
 					</tr>
 					<tr>
-						<td class="hero" style="background-image: url(assets/site/img/odontologos.jpg); background-size: cover; height: 400px;" valign="middle">
+						<td class="hero" style="background-image: url(%img_url); background-size: cover; height: 400px;" valign="middle">
 							<table>
 								<tbody>
 									<tr>
@@ -354,7 +359,7 @@
 									<tr>
 										<td class="bg_white email-section" style="text-align:center;">
 											<div class="heading-section heading-section-white">
-												<span class="subheading color_gray">Welcome</span>
+												<span class="subheading color_gray">Welcome %nombre</span>
 												<h2 class="color_gray">Welcome To RestoBar</h2>
 												<p class="color_gray">A small river named Duden flows by their place and supplies it with 
 												the necessary regelialia. It is a paradisematic country, in which 
@@ -450,3 +455,5 @@
 	</script>
 </body>
 </html>
+
+EOD;
