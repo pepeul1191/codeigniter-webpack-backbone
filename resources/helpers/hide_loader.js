@@ -10,6 +10,9 @@ const hideLoader = function(){
   }, 1000);
   if(FIRST_LOAD){
     FIRST_LOAD = false;
+    setTimeout(function(){
+      $('.wrapper > img').attr('src', '/public/assets/site/img/loading.gif');
+    }, 2000);
   }
 }
 
