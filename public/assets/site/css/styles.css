@@ -192,6 +192,13 @@ menu{
 
 /* workspace */
 
+.horizontal-content{
+  min-height: 300px !important;
+}
+.horizontal-row{
+  margin-bottom: 0px !important;
+}
+
 .workpace-inner{
   margin-top: 64px;
 }
