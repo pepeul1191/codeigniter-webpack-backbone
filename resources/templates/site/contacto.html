@@ -20,26 +20,30 @@
       <h4 class="bold gray-text" style="margin-top: 0px;">Contacto</h4>
       <br>
       <div class="row row-form row-contact">
+        <label id="messageForm"></label>
+      <div class="row row-form row-contact">
+      <div class="row row-form row-contact">
         <div class="input-field col s6">
-          <input id="txtNombre" type="text" class="validate">
+          <input id="txtNombre" type="text">
           <label for="txtNombre">Nombre</label>
           <span class="helper-text" data-error="wrong" data-success="right" id="txtNombreHelp"></span>
         </div>
         <div class="input-field col s6">
-          <input id="txtApellido" type="text" class="validate">
+          <input id="txtApellido" type="text">
           <label for="txtApellido">Apellido</label>
           <span class="helper-text" data-error="wrong" data-success="right" id="txtApellidoHelp"></span>
         </div>
       </div>
       <div class="row row-form row-contact">
         <div class="input-field col s6">
-          <input id="txtCorreo" type="text" class="validate">
+          <input id="txtCorreo" type="text">
           <label for="txtCorreo">Email</label>
           <span class="helper-text" data-error="wrong" data-success="right" id="txtCorreoHelp"></span>
         </div>
         <div class="input-field col s6">
-          <input id="dni" type="text" class="validate">
-          <label for="dni">DNI</label>
+          <input id="txtDNI" type="text">
+          <label for="txtDNI">DNI</label>
+          <span class="helper-text" data-error="wrong" data-success="right" id="txtDNIHelp"></span>
         </div>
       </div>
       <div class="row row-form row-contact">
@@ -59,6 +63,7 @@
               </span>
             </label>
           </p>
+          <span class="helper-text" data-error="wrong" data-success="right" id="leyCheckHelp"></span>
           <p class="gray-text">
             Condiciones
           </p>
@@ -67,19 +72,20 @@
       <div class="row row-form row-contact">
         <div class="col s6">
           <label>
-            <input name="group1" type="radio" />
+            <input name="rdnCondiciones" type="radio" id="acpetaCondiciones"/>
             <span class="gray-text">Acepto</span>
           </label>
         </div>
-        <div class="col s6" style="margin-bottom: 40px;">
+        <div class="col s6">
           <label>
-            <input name="group1" type="radio" />
+            <input name="rdnCondiciones" style="margin-bottom: 10px;" type="radio" />
             <span class="gray-text">No Acepto</span>
           </label>
         </div>
+        <span class="helper-text" data-error="wrong" data-success="right" style="margin-left: 12px;" id="rdnCondicionesHelp"></span>
       </div>
       <div class="row row-form">
-        <button class="waves-effect waves-light btn gray-dark" style="width: 100%;">Enviar</button>
+        <button class="waves-effect waves-light btn gray-dark" style="width: 100%;  margin-top: 25px;" id="btnEnviar" style="margin-bottom: 40px;">Enviar</button>
       </div>
     </div>
   </div>

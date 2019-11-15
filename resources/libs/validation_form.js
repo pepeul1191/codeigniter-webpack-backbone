@@ -38,6 +38,7 @@ var ValidationForm = Backbone.View.extend({
     var _this = this;
     // define isOk
     this.entries.forEach(function(entry) {
+
       var lastEntryIsOk = null;
       entry.validations.forEach(function(validation){
         try {

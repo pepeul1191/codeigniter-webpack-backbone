@@ -190,6 +190,14 @@ menu{
   cursor: pointer;
 }
 
+.input-error{
+  border-bottom: 1px solid #b71c1c !important;
+}
+
+.text-error{
+  color: #b71c1c !important;
+}
+
 /* workspace */
 
 .horizontal-content{

@@ -16,6 +16,7 @@ var SiteRouter = Backbone.Router.extend({
   menuView: null,
   initialize: function() {
     this.contactoView = new SiteContactoView();
+    this.contactoView.loadComponents();
     this.menuView = new MenuView();
   },
   routes:{
