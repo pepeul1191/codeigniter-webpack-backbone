@@ -1,105 +1,109 @@
-<div class="row" id="contacto">
-  <div class="col s6">
-    <img src="/public/assets/site/img/logo-gris.png" alt="Centro Odontológico Americano">
-    <h4 class="gray-text">Dudas o consultas adicionales?</h4>
-    <p class="gray-text">Para contactarnos complete todos los campos del siguiente fomulario, le responderemos en la brevedad posible.</p>
-    <div class="social">
-      <a href="/#/facebook" style="padding: 3px;">
-        <i class="fa fa-facebook-official" aria-hidden="true"></i>
-      </a>
-      <a href="/#/youtube" style="padding: 2px;">
-        <i class="fa fa-youtube-play" aria-hidden="true"></i>
-      </a>
-      <a href="/#/instagram" style="padding: 3px; padding-top: 1px;">
-        <i class="fa fa-instagram" aria-hidden="true"></i>
-      </a>
+<div id="contacto">
+  <div class="row container" id="contacto">
+    <div class="col s6">
+      <img src="/public/assets/site/img/logo-gris.png" alt="Centro Odontológico Americano">
+      <h4 class="gray-text">Dudas o consultas adicionales?</h4>
+      <p class="gray-text">Para contactarnos complete todos los campos del siguiente fomulario, le responderemos en la brevedad posible.</p>
+      <div class="social">
+        <a href="/#/facebook" style="padding: 3px;">
+          <i class="fa fa-facebook-official" aria-hidden="true"></i>
+        </a>
+        <a href="/#/youtube" style="padding: 2px;">
+          <i class="fa fa-youtube-play" aria-hidden="true"></i>
+        </a>
+        <a href="/#/instagram" style="padding: 3px; padding-top: 1px;">
+          <i class="fa fa-instagram" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+    <div class="col s6 l6" style="">
+      <div class="col s12 l12" style="">
+        <h4 class="bold gray-text" style="margin-top: 0px;">Contacto</h4>
+        <br>
+        <div class="row row-form row-contact">
+          <label id="messageForm"></label>
+        </div>
+        <div class="row row-form row-contact"></div>
+          <div class="row row-form row-contact">
+            <div class="input-field col s6">
+              <input id="txtNombre" type="text">
+              <label for="txtNombre">Nombre</label>
+              <span class="helper-text" data-error="wrong" data-success="right" id="txtNombreHelp"></span>
+            </div>
+            <div class="input-field col s6">
+              <input id="txtApellido" type="text">
+              <label for="txtApellido">Apellido</label>
+              <span class="helper-text" data-error="wrong" data-success="right" id="txtApellidoHelp"></span>
+            </div>
+          </div>
+          <div class="row row-form row-contact">
+            <div class="input-field col s6">
+              <input id="txtCorreo" type="text">
+              <label for="txtCorreo">Email</label>
+              <span class="helper-text" data-error="wrong" data-success="right" id="txtCorreoHelp"></span>
+            </div>
+            <div class="input-field col s6">
+              <input id="txtDNI" type="text">
+              <label for="txtDNI">DNI</label>
+              <span class="helper-text" data-error="wrong" data-success="right" id="txtDNIHelp"></span>
+            </div>
+          </div>
+          <div class="row row-form row-contact">
+            <div class="input-field col s12">
+              <textarea id="txtConsulta" class="materialize-textarea" rows="4"></textarea>
+              <label for="txtConsulta">Consulta</label>
+              <span class="helper-text" data-error="wrong" data-success="right" id="txtConsultaHelp"></span>
+            </div>
+          </div>
+          <div class="row row-form row-contact">
+            <div class="col s12">
+              <p>
+                <label>
+                  <input type="checkbox"  id="leyCheck"/>
+                  <span class="gray-text">
+                    He leído y estoy informado sobre la Ley N° 29733 - Ley de Protección de Datos Personales y su reglamento aprobado mediante Decreto Supremo N° 003-2013-JUS.
+                  </span>
+                </label>
+              </p>
+              <span class="helper-text" data-error="wrong" data-success="right" id="leyCheckHelp"></span>
+              <p class="gray-text">
+                Condiciones
+              </p>
+            </div>
+          </div>
+          <div class="row row-form row-contact">
+            <div class="col s6">
+              <label>
+                <input name="rdnCondiciones" type="radio" id="acpetaCondiciones"/>
+                <span class="gray-text">Acepto</span>
+              </label>
+            </div>
+            <div class="col s6">
+              <label>
+                <input name="rdnCondiciones" style="margin-bottom: 10px;" type="radio" />
+                <span class="gray-text">No Acepto</span>
+              </label>
+            </div>
+            <span class="helper-text" data-error="wrong" data-success="right" style="margin-left: 12px;" id="rdnCondicionesHelp"></span>
+          </div>
+          <div class="row row-form">
+            <button class="waves-effect waves-light btn gray-dark" style="width: 100%;  margin-top: 25px;" id="btnEnviar" style="margin-bottom: 40px;">Enviar</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="col s12 l6" style="">
-    <div class="col s12 l12" style="">
-      <h4 class="bold gray-text" style="margin-top: 0px;">Contacto</h4>
-      <br>
-      <div class="row row-form row-contact">
-        <label id="messageForm"></label>
-      <div class="row row-form row-contact">
-      <div class="row row-form row-contact">
-        <div class="input-field col s6">
-          <input id="txtNombre" type="text">
-          <label for="txtNombre">Nombre</label>
-          <span class="helper-text" data-error="wrong" data-success="right" id="txtNombreHelp"></span>
+  <div class="footer-copyright gray">
+    <div class="row container">
+      <div class="col l6 s6 ">
+          <span class="white-text text-lighten-4 bold">D</span> Sede Central: Av Juan de Arona 425 San isidro <span class="white-text text-lighten-4 bold">T</span> 421 6323<br>
+          central@coa.pe<br>
+          <span class="white-text text-lighten-4 bold" id="terminosCondiciones">Términos y Condiciones<span>
         </div>
-        <div class="input-field col s6">
-          <input id="txtApellido" type="text">
-          <label for="txtApellido">Apellido</label>
-          <span class="helper-text" data-error="wrong" data-success="right" id="txtApellidoHelp"></span>
+        <div class="col l6 s6">
+          © 2018 Centro Ondontológico Americano - Derechos Reservados<br>
+          <a class="white-text text-lighten-4 bold" href="http://softweb.pe/website/">Sitio Desarollado por Software Web Perú ©</a>
         </div>
-      </div>
-      <div class="row row-form row-contact">
-        <div class="input-field col s6">
-          <input id="txtCorreo" type="text">
-          <label for="txtCorreo">Email</label>
-          <span class="helper-text" data-error="wrong" data-success="right" id="txtCorreoHelp"></span>
-        </div>
-        <div class="input-field col s6">
-          <input id="txtDNI" type="text">
-          <label for="txtDNI">DNI</label>
-          <span class="helper-text" data-error="wrong" data-success="right" id="txtDNIHelp"></span>
-        </div>
-      </div>
-      <div class="row row-form row-contact">
-        <div class="input-field col s12">
-          <textarea id="txtConsulta" class="materialize-textarea" rows="4"></textarea>
-          <label for="txtConsulta">Consulta</label>
-          <span class="helper-text" data-error="wrong" data-success="right" id="txtConsultaHelp"></span>
-        </div>
-      </div>
-      <div class="row row-form row-contact">
-        <div class="col s12">
-          <p>
-            <label>
-              <input type="checkbox"  id="leyCheck"/>
-              <span class="gray-text">
-                He leído y estoy informado sobre la Ley N° 29733 - Ley de Protección de Datos Personales y su reglamento aprobado mediante Decreto Supremo N° 003-2013-JUS.
-              </span>
-            </label>
-          </p>
-          <span class="helper-text" data-error="wrong" data-success="right" id="leyCheckHelp"></span>
-          <p class="gray-text">
-            Condiciones
-          </p>
-        </div>
-      </div>
-      <div class="row row-form row-contact">
-        <div class="col s6">
-          <label>
-            <input name="rdnCondiciones" type="radio" id="acpetaCondiciones"/>
-            <span class="gray-text">Acepto</span>
-          </label>
-        </div>
-        <div class="col s6">
-          <label>
-            <input name="rdnCondiciones" style="margin-bottom: 10px;" type="radio" />
-            <span class="gray-text">No Acepto</span>
-          </label>
-        </div>
-        <span class="helper-text" data-error="wrong" data-success="right" style="margin-left: 12px;" id="rdnCondicionesHelp"></span>
-      </div>
-      <div class="row row-form">
-        <button class="waves-effect waves-light btn gray-dark" style="width: 100%;  margin-top: 25px;" id="btnEnviar" style="margin-bottom: 40px;">Enviar</button>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="footer-copyright secondary">
-  <div class="row">
-    <div class="col l6 s12">
-      <span class="white-text text-lighten-4 bold">D</span> Sede Central: Av Juan de Arona 425 San isidro <span class="white-text text-lighten-4 bold">T</span> 421 6323<br>
-      central@coa.pe<br>
-      <span class="white-text text-lighten-4 bold" id="terminosCondiciones">Términos y Condiciones<span>
-    </div>
-    <div class="col l6 s12">
-      © 2018 Centro Ondontológico Americano - Derechos Reservados<br>
-      <a class="white-text text-lighten-4 bold" href="http://softweb.pe/website/">Sitio Desarollado por Software Web Perú ©</a>
     </div>
   </div>
 </div>

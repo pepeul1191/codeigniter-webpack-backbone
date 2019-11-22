@@ -110,7 +110,13 @@ nav{
   margin-bottom: 0px;
 }
 
+nav .nav-wrapper {
+  margin-top: 20px;
+}
 
+.nav-wrapper > ul{
+  margin-top: 15px;
+}
 
 @media (max-width: 992px) {
   .brand-logo{
@@ -126,11 +132,16 @@ nav{
   }
 }
 
+@media only screen and (min-width: 601px){
+  nav{
+    height: 112px;
+  }
+}
+
 /* menu */
 
 .menu {
   color: white;
-  font-weight: 600;
   text-transform: uppercase;
 }
 
@@ -156,6 +167,7 @@ nav{
 
 #menu > .row{
   margin-bottom: 10px;
+  margin-top: -7px;
 }
 
 #menu{
@@ -175,7 +187,7 @@ menu{
 }
 
 .menu-top{
-  top: 49px;
+  top: 96px;
   z-index: 2;
 }
 
@@ -186,6 +198,10 @@ menu{
   padding: 30px;
   margin-bottom: 0px;
   padding-bottom: 30px;
+}
+
+#contacto > .col:first-child {
+  padding-right: 50px;
 }
 
 #contacto > .col > img{
@@ -213,7 +229,7 @@ menu{
 }
 
 .footer-copyright{
-  color: red;
+  background: var(--gray-dark) !important;
 }
 
 .page-footer{

@@ -8,7 +8,7 @@ var SiteContactoView = Backbone.View.extend({
     this.form = null;
 	},
 	events: {
-    'click #acpetaCondiciones': 'terminosCondiciones',
+    'click #terminosCondiciones': 'terminosCondiciones',
     'change #leyCheck': 'leyCheck',
     'click #btnEnviar': 'sendForm',
   },
