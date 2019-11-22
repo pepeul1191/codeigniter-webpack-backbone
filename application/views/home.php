@@ -14,6 +14,7 @@
       var FIRST_LOAD = true;
     </script>
     <!-- CSSs -->
+    
     <?php echo load_csss($this->config, $csss);?>
   </head>
   <body>
@@ -38,12 +39,12 @@
     <div id="modalPopUp" class="modal modal-fixed-footer"></div>
     <!-- navbar -->
     <nav>
-      <div class="">
+      <div class="nav-wrapper container">
         <a href="<?php echo $this->config->item('site_path');?>/" class="brand-logo">
           <img src="/public/assets/site/img/logo-coa-blanco.png" alt="Centro Ondontológico Americano">
         </a>
         <a href="#" class="sidenav-trigger" data-target="mobile-nav">
-          <i class="material-icons">menu</i>
+          <i class="fa fa-bars" aria-hidden="true"></i>
         </a>
         <ul class="right hide-on-med-and-down">
           <li>

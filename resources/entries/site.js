@@ -33,7 +33,11 @@ $(document).ready(function(){
     }
   });
   // materialize js
-  $('.sidenav').sidenav();
+  $('.sidenav').sidenav({
+    menuWidth: 300,
+    closeOnClick: true,
+    edge: 'right', // <--- CHECK THIS OUT
+  });
   $('.carousel.carousel-slider').carousel({
     fullWidth: true,
     indicators: true
