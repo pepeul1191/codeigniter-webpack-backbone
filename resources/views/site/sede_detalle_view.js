@@ -19,6 +19,7 @@ var SiteSedeDetalleView = Backbone.View.extend({
   },
   render: function(branchType, branchName){
     var data = this.getData(branchType, branchName);
+    data.STATIC_URL = STATIC_URL;
     // TODO IF data = null
     var templateCompiled = null;
 		$.ajax({

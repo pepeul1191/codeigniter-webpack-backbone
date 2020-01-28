@@ -18,6 +18,7 @@ var SiteTecnologiaDetalleView = Backbone.View.extend({
   },
   render: function(technologyName){
     var data = this.getData(technologyName);
+    data.STATIC_URL = STATIC_URL;
     // TODO IF data = null
     var templateCompiled = null;
 		$.ajax({

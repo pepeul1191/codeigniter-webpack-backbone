@@ -13,7 +13,9 @@ var SiteContactoView = Backbone.View.extend({
     'click #btnEnviar': 'sendForm',
   },
   render: function(){
-		var data = {};
+    var data = {
+      STATIC_URL: STATIC_URL,
+    };
     var templateCompiled = null;
     var _this = this;
 		$.ajax({

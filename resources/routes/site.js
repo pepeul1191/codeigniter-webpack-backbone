@@ -7,6 +7,8 @@ import SiteSedeDetalleView from '../views/site/sede_detalle_view';
 import SiteTecnologiaDetalleView from '../views/site/tecnologia_detalle_view';
 import MenuView from '../views/site/menu_view';
 
+console.log(SPA_PATH)
+
 var SiteRouter = Backbone.Router.extend({
   workspace: '#workspace',
   homeView: null,
@@ -116,10 +118,10 @@ var SiteRouter = Backbone.Router.extend({
     }, 1000);
   },
   default: function(path){
-    // console.log(path);
+    console.log(path);
     var newURL = '/' + path;
-    window.location = newURL;
-    return fasle;
+    //window.location = newURL;
+    return false;
   },
 });
 

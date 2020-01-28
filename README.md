@@ -27,6 +27,8 @@ Migraciones con DBMATE - accesos:
 
 Desarrollo
 
+1. .httaccess
+
 ```
 # html5 pushstate (history) support:
 <ifModule mod_rewrite.c>
@@ -52,6 +54,10 @@ RewriteCond %{REQUEST_FILENAME} !-l
 
 RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
 ```
+
+2. cambinar la configuracion de ENV en index.php
+
+3. mover los arhcivos de public/dist y public/templates
 
 ### EMail Templates
 

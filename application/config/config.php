@@ -548,7 +548,7 @@ if(ENV == 'localhost'){
   $config['base_url'] = 'http://softweb.pe/coa/';
   $config['static_url'] = 'http://softweb.pe/coa/public/';
   $config['admin_path'] = 'coa/admin';
-  $config['site_path'] = '';
+  $config['site_path'] = 'coa/';
 }else if(ENV == 'coa'){
   $config['base_url'] = '???';
   $config['static_url'] = '???public/';

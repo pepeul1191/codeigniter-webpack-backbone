@@ -4,7 +4,7 @@
     <title><?php echo $title;?></title>
     <link rel="shortcut icon" href="<?php echo $this->config->item('static_url'); ?>favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <base href="/" />
+    <base href="<?php echo $this->config->item('site_path');?>" />
     <script>
       const BASE_URL = '<?php echo $this->config->item('base_url');?>';
       const STATIC_URL  = '<?php echo $this->config->item('static_url');?>';
@@ -21,7 +21,7 @@
     <!-- preloader -->   
     <div class="preloader">
       <div class="wrapper">
-        <img src="/public/assets/site/img/logo-preloader.png" alt="Centro Ondontológico Americano - Preloader">
+        <img src="<?php echo $this->config->item('static_url');?>assets/site/img/logo-preloader.png" alt="Centro Ondontológico Americano - Preloader">
       </div>
     </div>
     <!-- modals -->
@@ -41,7 +41,7 @@
     <nav>
       <div class="nav-wrapper container">
         <a href="<?php echo $this->config->item('site_path');?>/" class="brand-logo">
-          <img src="/public/assets/site/img/logo-coa-blanco.png" alt="Centro Ondontológico Americano">
+          <img src="<?php echo $this->config->item('static_url');?>assets/site/img/logo-coa-blanco.png" alt="Centro Ondontológico Americano">
         </a>
         <a href="#" class="sidenav-trigger" data-target="mobile-nav">
           <i class="fa fa-bars" aria-hidden="true"></i>
@@ -77,14 +77,14 @@
             </div>
           </li>
           <li>
-            <a href="<?php echo $this->config->item('site_path');?>/tecnologia">Tecnología</a>
+            <a href="<?php /*echo $this->config->item('site_path');*/?>/tecnologia">Tecnología</a>
             <div class="menu-sub row">
               <div class="col s12 menu-sede" id="menuTecnologia">
               </div>
             </div>
           </li>
           <li>
-            <a href="<?php echo $this->config->item('site_path');?>/odontologos">Odontólogos</a>
+            <a href="<?php /*echo $this->config->item('site_path');*/?>/odontologos">Odontólogos</a>
           </li>
           <li>
             <a href="<?php echo $this->config->item('site_path');?>/sedes">Sedes</a>
@@ -96,7 +96,7 @@
             </div>
           </li>
           <li>
-            <a href="<?php echo $this->config->item('site_path');?>/contacto">Contacto</a>
+            <a href="<?php /*echo $this->config->item('site_path');*/?>/contacto">Contacto</a>
           </li>
         </ul>
       </div>
