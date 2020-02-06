@@ -298,3 +298,9 @@ menu{
   cursor: pointer;
   color:var(--secondary-color) !important;
 }
+
+/* odontologos */
+
+.card .card-content {;
+  min-height: 136px;
+}
