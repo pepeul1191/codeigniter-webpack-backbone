@@ -234,7 +234,7 @@ menu{
 
 .page-footer{
   border-top: solid 0.5px #ccc;
-  margin-top: 40px;
+  /*margin-top: 40px;*/
 }
 
 #terminosCondiciones:hover{
@@ -252,10 +252,18 @@ menu{
 /* workspace */
 
 .horizontal-content{
-  min-height: 300px !important;
+  min-height: 450px !important;
+  padding: 0 5.75rem !important;
+  padding-top: 30px !important;
 }
+
 .horizontal-row{
   margin-bottom: 0px !important;
+}
+
+.horizontal-content > h4{
+  color: var(--primary-color) !important;
+  font-weight: 600;
 }
 
 .workpace-inner{

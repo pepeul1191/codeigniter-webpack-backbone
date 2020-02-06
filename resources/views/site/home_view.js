@@ -5,7 +5,9 @@ var SiteHomeView = Backbone.View.extend({
 	events: {
   },
   render: function(){
-		var data = {};
+		var data = {
+			STATIC_URL: STATIC_URL,
+		};
 		var templateCompiled = null;
 		$.ajax({
 		  url: STATIC_URL + 'templates/site/home.html',

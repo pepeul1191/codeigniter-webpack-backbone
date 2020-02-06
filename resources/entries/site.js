@@ -61,5 +61,6 @@ $('#terminos-condiciones').click(function(){
 
 $('body').on('click', 'a[href^="/"]', function(evt) {
   evt.preventDefault();
+  console.log('XD')
   router.navigate($(this).attr('href'), {trigger: true});
 })

@@ -49,6 +49,7 @@
         <ul class="right hide-on-med-and-down">
           <li>
             <a href="<?php echo $this->config->item('site_path');?>/">Home</a>
+            <!--
             <div class="menu-sub">
               <div class="menu-col-1">
                 <h3 class="">Category</h3>
@@ -75,16 +76,17 @@
                 </ul>
               </div>
             </div>
+            -->
           </li>
           <li>
-            <a href="<?php /*echo $this->config->item('site_path');*/?>/tecnologia">Tecnología</a>
+            <a href="<?php echo $this->config->item('site_path');?>/tecnologia">Tecnología</a>
             <div class="menu-sub row">
               <div class="col s12 menu-sede" id="menuTecnologia">
               </div>
             </div>
           </li>
           <li>
-            <a href="<?php /*echo $this->config->item('site_path');*/?>/odontologos">Odontólogos</a>
+            <a href="<?php echo $this->config->item('site_path');?>/odontologos">Odontólogos</a>
           </li>
           <li>
             <a href="<?php echo $this->config->item('site_path');?>/sedes">Sedes</a>
@@ -145,7 +147,7 @@
         <div class="col m2 menu" menu="convenios">
           <i class="fa fa-globe" aria-hidden="true"></i>
           <br>
-          Convenios
+          Aseguradoras
         </div>
         <div class="col m2 menu" menu="pacientes">
           <i class="fa fa-address-book" aria-hidden="true"></i>

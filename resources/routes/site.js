@@ -1,13 +1,13 @@
 import hideLoader from '../helpers/hide_loader';
 import showLoader from '../helpers/show_loader';
+import hideMenu from '../helpers/hide_menu';
+import showMenu from '../helpers/show_menu';
 import SiteHomeView from '../views/site/home_view';
 import SiteContactoView from '../views/site/contacto_view';
 import SiteOdontologosView from '../views/site/odontologos_view';
 import SiteSedeDetalleView from '../views/site/sede_detalle_view';
 import SiteTecnologiaDetalleView from '../views/site/tecnologia_detalle_view';
 import MenuView from '../views/site/menu_view';
-
-console.log(SPA_PATH)
 
 var SiteRouter = Backbone.Router.extend({
   workspace: '#workspace',
@@ -34,6 +34,7 @@ var SiteRouter = Backbone.Router.extend({
   index: function(){
     var _this = this;
     showLoader();
+    showMenu();
     setTimeout(function(){
       if(this.homeView == null){
         this.homeView = new SiteHomeView();
@@ -57,6 +58,7 @@ var SiteRouter = Backbone.Router.extend({
   odontologos: function(){
     var _this = this;
     showLoader();
+    hideMenu();
     setTimeout(function(){
       if(this.odontologosView == null){
         this.odontologosView = new SiteOdontologosView();
@@ -78,6 +80,7 @@ var SiteRouter = Backbone.Router.extend({
   tecnologiaDetalle: function(technologyName){
     var _this = this;
     showLoader();
+    hideMenu();
     setTimeout(function(){
       if(this.tecnologiaDetalleView == null){
         this.tecnologiaDetalleView = new SiteTecnologiaDetalleView();
@@ -99,6 +102,7 @@ var SiteRouter = Backbone.Router.extend({
   sedeDetalle: function(branchType, branchName){
     var _this = this;
     showLoader();
+    hideMenu();
     setTimeout(function(){
       if(this.sedeDetalleView == null){
         this.sedeDetalleView = new SiteSedeDetalleView();

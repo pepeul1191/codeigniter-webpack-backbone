@@ -55,14 +55,28 @@ RewriteCond %{REQUEST_FILENAME} !-l
 RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
 ```
 
-2. cambinar la configuracion de ENV en index.php
+2. git
 
-3. mover los arhcivos de public/dist y public/templates
+    $ git reset --hard origin/master
+    $ git pull origin master
+
+3. composer
+
+    $ composer update
+    $ composer dump
+
+3. cambinar la configuracion de ENV en index.php
+
+4. mover los arhcivos de public/dist y public/templates
 
 ### EMail Templates
 
 + https://colorlib.com/wp/responsive-html-email-templates/
 + https://colorlib.com/etc/email-template/1/index.html
+
+### Fuentes de Diseño
+
++ https://www.centurylink.com.ar/
 
 ### Pasos de despligue
 
