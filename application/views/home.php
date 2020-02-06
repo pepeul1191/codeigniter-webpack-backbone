@@ -144,7 +144,7 @@
           <br>
           Calidad
         </div>
-        <div class="col m2 menu" menu="convenios">
+        <div class="col m2 menu" menu="aseguradoras">
           <i class="fa fa-globe" aria-hidden="true"></i>
           <br>
           Aseguradoras
