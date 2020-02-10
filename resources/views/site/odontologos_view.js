@@ -125,7 +125,7 @@ var SiteOdontologosView = Backbone.View.extend({
 				</div>
 			</div>
 			<% }) %>
-			<div class="">
+			<div class="col s12 m12 l12 pag-buttons">
 				<% if (page != 1){ %>
 					<i id="btnGoBegin" class="fa fa-angle-double-left footer-icon" aria-hidden="true"></i>
 					<i id="btnGoPrevious" class="fa fa-angle-left footer-icon" aria-hidden="true"></i>

@@ -272,6 +272,7 @@ menu{
 
 .parallax-img-header{
   height: 200px;
+  margin-top: 113px !important;
 }
 
 .parallax-container > .row > .col > h1 {
@@ -297,4 +298,20 @@ menu{
 #verMapa:hover{
   cursor: pointer;
   color:var(--secondary-color) !important;
+}
+
+/* odontologos */
+
+.card .card-content {;
+  min-height: 136px;
+}
+
+.pag-buttons, .pag-buttons > label{
+  font-size: 25px !important;
+  margin-right: 10px;
+  margin-left: 20px;
+}
+
+.pag-buttons > label{
+  font-size: 18px !important;
 }
