@@ -1,56 +1,64 @@
-<h1>Sede <%= detail.name %></h1>
-<div class="row">
-  <div class="col s12 l6">
-    <img src="<%= STATIC_URL + detail.image %>" alt="<%= 'd' %>" class="">
+<div class="parallax-container parallax-img-header" id="parallax-sede">
+    <div class="parallax ">
+      <img src="<%= STATIC_URL + detail.image %>" alt="<%= 'd' %>" class="">
+    </div>
+    <div class="row container">
+      <div class="col s12 l6" id="data-sede">
+        <h1>Sede <%= detail.name %></h1>
+        <div class="col s12 l12">
+            <% if (detail.phone != '' || detail.phone != null) { %> 
+            <div class="row">
+              <div class="col s6 l6">
+                Teléfono
+              </div>
+              <div class="col s6 l6">
+                <%= detail.phone %>
+              </div>
+            </div>
+            <% } %>
+            <% if (detail.emergency != '' || detail.emergency != null) { %> 
+            <div class="row">
+              <div class="col s6 l6">
+                Teléfono de emergencias
+              </div>
+              <div class="col s6 l6">
+                <%= detail.emergency %>
+              </div>
+            </div>
+            <% } %>
+            <% if (detail.whatsapp != '' || detail.whatsapp != null) { %> 
+            <div class="row">
+              <div class="col s6 l6">
+                Whatsapp
+              </div>
+              <div class="col s6 l6">
+                <%= detail.whatsapp %>
+              </div>
+            </div>
+            <% } %>
+            <% if (detail.address != '' || detail.address != null) { %> 
+            <div class="row">
+              <div class="col s6 l6">
+                Dirección
+              </div>
+              <div class="col s6 l6">
+                <%= detail.address %> 
+                <br>
+                <br>
+                <span id="verMapa">Ver Mapa</span>
+              </div>
+            </div>
+            <% } %>
+          </div>
+      </div>
+    </div>
   </div>
-  <div class="col s12 l6">
-    <% if (detail.phone != '' || detail.phone != null) { %> 
-    <div class="row">
-      <div class="col s6 l6">
-        Teléfono
-      </div>
-      <div class="col s6 l6">
-        <%= detail.phone %>
-      </div>
-    </div>
-    <% } %>
-    <% if (detail.emergency != '' || detail.emergency != null) { %> 
-    <div class="row">
-      <div class="col s6 l6">
-        Teléfono de emergencias
-      </div>
-      <div class="col s6 l6">
-        <%= detail.emergency %>
-      </div>
-    </div>
-    <% } %>
-    <% if (detail.whatsapp != '' || detail.whatsapp != null) { %> 
-    <div class="row">
-      <div class="col s6 l6">
-        Whatsapp
-      </div>
-      <div class="col s6 l6">
-        <%= detail.whatsapp %>
-      </div>
-    </div>
-    <% } %>
-    <% if (detail.address != '' || detail.address != null) { %> 
-    <div class="row">
-      <div class="col s6 l6">
-        Dirección
-      </div>
-      <div class="col s6 l6">
-        <%= detail.address %> 
-        <br>
-        <span id="verMapa">Ver Mapa</span>
-      </div>
-    </div>
-    <% } %>
-  </div>
-</div>
-<div class="row">
+<div class="row container">
+  <h5>Galería</h5><br>
   <% for(var i = 0; i < images.length; i++){ %>
-  <div class="col s3 m3"><img src="<%= STATIC_URL +images[i].url %>" alt="<%= images[i].alt %>" class="materialboxed responsive-img"></div>  
+  <div class="col s4 m4 img-gallery">
+    <img src="<%= STATIC_URL +images[i].url %>" alt="<%= images[i].alt %>" class="materialboxed responsive-img">
+  </div>  
   <% } %>
 </div>
 

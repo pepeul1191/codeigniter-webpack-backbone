@@ -116,7 +116,7 @@ var AdminTechnologyDetailView = Backbone.View.extend({
         message: 'Formato no válido',
       },
       size:{
-        allow: 600000,
+        allow: 600000000,
         message: 'Archivo supera el máximo permitido',
       },
     });
@@ -257,7 +257,7 @@ var AdminTechnologyDetailView = Backbone.View.extend({
           message: 'Archivo no es de la extensión permitida',
         },
         size: {
-          allow: 500000, // bytes
+          allow: 500000000, // bytes
           message: 'Archivo supera el máximo permitido (0.5MB)',
         },
       }
