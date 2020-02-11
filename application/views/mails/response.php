@@ -340,11 +340,9 @@ return <<<EOD
 									<tr>
 										<td>
 											<div class="text" style="padding: 0 3em; text-align: center;">
-												<h2>We Serve Healthy &amp; Delicious Foods</h2>
-												<p>A small river named Duden flows by their place and supplies it with 
-												the necessary regelialia. It is a paradisematic country, in which 
-												roasted parts of sentences fly into your mouth.</p>
-												<p><a href="#" class="btn btn-primary bg_primary">Get Your Order Here!</a></p>
+												<h2>Hola %nombre</h2>
+												<p>Muchas gracias por contactarnos.</p>
+												<p><a href="%base_url" class="btn btn-primary bg_primary">Ir al sitio web del COA</a></p>
 											</div>
 										</td>
 									</tr>
@@ -359,11 +357,9 @@ return <<<EOD
 									<tr>
 										<td class="bg_white email-section" style="text-align:center;">
 											<div class="heading-section heading-section-white">
-												<span class="subheading color_gray">Welcome %nombre</span>
-												<h2 class="color_gray">Welcome To RestoBar</h2>
-												<p class="color_gray">A small river named Duden flows by their place and supplies it with 
-												the necessary regelialia. It is a paradisematic country, in which 
-												roasted parts of sentences fly into your mouth.</p>
+												<span class="subheading color_gray"></span>
+												<h2 class="color_gray">Bienvenido</h2>
+												<p class="color_gray">En breve un asesor de servicios se contactará con usted para resolver sus consultas</p>
 											</div>
 										</td>
 									</tr>
@@ -383,7 +379,7 @@ return <<<EOD
 				<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
 				<tbody><tr>
 				<td style="text-align: left; padding-right: 10px;">
-				<h3 class="heading">RestoBar</h3>
+				<h3 class="heading">COA</h3>
 				<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
 				</td>
 				</tr>
@@ -393,10 +389,11 @@ return <<<EOD
 				<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
 				<tbody><tr>
 				<td style="text-align: left; padding-left: 5px; padding-right: 5px;">
-				<h3 class="heading">Contact Info</h3>
+				<h3 class="heading">Contacto</h3>
 				<ul>
-				<li><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-				<li><span class="text">+2 392 3929 210</span></li>
+				<li><span class="text">Sede Central: Av Juan de Arona 425 San isidro <br>
+					central@coa.pe</span></li>
+				<li><span class="text">T 421 6323</span></li>
 				</ul>
 				</td>
 				</tr>
@@ -406,12 +403,12 @@ return <<<EOD
 				<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
 				<tbody><tr>
 				<td style="text-align: left; padding-left: 10px;">
-				<h3 class="heading">Useful Links</h3>
+				<h3 class="heading">Enlaces</h3>
 				<ul>
-				<li><a href="#">Breakfast</a></li>
-				<li><a href="#">Lunch</a></li>
-				<li><a href="#">Dinner</a></li>
-				<li><a href="#">Dessert</a></li>
+				<li><a href="%base_url">Home</a></li>
+				<li><a href="%base_url odontologos">Odontólogos</a></li>
+				<li><a href="%base_url tecnologia">Tecnología</a></li>
+				<li><a href="%base_url sedes">Sedes</a></li>
 				</ul>
 				</td>
 				</tr>
@@ -429,7 +426,7 @@ return <<<EOD
 				<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
 				<tbody><tr>
 				<td style="text-align: left; padding-right: 10px;">
-				<p>© 2018 Restobar. All Rights Reserved</p>
+				<p>© 2020 Centro Ondontológico Americano - Derechos Reservados</p>
 				</td>
 				</tr>
 				</tbody></table>
@@ -438,7 +435,7 @@ return <<<EOD
 				<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
 				<tbody><tr>
 				<td style="text-align: right; padding-left: 5px; padding-right: 5px;">
-				<p><a href="#" style="color: rgba(255,255,255,.4);">Unsubcribe</a></p>
+				<p><a href="http://softweb.pe/website/" style="color: rgba(255,255,255,.4);">Sitio Desarollado por Software Web Perú ©</a></p>
 				</td>
 				</tr>
 				</tbody></table>

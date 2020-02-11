@@ -59,6 +59,7 @@ $route['sede/listar']['GET'] = 'site/siteBranch/list';
 $route['sede/buscar']['GET'] = 'site/siteBranch/search';
 $route['tecnologia/buscar']['GET'] = 'site/siteTechnology/search';
 $route['odontologo/buscar']['GET'] = 'site/siteDentist/search';
+$route['mail']['POST'] = 'site/siteMail/send';
 $route['menu']['GET'] = 'site/siteMenu/get';
 # default routes
 $route['404_override'] = 'customError/orverride';
