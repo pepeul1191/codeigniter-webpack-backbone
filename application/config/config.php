@@ -544,11 +544,11 @@ if(ENV == 'localhost'){
   $config['static_url'] = 'http://localhost:8080/public/';
   $config['admin_path'] = 'admin';
   $config['site_path'] = '';
-}else if(ENV == 'softweb'){
-  $config['base_url'] = 'http://softweb.pe/coa/';
-  $config['static_url'] = 'http://softweb.pe/coa/public/';
-  $config['admin_path'] = 'coa/admin';
-  $config['site_path'] = 'coa/';
+}else if(ENV == '000webhost'){
+  $config['base_url'] = 'https://coa-avance.000webhostapp.com/';
+  $config['static_url'] = 'https://coa-avance.000webhostapp.com/public/';
+  $config['admin_path'] = 'admin';
+  $config['site_path'] = '';
 }else if(ENV == 'coa'){
   $config['base_url'] = '???';
   $config['static_url'] = '???public/';
