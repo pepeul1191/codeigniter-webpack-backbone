@@ -129,6 +129,10 @@ return <<<EOD
 
 		.color_gray{
 			color: #808080 !important;
+    }
+    
+    .color_black{
+			color: #343434 !important;
 		}
 
 		.bg_white{
@@ -340,9 +344,7 @@ return <<<EOD
 									<tr>
 										<td>
 											<div class="text" style="padding: 0 3em; text-align: center;">
-												<h2>Hola %nombre</h2>
-												<p>Muchas gracias por contactarnos.</p>
-												<p><a href="%base_url" class="btn btn-primary bg_primary">Ir al sitio web del COA</a></p>
+												<h2>Ha recibido un mensaje del sitio web</h2>
 											</div>
 										</td>
 									</tr>
@@ -355,11 +357,18 @@ return <<<EOD
 							<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
 								<tbody>
 									<tr>
-										<td class="bg_white email-section" style="text-align:center;">
+										<td class="bg_white email-section" style="">
 											<div class="heading-section heading-section-white">
 												<span class="subheading color_gray"></span>
-												<h2 class="color_gray">Bienvenido</h2>
-												<p class="color_gray">En breve un asesor de servicios se contactará con usted para resolver sus consultas</p>
+												<h2 class="color_gray">Datos del Mensaje</h2>
+                        <p class="color_gray">Nombre y Apellido</p>
+                        <p class="color_black">%nombre %apellido</p>
+                        <p class="color_gray">Correo</p>
+                        <p class="color_black">%email</p>
+                        <p class="color_gray">DNI</p>
+                        <p class="color_black">%dni</p>
+                        <p class="color_gray">Consulta</p>
+                        <p class="color_black">%consulta</p>
 											</div>
 										</td>
 									</tr>
@@ -380,7 +389,7 @@ return <<<EOD
 				<tbody><tr>
 				<td style="text-align: left; padding-right: 10px;">
 				<h3 class="heading">COA</h3>
-				<p>Contamos con un equipo de profesionales altamente calificados y comprometidos con la excelencia en servicios médicos</p>
+				<p>Contamos con un equipo de profesionales altamente calificados y comprometidos con la excelencia en servicios médicos.</p>
 				</td>
 				</tr>
 				</tbody></table>

@@ -8,6 +8,7 @@ class SiteMail extends CI_Controller
     // TODO
     // get layout
     $layout = require __DIR__ . '/../../views/mails/response.php';
+    $layout = require __DIR__ . '/../../views/mails/visitor.php';
     // data
     $nombre = 'Pepe';
     $apellido = 'Valdivia';
@@ -45,11 +46,8 @@ class SiteMail extends CI_Controller
         'instance' => $this,
       )
     );
-    // request data
-    // TODO
-    // get layout
+    // mail to visitor
     $layout = require __DIR__ . '/../../views/mails/response.php';
-    // data
     $nombre = $this->input->post('nombre');
     $apellido = $this->input->post('apellido');
     $email = $this->input->post('email');
@@ -58,7 +56,6 @@ class SiteMail extends CI_Controller
     $logo_url = $this->config->item('static_url') . 'assets/site/img/logo-coa-celeste.png';
     $img_url = $this->config->item('static_url') . 'assets/site/img/mail.jpg';
     $favicon = $this->config->item('static_url') . 'favicon.ico';
-    // str_replace layout
     $data_layout = array(
       '%nombre' => $nombre, 
       '%apellido' => $apellido, 
@@ -70,6 +67,46 @@ class SiteMail extends CI_Controller
       '%favicon' => $favicon,
     );
     $message = str_replace(array_keys($data_layout), array_values($data_layout), $layout);
-    echo($message);
+    $to      = $email;
+    $subject = 'COA - Gracias por contactarnos';
+    $headers  = 'MIME-Version: 1.0' . "\r\n";
+    $headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
+    $headers .= 'From: ' . 'pepe.valdivia.caballero@gmail.com';
+    if(ENV == 'localhost'){
+      echo $message;
+    }else if(ENV == '000webhost' || ENV == 'coa'){
+      mail($to, $subject, $message, $headers); 
+    }
+    // mail to admin
+    $layout = require __DIR__ . '/../../views/mails/visitor.php';
+    $nombre = $this->input->post('nombre');
+    $apellido = $this->input->post('apellido');
+    $email = $this->input->post('email');
+    $dni = $this->input->post('dni');
+    $consulta = $this->input->post('consulta');
+    $logo_url = $this->config->item('static_url') . 'assets/site/img/logo-coa-celeste.png';
+    $img_url = $this->config->item('static_url') . 'assets/site/img/mail.jpg';
+    $favicon = $this->config->item('static_url') . 'favicon.ico';
+    $data_layout = array(
+      '%nombre' => $nombre, 
+      '%apellido' => $apellido, 
+      '%email' => $email, 
+      '%dni' => $dni, 
+      '%consulta' => $consulta, 
+      '%logo_url' => $logo_url,
+      '%img_url' => $img_url,
+      '%favicon' => $favicon,
+    );
+    $message = str_replace(array_keys($data_layout), array_values($data_layout), $layout);
+    $to      = 'pepe.valdivia.caballero@gmail.com';
+    $subject = 'Ha recibido un mensaje del sitio web del COA';
+    $headers  = 'MIME-Version: 1.0' . "\r\n";
+    $headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
+    $headers .= 'From: ' . 'pepe.valdivia.caballero@gmail.com';
+    if(ENV == 'localhost'){
+      echo $message;
+    }else if(ENV == '000webhost' || ENV == 'coa'){
+      mail($to, $subject, $message, $headers); 
+    }
   }
 }
