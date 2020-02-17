@@ -49,10 +49,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-# site
-$route['default_controller'] = 'home';
-$route['odontologos']['GET'] = 'home';
-$route['contacto']['GET'] = 'home';
 # site api
 $route['especialidad/listar']['GET'] = 'site/siteSpecialism/list';
 $route['sede/listar']['GET'] = 'site/siteBranch/list';
@@ -120,6 +116,13 @@ $route['admin/branch/dentist']['GET'] = 'admin/AdminBranch/dentistList';
 $route['admin/branch/dentist/save']['POST'] = 'admin/AdminBranch/dentistSave';
   # upload
 $route['upload/file']['POST'] = 'admin/AdminUpload/file';
-
+# site
+$route['default_controller'] = 'home';
+$route['odontologos']['GET'] = 'home';
+$route['contacto']['GET'] = 'home';
+$route['tecnologia']['GET'] = 'home';
+$route['tecnologias/(:any)']['GET'] = 'home';
+$route['sedes/(:any)/(:any)']['GET'] = 'home';
+# demo
 $route['demo']['GET'] = 'services/SiteIndex/index';
 $route['demo/mail']['GET'] = 'site/siteMail/demo';

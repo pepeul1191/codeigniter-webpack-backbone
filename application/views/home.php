@@ -79,7 +79,7 @@
             -->
           </li>
           <li>
-            <a href="<?php echo $this->config->item('site_path');?>/tecnologia">Tecnología</a>
+            <a href="<?php echo $this->config->item('site_path');?>/tecnologias/tecnolog%C3%ADa%201">Tecnología</a>
             <div class="menu-sub row">
               <div class="col s12 menu-sede" id="menuTecnologia">
               </div>
@@ -89,7 +89,7 @@
             <a href="<?php echo $this->config->item('site_path');?>/odontologos">Odontólogos</a>
           </li>
           <li>
-            <a href="<?php echo $this->config->item('site_path');?>/sedes">Sedes</a>
+            <a href="<?php echo $this->config->item('site_path');?>/sedes/lima/central%20(juan%20de%20arona)">Sedes</a>
             <div class="menu-sub row">
               <div class="col s6 menu-sede" id="sedesLima">
               </div>
