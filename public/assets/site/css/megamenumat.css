@@ -9,7 +9,7 @@ nav li:hover a {
 .menu-sub {
   position: absolute;
   left: 0;
-  background: var(--secondary-color) !important;
+  background: rgba(0,123,255,0.5) !important;
   width: 100%;
   display: none;
   color: #fff;
@@ -84,10 +84,12 @@ nav li:hover .menu-sub {
   padding-top: 1px;
   padding-bottom: 1px;
   margin-bottom: 10px;
+  border-radius: 10px;
 }
 
 .menu-sede > h3{
   font-size: 30px;
+  text-transform: uppercase;
 }
 
 /*-- slider--*/

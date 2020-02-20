@@ -29,6 +29,10 @@ body {
   max-width: 1500px;
 }
 
+.text-justify{
+  text-align: justify;
+}
+
 /* form */
 
 [type="checkbox"]+span:not(.lever):before, [type="checkbox"]:not(.filled-in)+span:not(.lever):after, [type="radio"]:not(:checked)+span:before, [type="radio"]:not(:checked)+span:after{ border: 2px solid var(--gray-dark);}
@@ -86,6 +90,10 @@ button > i {
 .brand-logo > img {
   height: 60px;
   margin-top: 8px;
+}
+
+nav ul a {
+  text-transform: uppercase;
 }
 
 nav{

@@ -4,8 +4,8 @@ const menuMaker = function(){
   var resp = MenuService.get();
   // branches (sedes)
   var branches = resp.message.branches;
-  var limaBracnches = '<h3>Sedes de Lima</h3>';
-  var provinciaBranches = '<h3>Sedes de Provincia</h3>';
+  var limaBracnches = '<h3>Lima</h3>';
+  var provinciaBranches = '<h3>Provincia</h3>';
   for(var i = 0; i < branches.length; i++){
     var temp = '';
     if(branches[i].branch_type_id == '1'){

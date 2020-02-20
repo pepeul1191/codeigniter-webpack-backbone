@@ -47,9 +47,9 @@
           <i class="fa fa-bars" aria-hidden="true"></i>
         </a>
         <ul class="right hide-on-med-and-down">
+          <!--
           <li>
             <a href="<?php echo $this->config->item('site_path');?>/">Home</a>
-            <!--
             <div class="menu-sub">
               <div class="menu-col-1">
                 <h3 class="">Category</h3>
@@ -76,8 +76,8 @@
                 </ul>
               </div>
             </div>
-            -->
           </li>
+          -->
           <li>
             <a href="<?php echo $this->config->item('site_path');?>/tecnologias/tecnolog%C3%ADa%201">Tecnología</a>
             <div class="menu-sub row">
