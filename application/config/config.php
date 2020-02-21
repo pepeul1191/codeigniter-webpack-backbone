@@ -541,7 +541,7 @@ $config['login'] = array(
 );
 $config['mail'] = array(
   'response_email' => '', 
-  'gmail_mail' => '',
+  'gmail_email' => '',
   'gmail_pass' => '', 
 );
 

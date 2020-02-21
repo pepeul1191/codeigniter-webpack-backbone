@@ -90,6 +90,11 @@ RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
 
 4. FTP - subir los archivos public/dist y public/templates
 
+
+### Correo
+
+Permitir el acceso de aplicaciones poco seguras: SÍ
+
 ---
 
 Fuentes:
@@ -99,3 +104,4 @@ Fuentes:
 + https://openlayers.org/en/latest/doc/quickstart.html
 + https://openlayers.org/en/latest/doc/tutorials/bundle.html
 + https://github.com/Synchro/PHPMailer
++ https://www.hostinger.es/tutoriales/como-usar-el-servidor-smtp-gmail-gratuito/

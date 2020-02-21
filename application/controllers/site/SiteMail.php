@@ -15,7 +15,7 @@ class SiteMail extends CI_Controller
     // data
     $nombre = 'Pepe';
     $apellido = 'Valdivia';
-    $email = 'pepe.valdivia.caballero@gmail.com';
+    $email = $this->config->item('mail')['gmail_email'];
     $dni = '70241720';
     $consulta = 'hola tengo una duda!!!';
     $logo_url = $this->config->item('static_url') . 'assets/site/img/logo-coa-celeste.png';
@@ -35,7 +35,33 @@ class SiteMail extends CI_Controller
       '%favicon' => $favicon,
     );
     $message = str_replace(array_keys($data_layout), array_values($data_layout), $layout);
-    echo($message);
+    $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
+    try {
+      // server settings
+      $mail->SMTPDebug = 2;                                 // Enable verbose debug output
+      $mail->isSMTP();                                      // Set mailer to use SMTP
+      $mail->Debugoutput = 'html';
+      $mail->Host = 'smtp.gmail.com';                       // Specify main and backup SMTP servers
+      $mail->SMTPAuth = true;                               // Enable SMTP authentication
+      $mail->Username = $this->config->item('mail')['gmail_email'];                 // SMTP username
+      $mail->Password = $this->config->item('mail')['gmail_pass'];                           // SMTP password
+      $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
+      $mail->Port = 465;                                    // TCP port to connect to
+      // recipients
+      $mail->setFrom('from@example.com', 'Mailer');
+      $mail->addAddress($this->config->item('mail')['gmail_email'], 'Pepe Valdivia');     // Add a recipient
+      // content
+      $mail->isHTML(true);                                  // Set email format to HTML
+      $mail->Subject = 'Here is the subject';
+      $mail->Body    = $message;
+      // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+      // send
+      $mail->send();
+      echo 'Message has been sent';
+    } catch (Exception $e) {
+      echo 'Message could not be sent.';
+      echo 'Mailer Error: ' . $mail->ErrorInfo;
+    }
   }
 
   public function send()
@@ -74,7 +100,7 @@ class SiteMail extends CI_Controller
     $subject = 'COA - Gracias por contactarnos';
     $headers  = 'MIME-Version: 1.0' . "\r\n";
     $headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
-    $headers .= 'From: ' . 'pepe.valdivia.caballero@gmail.com';
+    $headers .= 'From: ' . $this->config->item('mail')['gmail_email'];
     if(ENV == 'localhost'){
       echo $message;
     }else if(ENV == '000webhost' || ENV == 'coa'){
@@ -101,11 +127,11 @@ class SiteMail extends CI_Controller
       '%favicon' => $favicon,
     );
     $message = str_replace(array_keys($data_layout), array_values($data_layout), $layout);
-    $to      = 'pepe.valdivia.caballero@gmail.com';
+    $to      = $this->config->item('mail')['gmail_email'];
     $subject = 'Ha recibido un mensaje del sitio web del COA';
     $headers  = 'MIME-Version: 1.0' . "\r\n";
     $headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
-    $headers .= 'From: ' . 'pepe.valdivia.caballero@gmail.com';
+    $headers .= 'From: ' . $this->config->item('mail')['gmail_email'];
     if(ENV == 'localhost'){
       echo $message;
     }else if(ENV == '000webhost' || ENV == 'coa'){
