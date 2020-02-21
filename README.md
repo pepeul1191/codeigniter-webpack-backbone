@@ -98,3 +98,4 @@ Fuentes:
 + https://openstreetmap.be/en/projects/howto/openlayers.html
 + https://openlayers.org/en/latest/doc/quickstart.html
 + https://openlayers.org/en/latest/doc/tutorials/bundle.html
++ https://github.com/Synchro/PHPMailer

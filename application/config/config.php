@@ -539,6 +539,11 @@ $config['login'] = array(
   'user' => 'admin',
   'password' => 'sistema123', 
 );
+$config['mail'] = array(
+  'response_email' => '', 
+  'gmail_mail' => '',
+  'gmail_pass' => '', 
+);
 
 if(ENV == 'localhost'){
   $config['base_url'] = 'http://localhost:8080/';
