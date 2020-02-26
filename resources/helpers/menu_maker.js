@@ -10,13 +10,13 @@ const menuMaker = function(){
     var temp = '';
     if(branches[i].branch_type_id == '1'){
       temp = '<span class="submenu-item"><a href="' 
-        + '' + '/sedes/lima/' + branches[i].name.toLowerCase() + '">' 
+        + '' + '/red/lima/' + branches[i].name.toLowerCase() + '">' 
         + branches[i].name + '</a></span>';
       limaBracnches = limaBracnches + temp;
     }
     if(branches[i].branch_type_id == '2'){
       temp = '<span class="submenu-item"><a href="' 
-        + '' + '/sedes/provincia/' + branches[i].name.toLowerCase() + '">' 
+        + '' + '/red/provincia/' + branches[i].name.toLowerCase() + '">' 
         + branches[i].name + '</a></span>';
       provinciaBranches = provinciaBranches + temp;
     }

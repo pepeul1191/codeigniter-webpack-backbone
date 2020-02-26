@@ -24,9 +24,9 @@ var SiteRouter = Backbone.Router.extend({
   routes:{
     [SPA_PATH + '']: 'index',
     [SPA_PATH + '/']: 'index',
-    [SPA_PATH +'contacto']: 'contacto',
+    [SPA_PATH +'agenda-tu-cita']: 'contacto',
     [SPA_PATH + 'odontologos']: 'odontologos',
-    [SPA_PATH + 'sedes/:branchType/:branchName']: 'sedeDetalle',
+    [SPA_PATH + 'red/:branchType/:branchName']: 'sedeDetalle',
     [SPA_PATH + 'tecnologias/:technologyName']: 'tecnologiaDetalle',
     // others
     '*path' : 'default',
@@ -53,7 +53,7 @@ var SiteRouter = Backbone.Router.extend({
   contacto: function(){
     $('html, body').animate({ 
       scrollTop: $('footer').offset().top 
-    }, 1000);
+    }, 900);
   },
   odontologos: function(){
     var _this = this;

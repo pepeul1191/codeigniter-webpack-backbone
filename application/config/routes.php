@@ -119,10 +119,10 @@ $route['upload/file']['POST'] = 'admin/AdminUpload/file';
 # site
 $route['default_controller'] = 'home';
 $route['odontologos']['GET'] = 'home';
-$route['contacto']['GET'] = 'home';
+$route['agenda-tu-cita']['GET'] = 'home';
 $route['tecnologia']['GET'] = 'home';
 $route['tecnologias/(:any)']['GET'] = 'home';
-$route['sedes/(:any)/(:any)']['GET'] = 'home';
+$route['red/(:any)/(:any)']['GET'] = 'home';
 # demo
 $route['demo']['GET'] = 'services/SiteIndex/index';
 $route['demo/mail']['GET'] = 'site/siteMail/demo';
