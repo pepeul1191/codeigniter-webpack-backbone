@@ -89,7 +89,7 @@ var SiteContactoView = Backbone.View.extend({
               message: 'Debe de ingresar un DNI válido',
               customFunction: function(){
                 var resp = false;
-                if($('#txtDNI').val().length == 7){
+                if($('#txtDNI').val().length == 8){
                   var inputDni = $('#txtDNI').val();
                   if(/^\d+$/.test(inputDni)){
                     resp = true;
@@ -193,12 +193,13 @@ var SiteContactoView = Backbone.View.extend({
     }
   },
   sendForm: function(event){
-    // this.form.check();
+    this.form.check();
     if(this.form.isOk == true){
       var data = {
         
       };
       var resp = {};
+      var _this = this;
       $.ajax({
         type: 'POST',
         url: BASE_URL + 'mail',
@@ -213,39 +214,74 @@ var SiteContactoView = Backbone.View.extend({
           [CSRF_KEY]: CSRF,
         },
         async: false,
+        beforeSend: function(){
+          $('#btnEnviar').attr("disabled", true);
+          $('#messageForm').html('Enviando mensaje...');
+          $('#messageForm').removeClass('color-success');
+          $('#messageForm').removeClass('color-error');
+          $('#messageForm').addClass('gray-text');
+        },
         success: function(data){
           // show message
-          $('#' + messageLabelId).removeClass('alert-danger');
-          $('#' + messageLabelId).removeClass('alert-warning');
-          $('#' + messageLabelId).addClass('alert-success');
-          $('#' + messageLabelId).html('Detalle de tecnología guardado con éxito');
+          $('#messageForm').removeClass('alert-danger');
+          $('#messageForm').removeClass('alert-warning');
+          $('#messageForm').addClass('alert-success');
+          $('#messageForm').html('Detalle de tecnología guardado con éxito');
           // $('html, body').animate({ scrollTop: $("#" + messageLabelId).offset().top }, 1000);
           // return data
           resp.message = data;
+          $('#btnEnviar').attr("disabled", false);
+          $('#messageForm').html('Su correo ha sido enviado');
+          $('#messageForm').removeClass('color-warning');
+          $('#messageForm').removeClass('color-error');
+          $('#messageForm').addClass('color-success');
           resp.status = 200;
+          // empty form
+          $("#txtNombre").val('');
+          $("#txtApellido").val('');
+          $("#txtCorreo").val('');
+          $("#txtDNI").val('');
+          $("#txtConsulta").val('');
+          $('#messageForm').html('Su mensaje ha sido enviado');
+          $('#acpetaCondiciones').attr('checked', false);
+          $('#leyCheck').attr('checked', false);
+          setTimeout(function(){ 
+            $('#messageForm').html('');
+            _this.form.isOk = false;
+          }, 3000);
         },
         error: function(xhr, status, error){
           // show message
           if(xhr.status == 404){
-            $('#' + messageLabelId).removeClass('alert-success');
-            $('#' + messageLabelId).removeClass('alert-warning');
-            $('#' + messageLabelId).addClass('alert-danger');
-            $('#' + messageLabelId).html('Recurso no encontrado');
-            // $('html, body').animate({ scrollTop: $("#" + messageLabelId).offset().top }, 1000);
+            $('#messageForm').removeClass('alert-success');
+            $('#messageForm').removeClass('alert-warning');
+            $('#messageForm').addClass('alert-danger');
+            $('#messageForm').html('Recurso no encontrado');
+            // $('html, body').animate({ scrollTop: $("#" + messageForm).offset().top }, 1000);
           }else if(xhr.status == 501){
-            $('#' + messageLabelId).removeClass('alert-success');
-            $('#' + messageLabelId).removeClass('alert-warning');
-            $('#' + messageLabelId).addClass('alert-danger');
-            $('#' + messageLabelId).html('Ocurrió un error controlado en grabar el detalle de la tecnología');
-            // $('html, body').animate({ scrollTop: $("#" + messageLabelId).offset().top }, 1000);
+            $('#messageForm').removeClass('alert-success');
+            $('#messageForm').removeClass('alert-warning');
+            $('#messageForm').addClass('alert-danger');
+            $('#messageForm').html('Ocurrió un error controlado en grabar el detalle de la tecnología');
+            // $('html, body').animate({ scrollTop: $("#" + messageForm).offset().top }, 1000);
           }else{
-            $('#' + messageLabelId).removeClass('alert-success');
-            $('#' + messageLabelId).removeClass('alert-warning');
-            $('#' + messageLabelId).addClass('alert-danger');
-            $('#' + messageLabelId).html('Ocurrió un error no controlado en grabar el detalle de la tecnología');
-            // $('html, body').animate({ scrollTop: $("#" + messageLabelId).offset().top }, 1000);
+            $('#messageForm').removeClass('alert-success');
+            $('#messageForm').removeClass('alert-warning');
+            $('#messageForm').addClass('alert-danger');
+            $('#messageForm').html('Ocurrió un error no controlado en grabar el detalle de la tecnología');
+            // $('html, body').animate({ scrollTop: $("#" + messageForm).offset().top }, 1000);
           }
           console.error(error);
+          // empty form
+          $('#btnEnviar').attr("disabled", false);
+          $('#messageForm').removeClass('color-success');
+          $('#messageForm').removeClass('color-warning');
+          $('#messageForm').addClass('color-error');
+          $('#messageForm').html('Ocurrió un error mandando su mensaje');
+          setTimeout(function(){ 
+            $('#messageForm').html('');
+            _this.form.isOk = false;
+          }, 3000);
           // return data
           resp.message = JSON.parse(xhr.responseText);
           resp.status = 500;

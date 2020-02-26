@@ -14,7 +14,7 @@ body {
 }
 
 .gray-text{
-  color:  var(--gray-dark) !important;
+  color:  var(--gray-dark);
 }
 
 .gray{
@@ -23,6 +23,18 @@ body {
 
 .gray-dark{
   background:  var(--gray-dark) !important;
+}
+
+.color-success{
+  color: #00c853;
+}
+
+.color-warning{
+  color: #ffeb3b;
+}
+
+.color-error{
+  color: #e53935;
 }
 
 .container {
