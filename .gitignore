@@ -43,3 +43,4 @@ package-lock.json
 .vscode
 application/config/config.php
 Gemfile.lock
+*.xlsx#
