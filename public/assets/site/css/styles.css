@@ -370,6 +370,10 @@ menu{
     display: none;
   }
 
+  .workpace-inner{
+    margin-top: -50px;
+  }
+
   /* home */
 
   .video-container{
@@ -446,6 +450,17 @@ menu{
   #menu{
     padding-left: 10px;
     padding-right: 0px;
+  }
+
+  /* odontologs */
+
+  #btnBuscar{
+    width: 100%;
+  }
+
+  .card-content {
+    padding: 5px !important;
+    padding-top: 20px !important;
   }
 }
 

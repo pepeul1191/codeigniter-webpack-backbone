@@ -111,7 +111,7 @@ var SiteOdontologosView = Backbone.View.extend({
 		var _this = this;
 		var resource = `
 			<% odontologos.forEach(function(odontologo) { %>
-			<div class="col s12 m2 l3">
+			<div class="col s6 m2 l3">
 				<div class="card">
 					<div class="card-image">
 						<img src="<%= STATIC_URL %><%= odontologo.image %>">
@@ -125,7 +125,7 @@ var SiteOdontologosView = Backbone.View.extend({
 				</div>
 			</div>
 			<% }) %>
-			<div class="col s12 m12 l12 pag-buttons">
+			<div class="col s6 m12 l12 pag-buttons">
 				<% if (page != 1){ %>
 					<i id="btnGoBegin" class="fa fa-angle-double-left footer-icon" aria-hidden="true"></i>
 					<i id="btnGoPrevious" class="fa fa-angle-left footer-icon" aria-hidden="true"></i>
