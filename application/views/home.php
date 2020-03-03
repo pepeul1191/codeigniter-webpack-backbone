@@ -147,22 +147,22 @@
     <!-- second menu -->
     <menu id="menu" class="secondary">
       <div class="row">
-        <div class="col m2 offset-m2 menu" menu="especialidades">
+        <div class="col m2 s3 offset-m2 menu" menu="especialidades">
           <i class="fa fa-list" aria-hidden="true"></i>
           <br>
           Especialidades
         </div>
-        <div class="col m2 menu" menu="calidad">
+        <div class="col m2 s3 menu" menu="calidad">
           <i class="fa fa-area-chart" aria-hidden="true"></i>
           <br>
           Calidad
         </div>
-        <div class="col m2 menu" menu="aseguradoras">
+        <div class="col m2 s3 menu" menu="aseguradoras">
           <i class="fa fa-globe" aria-hidden="true"></i>
           <br>
           Aseguradoras
         </div>
-        <div class="col m2 menu" menu="pacientes">
+        <div class="col m2 s3 menu" menu="pacientes">
           <i class="fa fa-address-book" aria-hidden="true"></i>
           <br>
           Pacientes

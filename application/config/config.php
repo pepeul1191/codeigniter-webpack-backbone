@@ -546,8 +546,8 @@ $config['mail'] = array(
 );
 
 if(ENV == 'localhost'){
-  $config['base_url'] = 'http://localhost:8080/';
-  $config['static_url'] = 'http://localhost:8080/public/';
+  $config['base_url'] = 'http://192.168.1.4:8080/';
+  $config['static_url'] = 'http://192.168.1.4:8080/public/';
   $config['admin_path'] = 'admin';
   $config['site_path'] = '';
 }else if(ENV == '000webhost'){
