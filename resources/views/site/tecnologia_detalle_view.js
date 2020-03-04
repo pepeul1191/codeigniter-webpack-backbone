@@ -16,8 +16,8 @@ var SiteTecnologiaDetalleView = Backbone.View.extend({
 	},
 	events: {
   },
-  render: function(technologyName){
-    var data = this.getData(technologyName);
+  render: function(technologyURL){
+    var data = this.getData(technologyURL);
     data.STATIC_URL = STATIC_URL;
     // TODO IF data = null
     var templateCompiled = null;
@@ -41,10 +41,10 @@ var SiteTecnologiaDetalleView = Backbone.View.extend({
   loadComponents: function(){
 
   },
-  getData: function(technologyName){
+  getData: function(technologyURL){
     var resp = null;
     $.ajax({
-      url: BASE_URL + 'tecnologia/buscar?name=' + technologyName,
+      url: BASE_URL + 'tecnologia/buscar?url=' + technologyURL,
       type: 'GET',
       async: false,
       success: function(data) {

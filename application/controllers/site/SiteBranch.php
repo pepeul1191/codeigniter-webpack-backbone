@@ -36,11 +36,11 @@ class SiteBranch extends CI_Controller
     $status = 200;
     try {
       $branch_type_id = $this->input->get('branch_type_id');
-      $branch_name = $this->input->get('name');
+      $branch_url = $this->input->get('url');
       $rs = null;
       $detail = \Model::factory('\Models\Admin\Branch', 'coa')
         ->where('branch_type_id', $branch_type_id)
-        ->where('name', strtoupper($branch_name))
+        ->where('url', $branch_url)
         ->find_one();
       if($detail != false){
         $images = \Model::factory('\Models\Admin\VWBranchImage', 'coa')

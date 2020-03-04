@@ -11,11 +11,13 @@ class SiteMenu extends CI_Controller
       $branches = \Model::factory('\Models\Admin\Branch', 'coa')
         ->select('id')
         ->select('name')
+        ->select('url')
         ->select('branch_type_id')
         ->find_array();
       $technologies = \Model::factory('\Models\Admin\Technology', 'coa')
         ->select('id')
         ->select('name')
+        ->select('url')
         ->find_array();
       $resp = json_encode(array(
         'branches' => $branches,

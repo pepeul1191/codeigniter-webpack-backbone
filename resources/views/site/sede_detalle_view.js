@@ -77,7 +77,7 @@ var SiteSedeDetalleView = Backbone.View.extend({
   loadComponents: function(){
 
   },
-  getData: function(branchType, branchName){
+  getData: function(branchType, branchURL){
     var resp = null;
     var branchTypeId = 0;
     if(branchType == 'lima'){
@@ -87,7 +87,7 @@ var SiteSedeDetalleView = Backbone.View.extend({
     }
     if(branchTypeId == 1 || branchTypeId == 2){
       $.ajax({
-        url: BASE_URL + 'sede/buscar?branch_type_id=' + branchTypeId + '&name=' + branchName,
+        url: BASE_URL + 'sede/buscar?branch_type_id=' + branchTypeId + '&url=' + branchURL,
         type: 'GET',
         async: false,
         success: function(data) {
