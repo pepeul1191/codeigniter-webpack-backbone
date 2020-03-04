@@ -44,3 +44,4 @@ package-lock.json
 application/config/config.php
 Gemfile.lock
 *.xlsx#
+*.docx#
