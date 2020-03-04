@@ -34,7 +34,7 @@ CREATE TABLE 'branches' (
   'latitude' FLOAT,
   'longitude' FLOAT,
   'branch_type_id'	INTEGER,
-  'director_id'	INTEGER,
+  'director_id'	INTEGER, url VARCHAR(60),
   FOREIGN KEY(`branch_type_id`) REFERENCES 'branch_types' ( 'id' ) ON DELETE CASCADE
 );
 CREATE TABLE 'branches_images' (
@@ -89,11 +89,6 @@ CREATE VIEW vw_branches_images AS
   FROM images I
   JOIN branches_images B ON B.image_id = I.id
   LIMIT 2000;
-CREATE VIEW vw_branches_directors AS
-  SELECT B.id,	B.name, B.address, B.phone, B.whatsapp, B.emergency, B.image, B.latitude, B.longitude, B.branch_type_id, B.director_id, (D.name || ', ' || D.cop || ', ' || D.rne) AS director_name
-  FROM branches B
-  JOIN dentists D ON B.director_id = D.id
-  LIMIT 2000;
 CREATE VIEW vw_dentists_branches_specialisms AS
 	SELECT branch_types_id, branch_id, branch_name, dentist_id, dentist_name, cop, rne, image, specialism_id, specialism_name FROM
 	(
@@ -112,6 +107,11 @@ CREATE VIEW vw_dentists_branches_specialisms AS
 		LIMIT 2000
 	) P
 	ON T.dentist_id = P.p_dentist_id;
+CREATE VIEW vw_branches_directors AS
+  SELECT B.id,	B.name, B.address, B.phone, B.whatsapp, B.emergency, B.image,  B.url, B.latitude, B.longitude, B.branch_type_id, B.director_id, (D.name || ', ' || D.cop || ', ' || D.rne) AS director_name
+  FROM branches B
+  JOIN dentists D ON B.director_id = D.id
+  LIMIT 2000;
 -- Dbmate schema migrations
 INSERT INTO schema_migrations (version) VALUES
   ('20191003022142'),
@@ -136,4 +136,6 @@ INSERT INTO schema_migrations (version) VALUES
   ('20191018224914'),
   ('20191018225908'),
   ('20191102030733'),
-  ('20200304000440');
+  ('20200304000440'),
+  ('20200304012508'),
+  ('20200304013342');

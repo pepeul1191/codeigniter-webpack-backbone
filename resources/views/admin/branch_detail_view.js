@@ -57,6 +57,7 @@ var AdminBranchDetailView = Backbone.View.extend({
     this.branch.set('latitude', '');
     this.branch.set('longitude', '');
     this.branch.set('longitude', '');
+    this.branch.set('url', '');
     this.branch.set('branch_type_id', 'E');
     this.branch.set('director_id', 'E');
     this.branch.set('image', '');
@@ -80,6 +81,7 @@ var AdminBranchDetailView = Backbone.View.extend({
         this.branch.set('director_id', respData.message.director_id);
         this.branch.set('image', respData.message.image);
         this.branch.set('director_name', respData.message.director_name);
+        this.branch.set('url', respData.message.url);
         data.model = this.branch;
         data.disabled = false;
         data.message = '';
@@ -181,6 +183,17 @@ var AdminBranchDetailView = Backbone.View.extend({
             {
               type: 'notEmpty',
               message: 'Debe de ingresar el nombre de la sede',
+            }, 
+          ],
+        },
+        // URL
+        {
+          id: 'txtURL',
+          help: 'txtURLHelp',
+          validations: [
+            {
+              type: 'notEmpty',
+              message: 'Debe de ingresar el URL de la sede',
             }, 
           ],
         },
@@ -448,6 +461,7 @@ var AdminBranchDetailView = Backbone.View.extend({
       this.branch.set('address', $('#txtAddress').val());
       this.branch.set('phone', $('#txtPhone').val());
       this.branch.set('whatsapp', $('#txtWhastapp').val());
+      this.branch.set('url', $('#txtURL').val());
       this.branch.set('emergency', $('#txtEmergency').val());
       this.branch.set('image', _this.upload.path);
       this.branch.set('latitude', $('#txtLatitude').val());

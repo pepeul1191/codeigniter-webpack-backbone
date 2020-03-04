@@ -73,6 +73,7 @@ class AdminBranch extends CI_Controller
     $latitude = $this->input->post('latitude');
     $longitude = $this->input->post('longitude');
     $phone = $this->input->post('phone');
+    $url = $this->input->post('url');
     $whatsapp = $this->input->post('whatsapp');
     if($image == ''){
       $image = 'assets/img/default-branch.png';
@@ -93,6 +94,7 @@ class AdminBranch extends CI_Controller
         $n->longitude = $longitude;
         $n->phone = $phone;
         $n->whatsapp = $whatsapp;
+        $n->url = $url;
         $n->save();
         $resp_data = $n->id;
       }else{
@@ -106,6 +108,7 @@ class AdminBranch extends CI_Controller
         $e->emergency = $emergency;
         $e->latitude = $latitude;
         $e->longitude = $longitude;
+        $e->url = $url;
         $e->phone = $phone;
         $e->whatsapp = $whatsapp;
         $e->save();

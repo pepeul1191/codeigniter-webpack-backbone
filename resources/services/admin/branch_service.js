@@ -15,6 +15,7 @@ var TechnologyService = {
         latitude: model.get('latitude'),
         longitude: model.get('longitude'),
         phone: model.get('phone'),
+        url: model.get('url'),
         whatsapp: model.get('whatsapp'),
       },
       headers: {

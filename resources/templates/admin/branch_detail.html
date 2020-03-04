@@ -34,13 +34,20 @@
           <small id="txtPictureHelp" class="form-text"></small>
         </div>
       </div>
-      <div class="col-md-12">
+      <div class="col-md-8">
         <div class="form-group">
           <label for="txtAddress">Dirección</label>
           <input type="text" class="form-control" id="txtAddress" aria-describedby="txtAddressHelp" <% if(disabled) { %> disabled <% } %> placeholder="Dirección de la Sede" value="<%= model.get('address') %>">
           <small id="txtAddressHelp" class="form-text"></small>
         </div>
       </div>
+      <div class="col-md-4">
+          <div class="form-group">
+            <label for="txtURL">URL</label>
+            <input type="text" class="form-control" id="txtURL" aria-describedby="txtURLHelp" <% if(disabled) { %> disabled <% } %> placeholder="URL de la Sede" value="<%= model.get('url') %>">
+            <small id="txtURLHelp" class="form-text"></small>
+          </div>
+        </div>
       <div class="col-md-4">
         <div class="form-group">
           <label for="txtPhone">Teléfono</label>
