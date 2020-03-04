@@ -356,6 +356,22 @@ menu{
   margin-top: 75px;
 }
 
+/* technologies */
+
+#data-technology{
+  background: rgba(255,255,255,0.50);
+  margin-top: 100px;
+}
+
+#data-technology > h1{
+  color: #343434;
+}
+
+#data-technology > p{
+  color: #343434;
+  font-weight: 400;
+}
+
 /* Small devices (landscape phones, 576px and up)*/
 @media (max-width: 576px) { 
   .row .col {
