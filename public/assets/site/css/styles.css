@@ -462,6 +462,18 @@ menu{
     padding: 5px !important;
     padding-top: 20px !important;
   }
+
+  /* red */
+
+  #parallax-sede > .row {
+    
+  }
+
+  #data-sede {
+    margin-top: 60px;
+    padding: 20px;
+    padding-bottom: 0px;
+  }
 }
 
 /* Medium devices (tablets, 768px and up) */
