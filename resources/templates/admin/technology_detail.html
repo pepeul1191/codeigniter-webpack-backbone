@@ -8,14 +8,21 @@
   </div>
   <div class="col-md-6">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-4">
         <div class="form-group">
           <label for="txtName">Nombre</label>
           <input type="text" class="form-control" id="txtName" aria-describedby="txtNameHelp" <% if(disabled) { %> disabled <% } %> placeholder="Ingrese nombre" value="<%= model.get('name') %>">
           <small id="txtNameHelp" class="form-text"></small>
         </div>
       </div>
-      <div class="col-md-6" id="uploadForm">
+      <div class="col-md-3">
+          <div class="form-group">
+            <label for="txtURL">URL</label>
+            <input type="text" class="form-control" id="txtURL" aria-describedby="txtURLHelp" <% if(disabled) { %> disabled <% } %> placeholder="Ingrese URL" value="<%= model.get('url') %>">
+            <small id="txtURLHelp" class="form-text"></small>
+          </div>
+        </div>
+      <div class="col-md-5" id="uploadForm">
         <div class="form-group">
           <label for="txtPicture">Imagen Principal</label><br>
           <button id="btnSelectPicture" <% if(disabled) { %> disabled <% } %> class="btn btn-secondary" style="margin-top: 3px;" >  

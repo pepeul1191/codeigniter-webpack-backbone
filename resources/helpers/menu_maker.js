@@ -10,13 +10,13 @@ const menuMaker = function(){
     var temp = '';
     if(branches[i].branch_type_id == '1'){
       temp = '<span class="submenu-item"><a href="' 
-        + '' + '/red/lima/' + branches[i].name.toLowerCase() + '">' 
+        + '' + '/red/lima/' + branches[i].name.toLowerCase().replace(/ /g, '-') + '">' 
         + branches[i].name + '</a></span>';
       limaBracnches = limaBracnches + temp;
     }
     if(branches[i].branch_type_id == '2'){
       temp = '<span class="submenu-item"><a href="' 
-        + '' + '/red/provincia/' + branches[i].name.toLowerCase() + '">' 
+        + '' + '/red/provincia/' + branches[i].name.toLowerCase().replace(/ /g, '-') + '">' 
         + branches[i].name + '</a></span>';
       provinciaBranches = provinciaBranches + temp;
     }
@@ -28,7 +28,8 @@ const menuMaker = function(){
   var technologies = resp.message.technologies;
   for(var i = 0; i < technologies.length; i++){
     var temp = '<span class="submenu-item"><a href="' 
-    + '' + '/tecnologias/' + technologies[i].name.toLowerCase() + '">' 
+    + '' + '/tecnologias/' 
+    + technologies[i].name.toLowerCase().replace(/ /g, '-').replace('/', '-') + '">' 
     + technologies[i].name + '</a></span>';
     tecnologiasDOM = tecnologiasDOM + temp;
   }

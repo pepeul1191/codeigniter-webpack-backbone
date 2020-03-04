@@ -11,9 +11,10 @@ class SiteTechnology extends CI_Controller
     $status = 200;
     try {
       $technology_name = $this->input->get('name');
+      $technology_name = str_replace('-', ' ', $technology_name); 
       $rs = null;
       $detail = \Model::factory('\Models\Admin\Technology', 'coa')
-        ->where('name', strtoupper($technology_name))
+        ->where('name', $technology_name)
         ->find_one();
       if($detail != false){
         $images = \Model::factory('\Models\Admin\VWTechnologyImage', 'coa')

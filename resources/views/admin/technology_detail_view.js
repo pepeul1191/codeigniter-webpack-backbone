@@ -45,6 +45,7 @@ var AdminTechnologyDetailView = Backbone.View.extend({
         this.technology.set('name', respData.message.name);
         this.technology.set('description', respData.message.description);
         this.technology.set('image', respData.message.image);
+        this.technology.set('url', respData.message.url);
         data.model = this.technology;
         data.disabled = false;
         data.message = '';
@@ -151,6 +152,17 @@ var AdminTechnologyDetailView = Backbone.View.extend({
                 return resp;
               },
             },
+          ],
+        },
+        // url
+        {
+          id: 'txtURL',
+          help: 'txtURLHelp',
+          validations: [
+            {
+              type: 'notEmpty',
+              message: 'Debe de ingresar una URL',
+            }, 
           ],
         },
         // description
@@ -308,6 +320,7 @@ var AdminTechnologyDetailView = Backbone.View.extend({
       this.technology.set('name', $('#txtName').val());
       this.technology.set('description', CKEDITOR.instances['detailTxt'].getData());
       this.technology.set('image', _this.upload.path);
+      this.technology.set('url', $('#txtURL').val());
       var respData = TechnologyService.saveDetail(this.technology, 'message');
       if(respData.status == 200){
         if(respData.message == ''){

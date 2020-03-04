@@ -4,7 +4,7 @@ CREATE TABLE 'technologies' (
 	'name'	VARCHAR(40) NOT NULL,
   'description'	TEXT NOT NULL,
   'image'	VARCHAR(54) NOT NULL
-);
+, url VARCHAR(60));
 CREATE TABLE 'technologies_images' (
 	'id'	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	'technology_id'	INTEGER,
@@ -135,4 +135,5 @@ INSERT INTO schema_migrations (version) VALUES
   ('20191018025153'),
   ('20191018224914'),
   ('20191018225908'),
-  ('20191102030733');
+  ('20191102030733'),
+  ('20200304000440');

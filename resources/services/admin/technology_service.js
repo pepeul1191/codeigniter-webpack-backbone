@@ -9,6 +9,7 @@ var TechnologyService = {
         name: technologyModel.get('name'),
         image: technologyModel.get('image'),
         description: technologyModel.get('description'),
+        url: technologyModel.get('url'),
       },
       headers: {
         [CSRF_KEY]: CSRF,

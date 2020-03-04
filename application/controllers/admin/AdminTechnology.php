@@ -55,6 +55,7 @@ class AdminTechnology extends CI_Controller
     $name = $this->input->post('name');
     $image = $this->input->post('image');
     $description = $this->input->post('description');
+    $url = $this->input->post('url');
     $resp_data = '';
     $status = 200;
     try {
@@ -64,6 +65,7 @@ class AdminTechnology extends CI_Controller
         $n->name = $name;
         $n->image = $image;
         $n->description = $description;
+        $n->url = $url;
         $n->save();
         $resp_data = $n->id;
       }else{
@@ -72,6 +74,7 @@ class AdminTechnology extends CI_Controller
         $e->name = $name;
         $e->image = $image;
         $e->description = $description;
+        $e->url = $url;
         $e->save();
       }
     }catch (Exception $e) {
@@ -107,6 +110,7 @@ class AdminTechnology extends CI_Controller
         ->select('name')
         ->select('description')
         ->select('image')
+        ->select('url')
         ->where('id', $this->input->get('id'))
         ->find_one();
       if($rs == false){
