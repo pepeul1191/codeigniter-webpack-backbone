@@ -57,11 +57,15 @@
 
 @media (max-width: 768px) { 
   .wrapper{
-    left: 42%;
+    left: 50%;
   }
 
   .loading{
     left: 34%;
+  }
+
+  #map {
+    height: 325px !important;
   }
 }
 

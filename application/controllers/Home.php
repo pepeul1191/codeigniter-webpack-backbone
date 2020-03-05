@@ -11,7 +11,7 @@ class Home extends CI_Controller {
     $this->load->helper('home');
     // controller function
     $data = array(
-      'title' => 'Administración del Sitio',
+      'title' => 'Centro Odontológico Americano',
       'csss' => home_css($this->config),
       'jss' => home_js($this->config),
       'config' => $this->config,
