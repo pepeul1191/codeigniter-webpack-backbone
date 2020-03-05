@@ -78,7 +78,7 @@
           </li>
           -->
           <li>
-            <a href="<?php echo $this->config->item('site_path');?>/tecnologias/tecnolog%C3%ADa%201">Tecnología</a>
+            <a class="link-nav">Tecnología</a>
             <div class="menu-sub row">
               <div class="col s12 menu-sede" id="menuTecnologia">
               </div>
@@ -88,7 +88,7 @@
             <a href="<?php echo $this->config->item('site_path');?>/odontologos">Odontólogos</a>
           </li>
           <li>
-            <a href="<?php echo $this->config->item('site_path');?>/sedes/lima/san%20isidro">Red</a>
+            <a class="link-nav">Red</a>
             <div class="menu-sub row">
               <div class="col s6 menu-sede" id="sedesLima">
               </div>
@@ -183,5 +183,15 @@
       }
     </script>
     <?php echo load_jss($this->config, $jss);?>
+    <script>
+      // select img preloader according window width
+      var imgPreloader = document.getElementById('imgPreloader');
+      var w = window.innerWidth;
+      if(w <= 576){
+        imgPreloader.src = STATIC_URL + 'assets/site/img/logo-preloader-s.png';
+      }else{
+        imgPreloader.src = STATIC_URL + 'assets/site/img/logo-preloader.png';
+      }
+    </script>
   </body>
 </html>

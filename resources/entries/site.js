@@ -40,6 +40,10 @@ $(document).ready(function(){
   });
   $('.modal').modal();
   $('select').formSelect();
+  // nan-link goes to first link
+  $(".link-nav").click(function(event) {
+    event.target.nextElementSibling.firstElementChild.children[1].firstElementChild.click();
+  });
 });
 
 $('#terminos-condiciones').click(function(){
