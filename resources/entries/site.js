@@ -44,6 +44,16 @@ $(document).ready(function(){
   $(".link-nav").click(function(event) {
     event.target.nextElementSibling.firstElementChild.children[1].firstElementChild.click();
   });
+  // sidenav events
+  $('.sidenav-link').click(function(event){
+    var link = $(event.target).attr('link');
+    if (link == 'contacto'){
+      $('html, body').animate({ 
+        scrollTop: $('footer').offset().top 
+      }, 900);
+    }
+    $('.sidenav-overlay').click();
+  });
 });
 
 $('#terminos-condiciones').click(function(){

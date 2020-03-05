@@ -106,29 +106,19 @@
     <!-- sidebar -->
     <ul class="sidenav" id="mobile-nav">
       <li>
-      <a href="<?php echo $this->config->item('site_path');?>/">Home</a>
+        <a class="sidenav-link" link="<?php echo $this->config->item('site_path');?>/">Home</a>
       </li>
       <li>
-        <a href="<?php echo $this->config->item('site_path');?>/tecnologias/tecnolog%C3%ADa%201">Tecnología</a>
-        <div class="menu-sub row">
-          <div class="col s12 menu-sede" id="menuTecnologia">
-          </div>
-        </div>
+        <a class="sidenav-link" link="tecnologia">Tecnología</a>
       </li>
       <li>
-        <a href="<?php echo $this->config->item('site_path');?>/odontologos">Odontólogos</a>
+        <a class="sidenav-link" href="<?php echo $this->config->item('site_path');?>/odontologos">Odontólogos</a>
       </li>
       <li>
-        <a href="<?php echo $this->config->item('site_path');?>/sedes/lima/san%20isidro">Sedes</a>
-        <div class="menu-sub row">
-          <div class="col s6 menu-sede" id="sedesLima">
-          </div>
-          <div class="col s6 menu-sede" id="sedesProvincia">
-          </div>
-        </div>
+        <a class="sidenav-link" link="red">Red</a>
       </li>
       <li>
-        <a href="<?php /*echo $this->config->item('site_path');*/?>/contacto">Contacto</a>
+        <a class="sidenav-link" link="contacto">Agendar Cita</a>
       </li>
     </ul>
     <!-- end sidebar -->
