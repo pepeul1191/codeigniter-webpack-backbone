@@ -76,6 +76,8 @@ var SiteRouter = Backbone.Router.extend({
       $('.parallax').parallax();
       $('select').formSelect();
     }, 1000);
+    // modal when is in responsive
+    $('.modal-overlay').click();
   },
   tecnologiaDetalle: function(technologyName){
     var _this = this;
@@ -98,6 +100,8 @@ var SiteRouter = Backbone.Router.extend({
       $('.parallax').parallax();
       $('select').formSelect();
     }, 1000);
+    // modal when is in responsive
+    $('.modal-overlay').click();
   },
   sedeDetalle: function(branchType, branchName){
     var _this = this;
@@ -120,6 +124,8 @@ var SiteRouter = Backbone.Router.extend({
       $('.parallax').parallax();
       $('select').formSelect();
     }, 1000);
+    // modal when is in responsive
+    $('.modal-overlay').click();
   },
   default: function(path){
     console.log(path);

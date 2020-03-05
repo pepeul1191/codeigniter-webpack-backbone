@@ -52,6 +52,21 @@ $(document).ready(function(){
         scrollTop: $('footer').offset().top 
       }, 900);
     }
+    if (link == 'red'){
+      var html = '<div class="workspace-menu">' + $('#sedesLima').html() + '</div>';
+      html = html + '<div class="workspace-menu">' + $('#sedesProvincia').html() + '</div>';
+      $('#modalBottom').empty();
+      $('#modalBottom').append(html);
+      var btnModal = document.getElementById('modal-bottom-btn');
+      btnModal.click();
+    }
+    if (link == 'tecnologia'){
+      var html = '<div class="workspace-menu">' + $('#menuTecnologia').html() + '</div>';
+      $('#modalBottom').empty();
+      $('#modalBottom').append(html);
+      var btnModal = document.getElementById('modal-bottom-btn');
+      btnModal.click();
+    }
     $('.sidenav-overlay').click();
   });
 });
@@ -75,6 +90,6 @@ $('#terminos-condiciones').click(function(){
 
 $('body').on('click', 'a[href^="/"]', function(evt) {
   evt.preventDefault();
-  console.log($(this).attr('href'))
+  // console.log($(this).attr('href'))
   router.navigate($(this).attr('href'), {trigger: true});
 })

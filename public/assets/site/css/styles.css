@@ -49,6 +49,10 @@ body {
   display: none !important;
 }
 
+.modal.bottom-sheet{
+  max-height: 75%;
+}
+
 /* form */
 
 [type="checkbox"]+span:not(.lever):before, [type="checkbox"]:not(.filled-in)+span:not(.lever):after, [type="radio"]:not(:checked)+span:before, [type="radio"]:not(:checked)+span:after{ border: 2px solid var(--gray-dark);}

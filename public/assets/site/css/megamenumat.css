@@ -93,6 +93,22 @@ nav li:hover .menu-sub {
   text-transform: uppercase;
 }
 
+.workspace-menu {
+  margin-top: 10px !important;
+  padding: 10px; 
+  position: relative;
+  float: left;
+}
+
+.workspace-menu > h3 {
+  font-size: 2rem;
+}
+
+.workspace-menu > .submenu-item > a {
+  font-size: 20px;
+  color: white;
+}
+
 /*-- slider--*/
 
 #homeVideo{ 
