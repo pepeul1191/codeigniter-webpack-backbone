@@ -10,6 +10,8 @@ const showLoader = function(){
     $('.preloader').css('z-index', 1000000); 
     $('.preloader').addClass('complete');
   }else{
+    setTimeout(function(){
+    }, 2500000000000);
     menuMaker();
   }
 }

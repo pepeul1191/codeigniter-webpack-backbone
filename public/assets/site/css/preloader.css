@@ -44,3 +44,21 @@
 .wrapper > img {
   width: fit-content;
 }
+
+@media  (min-width: 768px) and (max-width: 1268px) { 
+  .wrapper{
+    left: 40%;
+  }
+}
+
+@media (max-width: 768px) { 
+  .wrapper{
+    left: 42%;
+  }
+}
+
+@media (min-width: 1268px) { 
+  .wrapper{
+    left: 45%;
+  }
+}
