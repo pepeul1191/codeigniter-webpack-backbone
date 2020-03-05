@@ -14,14 +14,13 @@
       var FIRST_LOAD = true;
     </script>
     <!-- CSSs -->
-    
     <?php echo load_csss($this->config, $csss);?>
   </head>
   <body>
     <!-- preloader -->   
     <div class="preloader">
       <div class="wrapper">
-        <img src="<?php echo $this->config->item('static_url');?>assets/site/img/logo-preloader.png" alt="Centro Ondontológico Americano - Preloader">
+        <img id="imgPreloader">
       </div>
     </div>
     <!-- modals -->
@@ -173,6 +172,16 @@
     <footer class="page-footer gray">
     </footer>
     <!-- JSs -->
+    <script>
+      // select img preloader according window width
+      var imgPreloader = document.getElementById('imgPreloader');
+      var w = window.innerWidth;
+      if(w <= 576){
+        imgPreloader.src = STATIC_URL + 'assets/site/img/logo-preloader-s.png';
+      }else{
+        imgPreloader.src = STATIC_URL + 'assets/site/img/logo-preloader.png';
+      }
+    </script>
     <?php echo load_jss($this->config, $jss);?>
   </body>
 </html>
