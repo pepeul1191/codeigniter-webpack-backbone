@@ -11,6 +11,7 @@ const hideLoader = function(){
   if(FIRST_LOAD){
     FIRST_LOAD = false;
     setTimeout(function(){
+      $('.wrapper').addClass('loading');
       $('.wrapper > img').attr('src', '/public/assets/site/img/loading.gif');
     }, 2000);
   }
