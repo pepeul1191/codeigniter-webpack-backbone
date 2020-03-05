@@ -29,7 +29,7 @@ class SiteDentist extends CI_Controller
         if(
           $this->input->get('specialism_id') == 'E'
         ){
-          $stmt = $stmt->where('specialism_id', 1);
+          // $stmt = $stmt->where('specialism_id', 1);
         }else{
           $stmt = $stmt->where('specialism_id', $this->input->get('specialism_id')); 
         }
@@ -57,7 +57,7 @@ class SiteDentist extends CI_Controller
         $this->input->get('page') != null
       ){
         $offset = ($this->input->get('page') - 1) * $this->input->get('step');
-        $stmt = $stmt->offset($offset)->limit($this->input->get('step'));
+        $stmt = $stmt->limit($this->input->get('step'))->offset($offset);
       }
       $rs = $stmt->find_array();
       $rpta = json_encode(array(
