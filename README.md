@@ -95,6 +95,24 @@ RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
 
 Permitir el acceso de aplicaciones poco seguras: SÍ
 
+### Información pendiente
+
+no hay director de sede en:
+
++ pueblo libre
+
+no hay doctores en :
+
++ la molina
++ san miguel 1
++ surquillo
++ miraflores
++ san miguel 2
++ san borja 1
++ san borja 2
++ juliaca
++ puno
+
 ---
 
 Fuentes:
