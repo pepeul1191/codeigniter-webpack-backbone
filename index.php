@@ -1,4 +1,23 @@
 <?php
+
+/* redirect to https:URL if is http:URL */
+
+if (isset($_SERVER['HTTPS']) &&
+  ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
+  isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
+  $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+  $protocol = 'https://';
+}
+else {
+  $protocol = 'http://';
+}
+
+if($protocol == 'http://'){
+  $url =  "{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
+  $escaped_url = htmlspecialchars( $url, ENT_QUOTES, 'UTF-8' );
+  header( "Location: https://" . $escaped_url );
+}
+
 /**
  * CodeIgniter
  *
