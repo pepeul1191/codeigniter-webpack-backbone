@@ -1,6 +1,6 @@
 <?php
 
-/* redirect to https:URL if is http:URL */
+/* redirect to https:URL if is http:URL 
 
 if (isset($_SERVER['HTTPS']) &&
   ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
@@ -17,7 +17,7 @@ if($protocol == 'http://'){
   $escaped_url = htmlspecialchars( $url, ENT_QUOTES, 'UTF-8' );
   header( "Location: https://" . $escaped_url );
 }
-
+*/
 /**
  * CodeIgniter
  *
