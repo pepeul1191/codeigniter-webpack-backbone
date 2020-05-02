@@ -26,10 +26,10 @@
     <!-- modals -->
     <div id="modal1" class="modal">
       <video loop autoplay muted controls id="homeVideoModal">
-        <source src=http://techslides.com/demos/sample-videos/small.webm type=video/webm> 
-        <source src=http://techslides.com/demos/sample-videos/small.ogv type=video/ogg> 
-        <source src=http://techslides.com/demos/sample-videos/small.mp4 type=video/mp4>
-        <source src=http://techslides.com/demos/sample-videos/small.3gp type=video/3gp>
+        <source src=<?php echo $this->config->item('static_url');?>assets/site/videos/coa.webm type=video/webm> 
+        <source src=<?php echo $this->config->item('static_url');?>assets/site/videos/coa.ogv type=video/ogg> 
+        <source src=<?php echo $this->config->item('static_url');?>assets/site/videos/coa.mp4 type=video/mp4>
+        <source src=<?php echo $this->config->item('static_url');?>assets/site/videos/coa.3gp type=video/3gp>
       </video>
     </div>
     <a class="waves-effect waves-light btn modal-trigger hide" href="#modalBottom" id="modal-bottom-btn" >Modal Bottom</a>
@@ -136,25 +136,25 @@
     <!-- second menu -->
     <menu id="menu" class="secondary">
       <div class="row">
-        <div class="col m2 s3 offset-m2 menu" menu="especialidades">
-          <i class="fa fa-list" aria-hidden="true"></i>
+        <div class="col m2 s3 offset-m2 menu" menu="bioseguridad">
+          <img src="<?php echo $this->config->item('static_url');?>assets/site/img/menu-icon-bioserguridad.png">
+          <br>
+          Bioseguridad
+        </div>
+        <div class="col m2 s3 menu" menu="protocolo">
+          <img src="<?php echo $this->config->item('static_url');?>assets/site/img/menu-icon-protocolo.png">
+          <br>
+          Protocolo
+        </div>
+        <div class="col m2 s3 menu" menu="especialidades">
+          <img src="<?php echo $this->config->item('static_url');?>assets/site/img/menu-icon-especialidades.png">
           <br>
           Especialidades
         </div>
-        <div class="col m2 s3 menu" menu="calidad">
-          <i class="fa fa-area-chart" aria-hidden="true"></i>
-          <br>
-          Calidad
-        </div>
         <div class="col m2 s3 menu" menu="aseguradoras">
-          <i class="fa fa-globe" aria-hidden="true"></i>
+          <img src="<?php echo $this->config->item('static_url');?>assets/site/img/menu-icon-aseguradoras.png">
           <br>
           Aseguradoras
-        </div>
-        <div class="col m2 s3 menu" menu="pacientes">
-          <i class="fa fa-address-book" aria-hidden="true"></i>
-          <br>
-          Pacientes
         </div>
       </div>
     </menu>

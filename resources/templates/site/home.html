@@ -1,14 +1,16 @@
 <!-- video -->
 <div class="video-container">
   <video loop autoplay muted id="homeVideo">
-    <source src=http://techslides.com/demos/sample-videos/small.webm type=video/webm> 
-    <source src=http://techslides.com/demos/sample-videos/small.ogv type=video/ogg> 
-    <source src=http://techslides.com/demos/sample-videos/small.mp4 type=video/mp4>
-    <source src=http://techslides.com/demos/sample-videos/small.3gp type=video/3gp>
+    <source src=<%= STATIC_URL %>assets/site/videos/coa.webm type=video/webm> 
+    <source src=<%= STATIC_URL %>assets/site/videos/coa.ogv type=video/ogg> 
+    <source src=<%= STATIC_URL %>assets/site/videos/coa.mp4 type=video/mp4>
+    <source src=<%= STATIC_URL %>assets/site/videos/coa.3gp type=video/3gp>
   </video>
   <div class="overlay">
+    <!--
     <p>Content above your video</p>
     <h5 class="gray-text">This should be vertically aligned</h5>
+    -->
     <button class="waves-effect waves-light btn modal-trigger primary" href="#modal1">Ver Video</button>
   </div>
 </div>
@@ -18,9 +20,9 @@
   <div class="col s12 l6 m6 horizontal-content horizontal-content-img" style="background-image: url('<%= STATIC_URL %>assets/img/especialidades.jpg');">
   </div>
   <div class="col s12 l6 m6 horizontal-content">
-    <h5 class="gray-text">SOLUCIONES DE COMERCIO DIGITAL</h5>
-    <h4 class="">Especialidades</h4>
-    <p class="text-justify">450.000 millas de fibra en más de 60 países en una red comercial global para ofrecer soluciones de conectividad, en la nube, seguridad, voz y servicios gerenciados.</p>
+    <h5 class="gray-text">Bioseguridad</h5>
+    <!--<h4 class="">Especialidades</h4>-->
+    <p class="text-justify">Con casi 30 años de experiencia al cuidado de su salud oral, nos caracteriza nuestro excelente proceso de bioseguridad y ante la coyuntura mundial actual; hemos adecuado nuestro protocolo de bioseguridad para garantizar una asepsia total.</p>
   </div>
 </div>
 
@@ -28,9 +30,12 @@
   <div class="col s12 l6 m6 horizontal-content horizontal-content-img display-s" style="background-image: url('<%= STATIC_URL %>assets/img/calidad.jpg');">
       </div>
   <div class="col s12 l6 m6 horizontal-content">
-    <h5 class="gray-text">SOLUCIONES DE COMERCIO DIGITAL</h5>
-    <h4 class="">Calidad</h4>
-    <p>450.000 millas de fibra en más de 60 países en una red comercial global para ofrecer soluciones de conectividad, en la nube, seguridad, voz y servicios gerenciados.</p>
+    <h5 class="gray-text">Refuerzo del protocolo de Bioseguridad</h5>
+    <!--<h4 class="">Calidad</h4>-->
+    <li><b class="primary-text">Desinfectamos las superficies:</b> Los muebles y equipos con detergentes y desinfectantes de alta protección: bactericida, levaduricida, tuberculicida y virucida (COVID-19).</li>
+    <li><b class="primary-text">Esterilizamos el instrumental:</b> Vapor a alta temperatura y presión, en modernas autoclaves tipo B. </li>
+    <li><b class="primary-text">Desinfectamos los circuitos:</b> De aspiración (mangueras) y escupideras con detergentes y desinfectantes de alta protección.</li>
+    <li><b class="primary-text">Desinfectamos el piso:</b> Con hipoclorito de sodio lejía, solución concentrada detergente y desodorizante.</li>
   </div>
   <div class="col s12 l6 m6 horizontal-content horizontal-content-img hide-s" style="background-image: url('<%= STATIC_URL %>assets/img/calidad.jpg');">
     </div>
@@ -40,9 +45,19 @@
   <div class="col s12 l6 m6 horizontal-content horizontal-content-img" style="background-image: url('<%= STATIC_URL %>assets/img/aseguradoras.jpg');">
   </div>
   <div class="col s12 l6 m6 horizontal-content">
-    <h5 class="gray-text">SOLUCIONES DE COMERCIO DIGITAL</h5>
-    <h4 class="">Aseguradoras</h4>
-    <p class="text-justify">450.000 millas de fibra en más de 60 países en una red comercial global para ofrecer soluciones de conectividad, en la nube, seguridad, voz y servicios gerenciados.</p>
+    <h5 class="gray-text">Conoce nuestras especialidades</h5>
+    <!--<h4 class="">Aseguradoras</h4>-->
+    <p class="text-justify">La atención especializada que brindamos es gracias al Staff de profesionales con el que contamos. Ellos provienen de las mejores universidades del Perú y se encuentran capacitados para realizar tratamientos de alta complejidad en toda nuestra red. El beneficio para el paciente es que, no tiene que acudir a la sede central para recibir la misma atención especializada.</p>
+    <li>Odontopediatría</li>
+    <li>Rehabilitación oral</li>
+    <li>Endodoncia</li>
+    <li>Cirugía bucal y maxilofacial e implantes</li>
+    <li>Periodoncia e implantes</li>
+    <li>Patología oral</li>
+    <li>Radiología bucal y maxilofacial</li>
+    <li>Ortodoncia</li>
+    <li>Estética dental</li>
+    <li>Servicio odontológico para pacientes especiales</li>
   </div>
 </div>
 
@@ -50,8 +65,8 @@
   <div class="col s12 l6 m6 horizontal-content horizontal-content-img display-s" style="background-image: url('<%= STATIC_URL %>assets/img/pacientes.jpg');">
   </div>
   <div class="col s12 l6 m6 horizontal-content">
-    <h5 class="gray-text">SOLUCIONES DE COMERCIO DIGITAL</h5>
-    <h4 class="">Pacientes</h4>
+    <h5 class="gray-text">Aseguradoras</h5>
+    <!--<h4 class="">Pacientes</h4>-->
     <p class="text-justify">450.000 millas de fibra en más de 60 países en una red comercial global para ofrecer soluciones de conectividad, en la nube, seguridad, voz y servicios gerenciados.</p>
     <button class="waves-effect waves-light btn modal-trigger primary" href="#modal1">Ver Testimonios</button>
   </div>

@@ -17,6 +17,10 @@ body {
   color:  var(--gray-dark);
 }
 
+.primary-text{
+  color: var(--primary-color) !important; 
+}
+
 .gray{
   background:  var(--gray-light) !important;
 }
@@ -189,7 +193,7 @@ nav .nav-wrapper {
 }
 
 .menu{
-  margin-top: 10px;
+  margin-top: 25px;
   text-align: center;
 }
 
@@ -233,7 +237,7 @@ menu{
 }
 
 #contacto > .col > img{
-  max-width:50%; 
+  max-width:90%; 
   height:auto; 
 }
 
@@ -292,6 +296,13 @@ menu{
 .horizontal-content > h4{
   color: var(--primary-color) !important;
   font-weight: 600;
+  text-transform: uppercase;
+}
+
+.horizontal-content > h5{
+  color: var(--primary-color) !important;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .workpace-inner{
@@ -412,6 +423,11 @@ menu{
 
   .horizontal-content-img{
     min-height: 200px !important;
+    background-size: 100%;
+  }
+
+   {
+    color: var(--primary-color) !important;
   }
 
   /* contacto */
