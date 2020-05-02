@@ -45,3 +45,8 @@ application/config/config.php
 Gemfile.lock
 *.xlsx#
 *.docx#
+
+*.mp4
+*.webm
+*.ogg
+*.3gp
