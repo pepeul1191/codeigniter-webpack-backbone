@@ -57,6 +57,42 @@ body {
   max-height: 75%;
 }
 
+.modal > .carousel > .carousel-item{
+  width: 100%;
+  height: 600px;
+}
+
+/* modal coronavirus */
+
+@media (min-width: 992px) { 
+  #modalCoronavirus{
+    width: 32%;
+    max-height: 83%;
+  }
+
+  #modalCoronavirus > .carousel {
+    height: 600px !important;
+  }
+}
+
+@media (max-width: 992px) { 
+  #modalCoronavirus{
+    width: 60%;
+    max-height: 87%;
+  }
+}
+
+@media (max-width: 768px) { 
+  #modalCoronavirus{
+    width: 76%;
+    max-height: 42%;
+  }
+
+  #modalCoronavirus > .carousel {
+    height: 600px !important;
+  }
+}
+
 /* form */
 
 [type="checkbox"]+span:not(.lever):before, [type="checkbox"]:not(.filled-in)+span:not(.lever):after, [type="radio"]:not(:checked)+span:before, [type="radio"]:not(:checked)+span:after{ border: 2px solid var(--gray-dark);}

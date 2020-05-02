@@ -74,6 +74,19 @@ $(document).ready(function(){
     }
     $('.sidenav-overlay').click();
   });
+  // cargar modal por coronavirus con carousel
+  $('#modalCoronavirus').modal('open'); 
+  $('.carousel').carousel({
+    'fullWidth': true, 
+    'indicators': true
+  });
+  autoplay();
+  function autoplay() {
+    setTimeout(function(){
+      $('.carousel').carousel('next');
+      setTimeout(autoplay, 6500);
+    }, 6500);
+  }
 });
 
 $('#terminos-condiciones').click(function(){

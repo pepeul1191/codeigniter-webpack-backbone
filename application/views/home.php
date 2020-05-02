@@ -32,6 +32,15 @@
         <source src=<?php echo $this->config->item('static_url');?>assets/site/videos/coa.3gp type=video/3gp>
       </video>
     </div>
+    <div id="modalCoronavirus" class="modal">
+      <div class="carousel">
+        <a class="carousel-item" href="#one!"><img src="<?php echo $this->config->item('static_url');?>assets/site/img/carta-1.jpeg"></a>
+        <a class="carousel-item" href="#two!"><img src="<?php echo $this->config->item('static_url');?>assets/site/img/carta-2.jpeg"></a>
+        <a class="carousel-item" href="#three!"><img src="<?php echo $this->config->item('static_url');?>assets/site/img/carta-3.jpeg"></a>
+        <a class="carousel-item" href="#four!"><img src="<?php echo $this->config->item('static_url');?>assets/site/img/carta-4.jpeg"></a>
+        <a class="carousel-item" href="#five!"><img src="<?php echo $this->config->item('static_url');?>assets/site/img/carta-5.jpeg"></a>
+      </div>
+    </div>
     <a class="waves-effect waves-light btn modal-trigger hide" href="#modalBottom" id="modal-bottom-btn" >Modal Bottom</a>
     <div id="modalBottom" class="modal bottom-sheet"></div>
     <a class="waves-effect waves-light btn modal-trigger hide" href="#modalPopUp" id="modal-popup-btn" >Modal PopUp</a>
