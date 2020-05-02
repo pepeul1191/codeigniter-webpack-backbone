@@ -38,7 +38,12 @@ $(document).ready(function(){
     fullWidth: true,
     indicators: true
   });
-  $('.modal').modal();
+  $('.modal').modal({
+    dismissible: true,
+    onCloseEnd: function() { // Callback for Modal close
+      document.getElementById('homeVideoModal').pause();   
+    } 
+  });
   $('select').formSelect();
   // nan-link goes to first link
   $(".link-nav").click(function(event) {
