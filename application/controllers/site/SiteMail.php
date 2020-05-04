@@ -105,7 +105,7 @@ class SiteMail extends CI_Controller
       array_values($data_layout), 
       $layout
     );
-    // do mail
+    // do mail to visitor
     $mail = new PHPMailer(true);
     try {
       // server settings
@@ -133,6 +133,60 @@ class SiteMail extends CI_Controller
     } catch (Exception $e) {
       $resp = json_encode(['ups', $e->getMessage()]);
       $status = 500;
+    }
+    // do mail to COA
+    $nombre = $this->input->post('nombre');
+    $apellido = $this->input->post('apellido');
+    $email = $this->input->post('email');
+    $dni = $this->input->post('dni');
+    $consulta = $this->input->post('consulta');
+    $logo_url = $this->config->item('static_url') . 'assets/site/img/logo-coa-celeste.png';
+    $img_url = $this->config->item('static_url') . 'assets/site/img/mail.jpg';
+    $favicon = $this->config->item('static_url') . 'favicon.ico';
+    $data_layout = array(
+      '%nombre' => $nombre, 
+      '%apellido' => $apellido, 
+      '%email' => $email, 
+      '%dni' => $dni, 
+      '%consulta' => $consulta, 
+      '%logo_url' => $logo_url,
+      '%img_url' => $img_url,
+      '%favicon' => $favicon,
+    );
+    $layout = require __DIR__ . '/../../views/mails/visitor.php';
+    $message = str_replace(
+      array_keys($data_layout), 
+      array_values($data_layout), 
+      $layout
+    );
+    // do mail
+    $mail2 = new PHPMailer(true);
+    try {
+      // server settings
+      $mail2->SMTPDebug = 0;
+      $mail2->isSMTP();
+      $mail2->CharSet = 'UTF-8';
+      $mail2->Debugoutput = 'html';
+      $mail2->Host = 'mail.coa.pe';
+      $mail2->SMTPAuth = true;
+      $mail2->Username = $_ENV['MAIL_USER'];
+      $mail2->Password = $_ENV['MAIL_PASS'];
+      $mail2->SMTPSecure = 'ssl';
+      $mail2->Port = 465;
+      // recipients
+      $mail2->setFrom($_ENV['MAIL_USER'], 'Agenda tu Cita - COA');
+      $mail2->addAddress($_ENV['MAIL_RESPONSE'], '');     // Add a recipient
+      // content
+      $mail2->isHTML(true);                                  // Set email format to HTML
+      $mail2->Subject = 'Agenda de Citas - Web';
+      $mail2->Body = $message;
+      // $mail2->AltBody = 'This is the body in plain text for non-HTML mail clients';
+      // send
+      $mail2->send();
+      $resp = 'Correo enviado';
+    } catch (Exception $e) {
+      $resp = json_encode(['ups', $e->getMessage()]);
+      $status = 200;
     }
     $this->output
       ->set_status_header($status)
