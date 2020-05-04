@@ -93,7 +93,13 @@ RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
 
 ### Correo
 
-Permitir el acceso de aplicaciones poco seguras: SÍ
+.env
+
+    MAIL_USER="correo@xyz.pe"
+
+    MAIL_PASS="xyz"
+
+    MAIL_RESPONSE=""
 
 ### Información pendiente
 

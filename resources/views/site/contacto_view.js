@@ -262,13 +262,13 @@ var SiteContactoView = Backbone.View.extend({
             $('#messageForm').removeClass('alert-success');
             $('#messageForm').removeClass('alert-warning');
             $('#messageForm').addClass('alert-danger');
-            $('#messageForm').html('Ocurrió un error controlado en grabar el detalle de la tecnología');
+            $('#messageForm').html('Ocurrió un error controlado en enviar en agendar su cita');
             // $('html, body').animate({ scrollTop: $("#" + messageForm).offset().top }, 1000);
           }else{
             $('#messageForm').removeClass('alert-success');
             $('#messageForm').removeClass('alert-warning');
             $('#messageForm').addClass('alert-danger');
-            $('#messageForm').html('Ocurrió un error no controlado en grabar el detalle de la tecnología');
+            $('#messageForm').html('Ocurrió un error no controlado en enviar en agendar su cita');
             // $('html, body').animate({ scrollTop: $("#" + messageForm).offset().top }, 1000);
           }
           console.error(error);
