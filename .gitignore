@@ -50,3 +50,5 @@ Gemfile.lock
 *.webm
 *.ogg
 *.3gp
+
+.env
