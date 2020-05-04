@@ -15,7 +15,9 @@ if ( ! function_exists('home_css'))
         break;
       case 'prod':
         $rpta = [
-          
+          'bower_components/font-awesome/css/font-awesome.min',
+          'dist/site.vendor',
+          'dist/site',
         ];
         break;
     }
@@ -39,6 +41,7 @@ if ( ! function_exists('home_js'))
       case 'prod':
         $rpta = [
           'dist/admin.vendor.min',
+          'dist/site.vendor.min',
           'dist/site.min',
         ];
         break;
