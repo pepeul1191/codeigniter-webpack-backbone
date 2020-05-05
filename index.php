@@ -2,6 +2,7 @@
 
 /* redirect to https:URL if is http:URL 
 
+
 if (isset($_SERVER['HTTPS']) &&
   ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
   isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
@@ -12,10 +13,30 @@ else {
   $protocol = 'http://';
 }
 
+//echo $_SERVER['HTTP_HOST']; exit();
+
 if($protocol == 'http://'){
   $url =  "{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
   $escaped_url = htmlspecialchars( $url, ENT_QUOTES, 'UTF-8' );
+  $url = explode(".", $escaped_url);
+  if($url[0] == 'www'){
+      unset($url[0]);
+      $escaped_url = implode(".", $url);
+  }
   header( "Location: https://" . $escaped_url );
+}else{
+  $url =  "{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
+  $escaped_url = htmlspecialchars( $url, ENT_QUOTES, 'UTF-8' );
+  $url = explode(".", $escaped_url);
+  $www_removed = false;
+  if(strcasecmp($url[0], "www") == 0){
+      unset($url[0]);
+      $escaped_url = implode(".", $url);
+      $www_removed = true;
+  }
+  if($www_removed){
+      header( "Location: https://" . $escaped_url );
+  }
 }
 */
 /**
