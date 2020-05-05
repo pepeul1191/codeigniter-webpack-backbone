@@ -76,7 +76,7 @@ class SiteMail extends CI_Controller
       )
     );
     // load .env
-    $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . '/../../..');
+    $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__);
     $dotenv->load();
     $status = 200;
     $resp = '';

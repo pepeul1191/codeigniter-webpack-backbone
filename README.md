@@ -93,7 +93,7 @@ RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
 
 ### Correo
 
-.env
+./application/controllers/site/.env
 
     MAIL_USER="correo@xyz.pe"
 
