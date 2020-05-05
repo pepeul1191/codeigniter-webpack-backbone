@@ -14,8 +14,8 @@ if ( ! function_exists('access_css'))
         break;
       case 'prod':
         $rpta = [
-          'dist/admin.vendor.min',
-          'dist/login.min',
+          'dist/admin.vendor',
+          'dist/login',
         ];
         break;
     }

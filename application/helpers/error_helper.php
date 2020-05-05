@@ -15,7 +15,9 @@ if ( ! function_exists('access_css'))
         break;
       case 'prod':
         $rpta = [
-          'dist/error.min',
+          'bower_components/font-awesome/css/font-awesome.min',
+          'dist/admin.vendor',
+          'dist/error',
         ];
         break;
     }

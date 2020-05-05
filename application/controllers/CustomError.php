@@ -25,7 +25,7 @@ class CustomError extends CI_Controller
     //controller function
     $rpta = '';
     $status = 404;
-    $numero = $error + '';
+    $numero = $error . '';
     $error = [];
     switch ($numero) {
       case '404':

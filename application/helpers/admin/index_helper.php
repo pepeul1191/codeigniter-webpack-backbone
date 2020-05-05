@@ -39,8 +39,8 @@ if ( ! function_exists('index_js'))
         break;
       case 'prod':
         $rpta = [
-          'dist/admin.vendor.min',
-          'dist/admin.min',
+          'dist/admin.vendor',
+          'dist/admin',
         ];
         break;
     }
