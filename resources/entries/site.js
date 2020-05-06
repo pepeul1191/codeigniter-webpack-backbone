@@ -106,6 +106,10 @@ $('#terminos-condiciones').click(function(){
   btnModal.click();
 });
 
+$('#modalCoronavirus > .x-close > i').click(function(){
+  $('#modalCoronavirus').modal('close'); 
+});
+
 $('body').on('click', 'a[href^="/"]', function(evt) {
   evt.preventDefault();
   // console.log($(this).attr('href'))

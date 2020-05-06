@@ -57,12 +57,29 @@ body {
   max-height: 75%;
 }
 
+/* modal coronavirus */
+
 .modal > .carousel > .carousel-item{
   width: 100%;
   height: 600px;
 }
 
-/* modal coronavirus */
+.modal > .carousel {
+  top: -82px;
+}
+
+#modalCoronavirus > .x-close{
+  position: relative;
+  float: right;
+  z-index: 20000000000;
+  color: white;
+  font-size: 22px;
+  padding: 25px;
+}
+
+#modalCoronavirus > .x-close > i:hover{
+  cursor: pointer;
+}
 
 @media (min-width: 992px) { 
   #modalCoronavirus{
@@ -522,6 +539,7 @@ menu{
   #menu{
     padding-left: 10px;
     padding-right: 0px;
+    padding-top: 10px;
   }
 
   /* odontologs */

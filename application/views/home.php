@@ -33,6 +33,9 @@
       </video>
     </div>
     <div id="modalCoronavirus" class="modal">
+    <div class="x-close">
+      <i class="fa fa-times" aria-hidden="true"></i>
+    </div>
       <div class="carousel">
         <a class="carousel-item" href="#one!"><img src="<?php echo $this->config->item('static_url');?>assets/site/img/carta-1.jpeg"></a>
         <a class="carousel-item" href="#two!"><img src="<?php echo $this->config->item('static_url');?>assets/site/img/carta-2.jpeg"></a>
