@@ -111,6 +111,9 @@
           <li>
             <a href="<?php /*echo $this->config->item('site_path');*/?>/agenda-tu-cita">Agenda tu cita</a>
           </li>
+          <li>
+            <a href="http://161.132.118.85:2027/">Facturación Electrónica</a>
+          </li>
         </ul>
       </div>
     </nav>
@@ -131,6 +134,9 @@
       </li>
       <li>
         <a class="sidenav-link" link="contacto">Agendar Cita</a>
+      </li>
+      <li>
+        <a class="sidenav-link" href="http://161.132.118.85:2027/">Facturación Electrónica</a>
       </li>
     </ul>
     <!-- end sidebar -->

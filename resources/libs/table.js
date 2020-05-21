@@ -653,7 +653,8 @@ var Table = Backbone.View.extend({
             var resp = JSON.parse(data);
             var rowId = event.target.parentElement.parentElement.firstChild.innerHTML;
             var model = _this.collection.get(rowId);
-            model.set(_this.upload.keyModel, resp.url + resp.path);
+            model.set(_this.upload.keyModel, resp.path);
+            model.set(_this.upload.keyModel + '_url', resp.url);
           },
           error: function(xhr, status, error){
             console.error(error);
@@ -670,7 +671,17 @@ var Table = Backbone.View.extend({
   imageFileView: function(event){
     var rowId = event.target.parentElement.parentElement.firstChild.innerHTML;
     var model = this.collection.get(rowId);
-    var win = window.open(model.get(this.upload.keyModel), '_blank');
+    //console.log(this.upload.keyModel + '_url');
+    var win = null;
+    if(typeof model.get(this.upload.keyModel + '_url') === 'undefined'){
+      win = window.open(
+        model.get(this.upload.keyModel)
+        , '_blank');
+    }else{
+      win = window.open(
+        model.get(this.upload.keyModel + '_url') + model.get(this.upload.keyModel)
+        , '_blank');
+    }
     win.focus();
   },
   // pagination buttons

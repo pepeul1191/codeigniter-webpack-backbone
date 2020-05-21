@@ -197,6 +197,9 @@ class AdminTechnology extends CI_Controller
         ->select('alt')
         ->where('technology_id', intval($this->input->get('id')))
         ->find_array();
+      for($i = 0; $i < count($rs); $i++){
+        $rs[$i]['url'] = $this->config->item('static_url') . $rs[$i]['url'];
+      } 
       $rpta = json_encode($rs);
     }catch (Exception $e) {
       $status = 500;
