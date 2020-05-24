@@ -90,6 +90,23 @@ $(document).ready(function(){
   }
 });
 
+$('#preguntas').click(function(){
+  $('#modalBottom').empty();
+  $('#modalBottom').css('max-height', '75%');
+  var template = null;
+  $.ajax({
+    url: STATIC_URL + 'templates/site/_preguntas.html',
+    type: 'GET',
+    async: false,
+    success: function(source) {
+      template = source;
+    }
+  });
+  $('#modalBottom').append(template);
+  var btnModal = document.getElementById('modal-bottom-btn');
+  btnModal.click();
+});
+
 $('#terminos-condiciones').click(function(){
   $('#modalBottom').empty();
   $('#modalBottom').css('max-height', '75%');

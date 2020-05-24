@@ -57,6 +57,23 @@ body {
   max-height: 75%;
 }
 
+.ul-list{
+  padding-left: 30px !important;
+}
+
+.ul-list > li{
+  list-style-type: circle !important;
+  padding-left: 15px !important;
+}
+
+.to-uppercase{
+  text-transform: uppercase;
+}
+
+.bold{
+  font-weight: 600;
+}
+
 /* modal coronavirus */
 
 .modal > .carousel > .carousel-item{

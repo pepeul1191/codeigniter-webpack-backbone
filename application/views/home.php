@@ -169,7 +169,7 @@
           <br>
           Especialidades
         </div>
-        <div class="col m2 s3 menu" menu="preguntas">
+        <div class="col m2 s3 menu" menu="preguntas" id="preguntas">
           <img src="<?php echo $this->config->item('static_url');?>assets/site/img/menu-icon-aseguradoras.png">
           <br>
           Preguntas Frecuentes
