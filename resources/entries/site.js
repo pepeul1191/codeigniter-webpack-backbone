@@ -75,7 +75,7 @@ $(document).ready(function(){
     $('.sidenav-overlay').click();
   });
   // cargar modal por coronavirus con carousel
-  $('#modalCoronavirus').modal('open'); 
+  // $('#modalCoronavirus').modal('open'); 
   $('.carousel').carousel({
     'fullWidth': true, 
     'indicators': true
