@@ -169,10 +169,10 @@
           <br>
           Especialidades
         </div>
-        <div class="col m2 s3 menu" menu="aseguradoras">
+        <div class="col m2 s3 menu" menu="preguntas">
           <img src="<?php echo $this->config->item('static_url');?>assets/site/img/menu-icon-aseguradoras.png">
           <br>
-          Aseguradoras
+          Preguntas Frecuentes
         </div>
       </div>
     </menu>

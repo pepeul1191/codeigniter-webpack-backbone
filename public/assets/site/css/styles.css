@@ -342,6 +342,10 @@ menu{
   padding-top: 30px !important;
 }
 
+.horizontal-content > p, .horizontal-content > li{
+  font-size: 13px;
+}
+
 .horizontal-row{
   margin-bottom: 0px !important;
 }

@@ -76,6 +76,7 @@ $(document).ready(function(){
   });
   // cargar modal por coronavirus con carousel
   // $('#modalCoronavirus').modal('open'); 
+  $('.collapsible').collapsible();
   $('.carousel').carousel({
     'fullWidth': true, 
     'indicators': true
