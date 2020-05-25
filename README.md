@@ -59,6 +59,7 @@ RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
 
     $ git reset --hard origin/master
     $ git pull origin master
+    $ git diff --stat <head> anterior
 
 3. composer
 
