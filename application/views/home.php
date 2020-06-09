@@ -17,7 +17,17 @@
     <?php echo load_csss($this->config, $csss);?>
     <style>
       /* $this->config->item('static_url');?>assets/site/fonts/Oswald-Regular.ttf */
-
+      @font-face {
+        font-family: 'Oswald';
+        src: url('<?php echo $this->config->item('static_url'); ?>assets/site/fonts/Oswald-Regular.eot'); /* IE9 Compat Modes */
+        src: url('<?php echo $this->config->item('static_url'); ?>assets/site/fonts/Oswald-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+          url('<?php echo $this->config->item('static_url'); ?>assets/site/fonts/Oswald-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+          url('<?php echo $this->config->item('static_url'); ?>assets/site/fonts/Oswald-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+          url('<?php echo $this->config->item('static_url'); ?>assets/site/fonts/Oswald-Regular.svg#svgFontName') format('svg'); /* Legacy iOS */
+      }
+      body {
+        font-family: "Oswald",Verdana,sans-serif !important;
+      }
     </style>
   </head>
   <body>
