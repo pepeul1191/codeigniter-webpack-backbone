@@ -15,6 +15,10 @@
     </script>
     <!-- CSSs -->
     <?php echo load_csss($this->config, $csss);?>
+    <style>
+      /* $this->config->item('static_url');?>assets/site/fonts/Oswald-Regular.ttf */
+
+    </style>
   </head>
   <body>
     <!-- preloader -->   
