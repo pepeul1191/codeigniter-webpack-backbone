@@ -215,5 +215,6 @@
         imgPreloader.src = STATIC_URL + 'assets/site/img/logo-preloader.png';
       }
     </script>
+    <script data-ad-client="ca-pub-6047097305659517" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   </body>
 </html>
