@@ -130,3 +130,4 @@ Fuentes:
 + https://openlayers.org/en/latest/doc/tutorials/bundle.html
 + https://github.com/Synchro/PHPMailer
 + https://www.hostinger.es/tutoriales/como-usar-el-servidor-smtp-gmail-gratuito/
++ https://raiolanetworks.es/blog/mejor-robots-txt-wordpress-manual-explicativo-del-robots-txt/
