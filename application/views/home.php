@@ -128,6 +128,9 @@
           <li>
             <a href="http://161.132.118.85:2027/">Facturación Electrónica</a>
           </li>
+          <li>
+            <a target="_blank" href="https://secure.ethicspoint.com/domain/media/es/gui/81419/index.html">Alerta Genética</a>
+          </li>
         </ul>
       </div>
     </nav>
@@ -151,6 +154,9 @@
       </li>
       <li>
         <a class="sidenav-link" href="http://161.132.118.85:2027/">Facturación Electrónica</a>
+      </li>
+      <li>
+        <a target="_blank" href="https://secure.ethicspoint.com/domain/media/es/gui/81419/index.html">Alerta Genética</a>
       </li>
     </ul>
     <!-- end sidebar -->
